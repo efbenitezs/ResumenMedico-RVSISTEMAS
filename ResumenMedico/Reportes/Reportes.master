@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Reportes.master.cs" Inherits="ResumenMedico.Reportes.Reportes" %>
+<asp:Content ID="cHead" ContentPlaceHolderID="HeadContent" runat="server">
+    <asp:ContentPlaceHolder ID="cphHeadMaster" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="cBody" ContentPlaceHolderID="MainContent" runat="server">
+    <div style="padding: 10px 5px 5px 5px">
+		
+		<div class="row">
+			<asp:ContentPlaceHolder ID="cphBodyMaster" runat="server"></asp:ContentPlaceHolder>
+		</div>
+	</div>
+    
+</asp:Content>

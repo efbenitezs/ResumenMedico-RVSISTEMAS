@@ -1,0 +1,33 @@
+﻿[NombrePaciente] I declare that all information provided by me during my immigration medical examination is true, correct and complete. I have reviewed the medical history information provided by me and entered into the eMedical system and declare it is true, correct and complete.
+
+I understand that the information collected and stored related to my immigration medical examination will be electronically processed in the eMedical System. The eMedical System is an electronic system which is hosted, operated and maintained by the Australian Department of Immigration and Citizenship (DIAC). The information collected related to my immigration medical examination will be temporarily stored in the eMedical System and electronically transferred to Citizenship and Immigration Canada (CIC) in Canada.
+
+DIAC and CIC may share the information collected or stored related to my immigration medical examination for purposes related to the operation and maintenance of the eMedical System. DIAC will keep confidential any information collected or stored within eMedical in relation to my immigration medical examination and will only use or disclose the information in very limited circumstances as agreed with CIC.
+
+I give my consent and authorization for the panel physician, radiologist, and health workers or hospital to collect and enter the results of my immigration medical examination in to the eMedical system and for those results to be electronically transferred to CIC by DIAC.
+
+I understand that CIC:
+
+• may release the information collected related to my immigration medical examination to, and
+
+• may collect medical information about me from a federal, provincial or territorial public health or social service agency in Canada, or a physician or health worker in Canada for purposes related to the administration of Canada’s Immigration and Refugee Protection Act or to protect the health and safety of Canadians. I also understand that:
+
+• if the information collected related to my immigration medical examination is not stored within the eMedical System, then the processing of my visa application will be delayed, as required health examinations must be completed and assessed prior to a visa decision being made;
+
+• DIAC has a privacy policy that contains information about how I can access the information stored in eMedical, seek the correction of such information, complain about a breach of any Australian privacy laws or codes of practice that apply to DIAC, and how DIAC deals with such complaints. This privacy policy is available at http://www.immi.gov.au/allforms/pdf/993i.pdf ;
+
+• CIC's privacy policy is available at http://www.cic.gc.ca/english/department/atip/index.asp;
+
+• further information about eMedical is also available on the DIAC website at: http://www.immi.gov.au/allforms/health-requirements/ electronic-health-processing.htm; and
+
+• Canadian visa applicants seeking access to information collected and stored in eMedical should contact CIC at NHQ-eMEDICALMailbox@cic.gc.ca who will liaise with DIAC as required.
+
+This information is provided in support of your visa application and is collected under the authority of the Immigration and Refugee Protection Act. It will be used to render a decision regarding this application and may be used for future applications. The information is retained to maintain a record of your application for the purpose of the administration of the Act.
+
+[NombrePaciente] I have read and understand this notice and consent. I provide my consent voluntarily by the check mark entered below.
+
+[NombrePaciente] I understand that misrepresentation by an applicant providing false or misleading information is an offence under section 127 of Canada’s Immigration and Refugee Protection Act and may result in a finding of inadmissibility to Canada or removal from Canada.
+
+This declaration was made by [NombreAcudiente] on behalf of [NombrePaciente]
+
+[FechaElaboracion]

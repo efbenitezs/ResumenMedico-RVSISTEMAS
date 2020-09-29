@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style type="text/css">
+        
+			.cuadro
+			{
+				border: 2px solid #CC6600;
+				padding: 20px;
+				border-radius: 5px;
+				height: auto;
+				overflow: none;
+				font-family: 'Darker Grotesque', sans-serif;
+				/*
+					background-color:#CC6600;
+				*/
+			}
+		
+			p{ font-size:19px ; font-weight:400}
+			h3 {font-size:23px ; font-weight:900 }
+		</style>
+    
+		<link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<section class="cuadro">
+			<div class="container">
+				<div class="row">
+					<section class="col-6 col-12-narrower">
+						<div class="box post">
+							<div class="inner">
+								<h3>Saludos [Paciente]</h3>
+		                        <p>
+									Adjunto a este mensaje encontrara los resultados de laboratorio aplicados en el consultorio PICU
+			                    </p>
+						    </div>
+					    </div>
+	                </section>
+					----------------------------------------------------------------------------------------------------------------------------------------------------------------
+					<br />
+					<span style="font-size: 16px; font-weight:700">
+						Nota: Este correo fue generado automaticamente por favor NO responda a el
+						<br />
+					</span>
+					<br />					
+					<br />
+					<sup></sup>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

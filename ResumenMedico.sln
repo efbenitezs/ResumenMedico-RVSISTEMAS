@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResumenMedico", "ResumenMedico\ResumenMedico.csproj", "{8B24E0B7-0014-43DE-8B12-DE587FD68B49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMEntity", "RMEntity\RMEntity.csproj", "{CD6A71AD-857D-431C-A4CC-8A6BA81AB09C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMDAL", "RMDAL\RMDAL.csproj", "{BF6A403C-7423-41ED-AD4E-7C6986380E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMBLL", "RMBLL\RMBLL.csproj", "{3855D902-46CF-44C1-9D82-177264D34064}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportLibrary", "ReportLibrary\ReportLibrary.csproj", "{F3101712-43DB-4D45-A91C-F62340B699B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B24E0B7-0014-43DE-8B12-DE587FD68B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B24E0B7-0014-43DE-8B12-DE587FD68B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B24E0B7-0014-43DE-8B12-DE587FD68B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B24E0B7-0014-43DE-8B12-DE587FD68B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD6A71AD-857D-431C-A4CC-8A6BA81AB09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD6A71AD-857D-431C-A4CC-8A6BA81AB09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD6A71AD-857D-431C-A4CC-8A6BA81AB09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD6A71AD-857D-431C-A4CC-8A6BA81AB09C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6A403C-7423-41ED-AD4E-7C6986380E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6A403C-7423-41ED-AD4E-7C6986380E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6A403C-7423-41ED-AD4E-7C6986380E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6A403C-7423-41ED-AD4E-7C6986380E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3855D902-46CF-44C1-9D82-177264D34064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3855D902-46CF-44C1-9D82-177264D34064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3855D902-46CF-44C1-9D82-177264D34064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3855D902-46CF-44C1-9D82-177264D34064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3101712-43DB-4D45-A91C-F62340B699B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3101712-43DB-4D45-A91C-F62340B699B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3101712-43DB-4D45-A91C-F62340B699B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3101712-43DB-4D45-A91C-F62340B699B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92F23A05-7FF9-44AA-B219-2C4F46858963}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

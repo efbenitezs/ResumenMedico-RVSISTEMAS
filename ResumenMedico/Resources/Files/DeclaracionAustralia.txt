@@ -1,0 +1,27 @@
+﻿Client declaration
+I, [NOMBRE PACIENTE] , declare that the information that I have provided in terms of my medical history and during my immigration health examinations as recorded in eMedical is true and correct.
+I understand that:
+•	my personal details and health information are being collected in the eMedical system to enable to the Department of Immigration and Border Protection (DIBP) officers to determine whether or not they are satisfied that I meet the health criteria for an Australia visa(s);
+•	DIBP can collect and use personal and sensitive information entered into eMedical in accordance with the PrivacyAct 1988 (the Privacy Act);
+•	as required health examinations must be completed and assessed prior to a visa decision being made, if the information I have provided is not stored within the eMedical System, the processing of my visa application will be delayed, and my visa application may be refused if I fail to complete the required health examinations;
+•	if I have provided any false or misleading information to DIBP as part of my immigration health examination, my visa application(s) may be refused and/or any visa subsequently issued cancelled;
+•	DIBP has a privacy policy that contains information about how I can access the information stored in eMedical,seek the correction of such information, complain about a breach of any Australian privacy laws or codes of practice that apply to DIBP, and how DIBP deals with such complaints. This privacy policy is available at: http://www.border.gov.au/AccessandAccountability/Pages/Privacy.aspx;
+•	a DIBP privacy notice is available at: http://www.border.gov.au/forms/Documents/1442i.pdf. Important information about the collection, use and disclosure (to other agencies and third parties, including overseas entities) of your personal information, including sensitive information, is contained in this notice.
+•	further information about eMedical and arrangements in place to protect your personal information where stored in eMedical is available on the DIBP website at http://www.border.gov.au/Trav/Visa/Heal/Meeting-the-health-requirement/electronic-health-processing; and
+•	DIBP's contact details are outlined on its website at: http://www.border.gov.au/Lega/Lega/Help/help
+
+In accordance with the Privacy Act, I consent to:
+•	my personal and sensitive information (such as my medical information) being collected and stored in the eMedical system that is hosted by DIBP, and automatically submitted to DIBP for the purposes of assessing my health for current or future Australian visa applications;
+•	DIBP storing my digital photograph(s) which may be used by DIBP for client identification purposes in addition to the health examination process;
+•	DIBP retaining my medical information, including any x-ray images uploaded to eMedical, beyond the finalisation of my visa application, for the purposes of considering future applications I may make for a visa to Australia;
+•	the Commonwealth of Australia becoming the owner of the information entered into eMedical and that this information will be passed to DIBP;
+•	DIBP may destroy my personal data (including digital x-ray images and photographs) stored in eMedical after a certain period of time where consistent with DIBP’s archiving obligations and any current disposal authorities.Consequently, if I do not request a copy of this data from the clinic I attend when undergoing my immigration health examinations, it may not be available for me to retrieve at a later date;
+•	DIBP disclosing my personal information, including information about my health and any complaint I may lodge, to the radiologists/panel doctors and clinic administrative staff. The reasons for this disclosure will be to investigate and resolve inconsistencies, complaints or audit recommendations; and
+•	my personal information (including my sensitive information) stored in eMedical (including medical results, biodetails and digital photographs) to be disclosed to:
+	−	Australian Government health agencies, the Department of Social Services for the purposes of administering and delivering Humanitarian Settlement Services (HSS) support to me, health and settlement service providers and examining doctor(s) – this may include eMedical clinics of my choice involved in the processing of my case outside Australia, DIBP’s migration medical service provider, as well as State and Territory health agencies;
+	−	Australian Government agencies authorised to receive information relating to adoption, border control, business skills, citizenship, education, health assessment, health insurance, health services, law enforcement, payment of pensions and benefits, taxation, superannuation, review of decisions, child protection and registration of migration agents;
+	−	Australian law enforcement, health agencies and international agencies, including overseas recipients in the United Kingdom, the United States of America, Canada and New Zealand, for the purposes of identity checking and panel management, including complaint investigation. [Note: if you are applying for a refugee or humanitarian visa, the department will only disclose this information to another country if it is reasonably satisfied that this information will not be disclosed to your country of claimed persecution].
+
+[NOMBRE PACIENTE]
+[FechaFirma]
+Signature:__________________________
