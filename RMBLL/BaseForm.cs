@@ -6,10 +6,10 @@
 
 namespace RMBLL
 {
-  public abstract class BaseForm
-  {
-    protected string error = string.Empty;
+	public abstract class BaseForm
+	{
+		protected string error = string.Empty;
 
-    public string Error => this.error;
-  }
+		public string Error => this.error;
+	}
 }

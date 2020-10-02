@@ -124,17 +124,18 @@
 					Embajada
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing ">
-					<telerik:RadComboBox ID="rcbxEmbajada" runat="server" Filter="Contains" MarkFirstMatch="true" Width="90%"/>
+					<telerik:RadComboBox ID="rcbxEmbajada" runat="server" Filter="Contains" MarkFirstMatch="true" Width="90%" />
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div style="width:120px; margin:0 auto">
+			<div style="width: 120px; margin: 0 auto">
 				<telerik:RadButton ID="rbtnFiltrar" runat="server" UseSubmitBehavior="true" Text="Aplicar busqueda"
 					OnClick="rbtnFiltrar_Click" />
 			</div>
 		</div>
-	</div>	<div class="row">
+	</div>
+	<div class="row">
 		<div class="titulo">
 			Listado Pacientes Pendientes Medicina
 		</div>

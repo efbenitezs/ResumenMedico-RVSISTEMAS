@@ -4,11 +4,11 @@
 // MVID: BA8C66A3-8A06-4F3F-AEA9-08BB88600DCC
 // Assembly location: C:\Users\Personal\source\RMDAL.dll
 
-using RMEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using RMEntity;
 
 namespace RMDAL
 {

@@ -42,15 +42,12 @@
 				<span class="botonLink">Reporte Muestras Laboratorio por Fechas</span>
 			</div>
 		</div>
-
 	</div>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageScriptsHolder" runat="server">
 	<script type="text/javascript">
 		function menu(par)
 		{
-			
 
 			switch (par)
 			{

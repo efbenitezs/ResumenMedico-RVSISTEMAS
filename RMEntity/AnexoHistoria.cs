@@ -6,42 +6,42 @@
 
 namespace RMEntity
 {
-  public class AnexoHistoria : BaseEntity
-  {
-    private int idHistoria = int.MinValue;
-    private Constants.TipoRevision idTipoRevision = Constants.TipoRevision.Laboratorio;
-    private int idMuestra = int.MinValue;
-    private string nombreAdjunto = string.Empty;
-    private string nombreArchivo = string.Empty;
+	public class AnexoHistoria : BaseEntity
+	{
+		private int idHistoria = int.MinValue;
+		private Constants.TipoRevision idTipoRevision = Constants.TipoRevision.Laboratorio;
+		private int idMuestra = int.MinValue;
+		private string nombreAdjunto = string.Empty;
+		private string nombreArchivo = string.Empty;
 
-    public int IdHistoria
-    {
-      get => this.idHistoria;
-      set => this.idHistoria = value;
-    }
+		public int IdHistoria
+		{
+			get => this.idHistoria;
+			set => this.idHistoria = value;
+		}
 
-    public Constants.TipoRevision IdTipoRevision
-    {
-      get => this.idTipoRevision;
-      set => this.idTipoRevision = value;
-    }
+		public Constants.TipoRevision IdTipoRevision
+		{
+			get => this.idTipoRevision;
+			set => this.idTipoRevision = value;
+		}
 
-    public string NombreAdjunto
-    {
-      get => this.nombreAdjunto;
-      set => this.nombreAdjunto = value;
-    }
+		public string NombreAdjunto
+		{
+			get => this.nombreAdjunto;
+			set => this.nombreAdjunto = value;
+		}
 
-    public string NombreArchivo
-    {
-      get => this.nombreArchivo;
-      set => this.nombreArchivo = value;
-    }
+		public string NombreArchivo
+		{
+			get => this.nombreArchivo;
+			set => this.nombreArchivo = value;
+		}
 
-    public int IdMuestra
-    {
-      get => this.idMuestra;
-      set => this.idMuestra = value;
-    }
-  }
+		public int IdMuestra
+		{
+			get => this.idMuestra;
+			set => this.idMuestra = value;
+		}
+	}
 }

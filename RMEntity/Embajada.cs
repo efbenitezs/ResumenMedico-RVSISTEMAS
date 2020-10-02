@@ -6,14 +6,14 @@
 
 namespace RMEntity
 {
-  public class Embajada : BaseEntityAdmin
-  {
-    private string nombre = string.Empty;
+	public class Embajada : BaseEntityAdmin
+	{
+		private string nombre = string.Empty;
 
-    public string Nombre
-    {
-      get => this.nombre;
-      set => this.nombre = value;
-    }
-  }
+		public string Nombre
+		{
+			get => this.nombre;
+			set => this.nombre = value;
+		}
+	}
 }

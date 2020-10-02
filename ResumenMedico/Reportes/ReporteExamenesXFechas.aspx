@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHeadMaster" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBodyMaster" runat="server">
-	<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
+	<telerik:radajaxmanager id="ram" runat="server" updatepanelsrendermode="Block">
 		<AjaxSettings>
 			<telerik:AjaxSetting AjaxControlID="btnConsultar">
 				<UpdatedControls>
@@ -14,7 +14,7 @@
 				</UpdatedControls>
 			</telerik:AjaxSetting>
 		</AjaxSettings>
-	</telerik:RadAjaxManager>
+	</telerik:radajaxmanager>
 	<div class="titulo">
 		Generar reporte de examenes
 	</div>
@@ -25,10 +25,10 @@
 					Fecha inicial del reporte:
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
-					<telerik:RadDatePicker ID="FechaInicial" runat="server" Width="90%">
+					<telerik:raddatepicker id="FechaInicial" runat="server" width="90%">
 						<Calendar ID="cFechaInicial" runat="server" FirstDayOfWeek="Sunday" />
 						<DateInput ID="diFechaInicial" runat="server" DisplayDateFormat="yyyy-MM-dd" ReadOnly="true" />
-					</telerik:RadDatePicker>
+					</telerik:raddatepicker>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
@@ -36,22 +36,22 @@
 					Fecha final del reporte:
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
-					<telerik:RadDatePicker ID="FechaFinal" runat="server" Width="90%">
+					<telerik:raddatepicker id="FechaFinal" runat="server" width="90%">
 						<Calendar ID="cFechaFinal" runat="server" FirstDayOfWeek="Sunday" />
 						<DateInput ID="diFechaFinal" runat="server" DisplayDateFormat="yyyy-MM-dd" ReadOnly="true" />
-					</telerik:RadDatePicker>
+					</telerik:raddatepicker>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow">
 			<div style="width: 120px; margin: 0 auto">
-				<telerik:RadButton runat="server" ID="btnConsultar" Text="Consultar" OnClick="btnConsultar_Click" />
+				<telerik:radbutton runat="server" id="btnConsultar" text="Consultar" onclick="btnConsultar_Click" />
 			</div>
 		</div>
 	</div>
 	<div id="contenedorReporte" class="row">
-		<telerik:ReportViewer ID="examenesXFechasXTipo" runat="server" Height="1250px" ProgressText="Obteniendo informacion de reporte..."
-			ViewMode="PrintPreview" Width="100%">
+		<telerik:reportviewer id="examenesXFechasXTipo" runat="server" height="1250px" progresstext="Obteniendo informacion de reporte..."
+			viewmode="PrintPreview" width="100%">
 			<resources currentpagetooltip="Pagina actual" documentmaptooltip="Ocultar mapa de documento"
 				exportbuttontext="Exportar" exportselectformattext="Seleccionar formato para exportar"
 				exporttooltip="Exportar" firstpagetooltip="Primera página" labelof="de" lastpagetooltip="Ultima página"
@@ -67,6 +67,6 @@
 				sessionhasexpiredmessage="Por favor, actualice la pagina o presione F5" togglepagelayouttooltip="Cambiar a vista interactiva|Cambiar a vista de impresion"
 				zoomtopagewidth="Ancho de la pagina" zoomtowholepage="Pagina completa">
 			</resources>
-		</telerik:ReportViewer>
+		</telerik:reportviewer>
 	</div>
 </asp:Content>

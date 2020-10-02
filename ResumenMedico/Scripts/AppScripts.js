@@ -18,7 +18,6 @@ function showhide(obj)
 
 	var i;
 
-
 	if (state == true)
 	{
 		for (i = 0; i < rowsP.length; i++)
@@ -74,7 +73,6 @@ function check_init(obj, texto)
 
 		else
 		{
-
 			rowsC.style.display = "table-row";
 			rowsC.style.borderCollapse = "initial";
 			for (i = 0; i < rowsP.length; i++)
@@ -82,9 +80,7 @@ function check_init(obj, texto)
 				rowsP[i].style.display = "none";
 				rowsP[i].style.borderCollapse = "collapse";
 			}
-
 		}
-
 	}
 	//Aca es cuando sale de la edicion
 	if (state == "finEditar")
@@ -122,7 +118,6 @@ function errorCheck(obj)
 		duplicate_key: "",
 		index: "",
 		mensaje: ""
-
 	};
 	var splitted;
 
@@ -170,11 +165,9 @@ function errorCheck(obj)
 
 			break;
 
-
 		default:
 			error.mensaje = "excepcion no controlada";
 			break;
-
 	}
 
 	alert(error.mensaje)
@@ -182,7 +175,6 @@ function errorCheck(obj)
 
 function abrir(obj)
 {
-
 	var arreglo = obj.id.split("_");
 	var id = arreglo[(arreglo.length) - 1];
 	var nomArchivo = arreglo[(arreglo.length) - 2];
@@ -190,7 +182,6 @@ function abrir(obj)
 	var qString = "../Controls/VerArchivos.aspx?idHistoria=" + id + "&nomArchivo=" + nomArchivo;
 	window.open(qString);
 	//location.reload(true);
-
 }
 
 function DisplaySticker()
@@ -198,14 +189,10 @@ function DisplaySticker()
 	var modal = document.getElementById('modal');
 	var altura = document.body.clientWidth + "px";
 
-
-
-
 	modal.style.height = altura;
 
 	$('#modal').toggle('slow');
 	window.scrollTo(0, 0);
-
 }
 
 //deploy Form with exame abstract
@@ -260,20 +247,17 @@ function ToogleView(evt)
 		//alert("English selected");
 		$("#printableEng").addClass("in");
 		$("#printable").removeClass("in");
-
 	}
 	else
 	{
 		//alert("Seleccionado español")
 		$("#printableEng").removeClass("in")
 		$("#printable").addClass("in")
-
 	}
 }
 
 function cerrarVP()
 {
-
 	// Get the <ul> element with id="myList"
 	var list = document.getElementById("modal");
 
@@ -287,7 +271,6 @@ function cerrarVP()
 
 function divSelExamenesObj(obj)
 {
-
 	var divExamenesListado = document.createElement('div');
 	divExamenesListado.id = "examenesListado";
 
@@ -443,12 +426,10 @@ function divSelExamenesObj(obj)
 	}
 
 	return divExamenesListado;
-
 }
 
 function checksPreview()
 {
-
 	var checks = {
 		chkUrologia: false,
 		chkVIH: false,
@@ -476,7 +457,6 @@ function checksPreview()
 
 function removeChildren(className)
 {
-
 	var verificacion = document.getElementsByClassName(className);
 
 	if (verificacion != undefined)
@@ -512,7 +492,6 @@ function returnppty(idControl, propty)
 			default:
 				pptyreturn = null;
 		}
-
 	}
 	else
 	{
@@ -583,7 +562,6 @@ function imprSelec()
 	site.type = 'text/css';
 	site.href = "http://" + host + appRoot + "Content/site.css";
 
-
 	head.appendChild(title);
 	head.appendChild(bootstrap);
 	head.appendChild(site);
@@ -597,7 +575,6 @@ function imprSelec()
 	doc.document.write(entireText);
 	doc.document.close();
 	doc.focus();
-
 }
 
 function UpdateInfoLab(obj)
@@ -629,7 +606,6 @@ function UpdateInfoLab(obj)
 	document.getElementById("spUniversidad1Eng").innerHTML = obj.univ;
 	document.getElementById("spRegistroProfesionalEng").innerHTML = obj.regPro;
 	document.getElementById("imgFirmaBacteriologoEng").src = obj.firmaBase64;
-
 }
 
 function RemoveChildById(IdObj)
@@ -646,10 +622,10 @@ var eventTmr;
 var strSig;
 var pagina
 
-function startTablet(tipocaptura) 
+function startTablet(tipocaptura)
 {
 	pagina = tipocaptura
-	try 
+	try
 	{
 		var retmod = 0;
 		var retser = 0;
@@ -657,7 +633,7 @@ function startTablet(tipocaptura)
 		retmod = TabletModelNumber();
 		retser = TabletSerialNumber();
 		SetTabletState(0);
-		if (retmod == 8 || (retmod == 58 && (retser == 553 || retser == 557))) 
+		if (retmod == 8 || (retmod == 58 && (retser == 553 || retser == 557)))
 		{
 			var ctx = document.getElementById('cnv').getContext('2d');
 			eventTmr = setInterval(SigWebEvent, 20);
@@ -686,33 +662,31 @@ function startTablet(tipocaptura)
 
 			SetLCDCaptureMode(2);
 
-			onSigPenUp = function () 
+			onSigPenUp = function ()
 			{
 				processPenUp();
 			};
 
 			SetLCDCaptureMode(2);
-
 		}
-		else 
+		else
 		{
 			alert("no se ha detectado ninguna tableta de firma apropiada para esta aplicación\n\nAsegurese que su modelo corresponde a la siguiente referencia\n\nTOPAZ Sistems Modelo T-LBK750-BHSB-R");
 		}
 	}
-	catch (e) 
+	catch (e)
 	{
 		alert("Error, no se ha encontrado el componente de control para la tableta digitalizadora\n\nA continuacion se descargara el archivo ejecutable para el manejo de la tableta\n\nAl terminar la descarga por favor instalelo y vuelva a cargar la pagina, debe tener permisos de administrador sobre la maquina para la instalación");
 		window.location = "../Resources/Files/sigweb.exe";
 	}
 }
 
-function processPenUp() 
+function processPenUp()
 {
-	if (KeyPadQueryHotSpot(0) > 0) 
+	if (KeyPadQueryHotSpot(0) > 0)
 	{
 		if (NumberOfTabletPoints() > 0)
 		{
-
 			onDone();
 
 			LcdRefresh(0, 0, 0, 240, 128);
@@ -728,7 +702,7 @@ function processPenUp()
 		}
 	}
 
-	if (KeyPadQueryHotSpot(1) > 0) 
+	if (KeyPadQueryHotSpot(1) > 0)
 	{
 		ClearSigWindow(1);
 		ClearTablet();
@@ -738,7 +712,7 @@ function processPenUp()
 	ClearSigWindow(1);
 }
 
-function endDemo() 
+function endDemo()
 {
 	LcdRefresh(0, 0, 0, 240, 128);
 	KeyPadClearHotSpotList();
@@ -746,23 +720,23 @@ function endDemo()
 	SetTabletState(0, tmr);
 }
 
-window.onunload = function () 
+window.onunload = function ()
 {
 	endDemo();
 };
 
-function onClear() 
+function onClear()
 {
 	ClearTablet();
 }
 
-function onDone() 
+function onDone()
 {
-	if (NumberOfTabletPoints() == 0) 
+	if (NumberOfTabletPoints() == 0)
 	{
 		alert("Please sign before continuing");
 	}
-	else 
+	else
 	{
 		//SetTabletState(0, tmr);
 		//RETURN TOPAZ-FORMAT SIGSTRING
@@ -781,6 +755,5 @@ function SigImageCallback(str)
 {
 	$("input[id$='hidBase64ImageData']")[0].value = "data:image/png;base64," + str;
 }
-
 
 /*Fin de la gestion de la tableta de firma*/

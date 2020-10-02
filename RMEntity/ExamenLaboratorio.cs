@@ -6,35 +6,35 @@
 
 namespace RMEntity
 {
-  public class ExamenLaboratorio : BaseEntityAdmin
-  {
-    private string nombre = string.Empty;
-    private bool esExterno;
-    private bool requiereVenopuncion;
-    private bool requiereConsentimiento;
+	public class ExamenLaboratorio : BaseEntityAdmin
+	{
+		private string nombre = string.Empty;
+		private bool esExterno;
+		private bool requiereVenopuncion;
+		private bool requiereConsentimiento;
 
-    public string Nombre
-    {
-      get => this.nombre;
-      set => this.nombre = value;
-    }
+		public string Nombre
+		{
+			get => this.nombre;
+			set => this.nombre = value;
+		}
 
-    public bool EsExterno
-    {
-      get => this.esExterno;
-      set => this.esExterno = value;
-    }
+		public bool EsExterno
+		{
+			get => this.esExterno;
+			set => this.esExterno = value;
+		}
 
-    public bool RequiereVenopuncion
-    {
-      get => this.requiereVenopuncion;
-      set => this.requiereVenopuncion = value;
-    }
+		public bool RequiereVenopuncion
+		{
+			get => this.requiereVenopuncion;
+			set => this.requiereVenopuncion = value;
+		}
 
-    public bool RequiereConsentimiento
-    {
-      get => this.requiereConsentimiento;
-      set => this.requiereConsentimiento = value;
-    }
-  }
+		public bool RequiereConsentimiento
+		{
+			get => this.requiereConsentimiento;
+			set => this.requiereConsentimiento = value;
+		}
+	}
 }

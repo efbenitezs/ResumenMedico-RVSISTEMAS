@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ReportLibrary;
-using Telerik.Reporting;
-using RMBLL;
 using ResumenMedico.Controls;
+using RMBLL;
+using Telerik.Reporting;
 
 namespace ResumenMedico.Reportes
 {
@@ -30,10 +27,10 @@ namespace ResumenMedico.Reportes
 				LinkButton lnkSalir = (LinkButton)this.Master.Master.FindControl("lnkCerrarSesion");
 				lnkSalir.Click += new EventHandler(lnkSalir_Click);
 			}
-            else
-            {
-                Response.Redirect(ResolveUrl("~/Login.aspx"));
-            }
+			else
+			{
+				Response.Redirect(ResolveUrl("~/Login.aspx"));
+			}
 		}
 
 		private void lnkSalir_Click(object sender, EventArgs e)
@@ -47,7 +44,6 @@ namespace ResumenMedico.Reportes
 			DateTime fechaFin = (DateTime)FechaFinal.SelectedDate;
 
 			DesplegarReporte(fechaIni, fechaFin);
-
 		}
 
 		protected void DesplegarReporte(DateTime fecha1, DateTime fecha2)

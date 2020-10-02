@@ -282,7 +282,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 		<div class="titulo">
@@ -423,7 +422,7 @@
 			return false;
             /*
             $flUpl.click();
-            
+
             */
 		}
 
@@ -432,7 +431,6 @@
 			var mang = $find("<%=this.ramMan.ClientID%>")
 			mang.ajaxRequest();
 		}
-
 
 		function mostrarFileupl(sender, e)
 		{
@@ -493,7 +491,6 @@
 			var obj = document.getElementById("chckbxMed");
 			deployMed(obj)
 		});
-
 
 		function controlPress(sender, args)
 		{

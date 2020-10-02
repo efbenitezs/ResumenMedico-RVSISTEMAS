@@ -12,9 +12,9 @@
 				reader.onload = function (e)
 				{
 					$('#imgFoto')
-                        .attr('src', e.target.result)
-                        .width(250)
-                        .height(300);
+						.attr('src', e.target.result)
+						.width(250)
+						.height(300);
 				};
 
 				reader.readAsDataURL(input.files[0]);
@@ -50,9 +50,9 @@
 				{
 
 					$('#<%=imgPrePhoto.ClientID%>')
-                        .attr('src', e.target.result)
-                        .width(140)
-                        .height(170);
+						.attr('src', e.target.result)
+						.width(140)
+						.height(170);
 				};
 
 				reader.readAsDataURL(input.files[0]);
@@ -65,7 +65,7 @@
 			return false;
 			/*
 			$flUpl.click();
-            
+
 			*/
 		}
 
@@ -74,7 +74,6 @@
 			var mang = $find("<%=this.ramMan.ClientID%>")
 			mang.ajaxRequest();
 		}
-
 
 		function mostrarFileupl(sender, e)
 		{
@@ -235,7 +234,7 @@
 					Código
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-					<telerik:RadTextBox ID="rtxtNumVisa" runat="server" MaxLength="50" Width="100%"/>
+					<telerik:RadTextBox ID="rtxtNumVisa" runat="server" MaxLength="50" Width="100%" />
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					Es paciente Externo
@@ -260,23 +259,23 @@
 						<ClientEvents OnBlur="validarPaciente" />
 					</telerik:RadTextBox>
 					<asp:RequiredFieldValidator ID="rfvNumDoc" runat="server" ControlToValidate="rtxtNumDoc"
-						ValidationGroup="Paciente" ErrorMessage="Debe especificar el numero de Identificacion" Display="None"/>
+						ValidationGroup="Paciente" ErrorMessage="Debe especificar el numero de Identificacion" Display="None" />
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					Apellidos
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-					<telerik:RadTextBox ID="rtxtApellidos" runat="server" MaxLength="50" Width="100%"/>
+					<telerik:RadTextBox ID="rtxtApellidos" runat="server" MaxLength="50" Width="100%" />
 					<asp:RequiredFieldValidator ID="rfvApellidos" runat="server" ControlToValidate="rtxtApellidos"
-						ValidationGroup="Paciente" ErrorMessage="Debe especificar los apellidos del paciente"/>
+						ValidationGroup="Paciente" ErrorMessage="Debe especificar los apellidos del paciente" />
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					Tipo Código
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-					<telerik:RadComboBox ID="rcbxTipoVisa" runat="server" Width="100%" Filter="Contains"/>
+					<telerik:RadComboBox ID="rcbxTipoVisa" runat="server" Width="100%" Filter="Contains" />
 					<asp:RequiredFieldValidator ID="rfvTipoVisa" runat="server" ControlToValidate="rcbxTipoVisa"
-						InitialValue="[Seleccione]" ValidationGroup="Paciente" ErrorMessage="Debe especificar el tipo de código"/>
+						InitialValue="[Seleccione]" ValidationGroup="Paciente" ErrorMessage="Debe especificar el tipo de código" />
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					Fecha Nacimiento
@@ -285,15 +284,14 @@
 					<telerik:RadDatePicker ID="rdpFecNac" runat="server" Width="100%" OnSelectedDateChanged="rdpFecNac_SelectedDateChanged"
 						AutoPostBack="true" MinDate="1900-01-01">
 						<DateInput DateFormat="yyyy-MM-dd" ID="diFecNac" runat="server" EmptyMessage="[Ingrese la fecha de nacimiento]"
-							CausesValidation="false"/>
-						<Calendar ID="cFecNac" runat="server" FirstDayOfWeek="Sunday"/>
+							CausesValidation="false" />
+						<Calendar ID="cFecNac" runat="server" FirstDayOfWeek="Sunday" />
 					</telerik:RadDatePicker>
 					<asp:RequiredFieldValidator ID="rfvFecNac" runat="server" ControlToValidate="rdpFecNac"
-						ValidationGroup="Paciente" ErrorMessage="debe indicar la fecha de nacimiento del paciente" Display="None"/>
+						ValidationGroup="Paciente" ErrorMessage="debe indicar la fecha de nacimiento del paciente" Display="None" />
 					<asp:CompareValidator ID="cvFecNac" runat="server" ControlToValidate="rdpFecNac"
 						Operator="LessThan" Type="Date" ValidationGroup="Paciente" ControlToCompare="rtxtFechaNacCompare"
-						ErrorMessage="la fecha de nacimiento no puede ser mayor a la fecha de hoy"
-						>
+						ErrorMessage="la fecha de nacimiento no puede ser mayor a la fecha de hoy">
 					</asp:CompareValidator>
 					<div style="display: none;">
 						<telerik:RadTextBox ID="rtxtFechaNacCompare" runat="server" Text='<%=DateTime.Now.ToString("yyyy-MM-dd")%>'>
@@ -371,7 +369,7 @@
 					<telerik:RadTextBox ID="rtxtCorreo" runat="server" MaxLength="100" Width="100%" Font-Names="Verdana">
 					</telerik:RadTextBox>
 					<asp:RegularExpressionValidator ID="revCorreo" runat="server" SetFocusOnError="true"
-						ControlToValidate="rtxtCorreo"  Text="* el formato del correo no es valido"
+						ControlToValidate="rtxtCorreo" Text="* el formato del correo no es valido"
 						ValidationExpression="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})+$" ValidationGroup="Paciente"
 						ErrorMessage="El correo electronico no es valido">
 					</asp:RegularExpressionValidator>
@@ -406,23 +404,20 @@
 						</telerik:RadTextBox>
 						<asp:RequiredFieldValidator ID="rfvAcudiente" runat="server" ControlToValidate="rtxtAcudiente"
 							Text="*" ErrorMessage="para los pacientes menores de edad debe indicar el nombre del acudiente"
-							ValidationGroup="Paciente" Enabled="false" >
+							ValidationGroup="Paciente" Enabled="false">
 						</asp:RequiredFieldValidator>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-			<h1>
-				Programación de examenes</h1>
+			<h1>Programación de examenes</h1>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-			<h1>
-				Exámenes a practicarse</h1>
+			<h1>Exámenes a practicarse</h1>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-			<h1>
-				Anexos para descargar</h1>
+			<h1>Anexos para descargar</h1>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<div>
@@ -470,8 +465,7 @@
 	<div class="Row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="linia">
-				<h1>
-					Laboratorio</h1>
+				<h1>Laboratorio</h1>
 			</div>
 		</div>
 	</div>

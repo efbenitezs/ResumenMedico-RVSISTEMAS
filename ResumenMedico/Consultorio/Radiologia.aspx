@@ -260,7 +260,6 @@
 							<telerik:GridBoundColumn HeaderText="Fecha Carga" DataField="FECHA_CREACION" UniqueName="Valor" DataType="System.DateTime"></telerik:GridBoundColumn>
 
 							<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String"></telerik:GridBoundColumn>
-
 						</Columns>
 					</MasterTableView>
 				</telerik:RadGrid>
@@ -298,7 +297,7 @@
 			e.set_cancel(true);
 		}
 
-		function AbrirArchivo(idFil) 
+		function AbrirArchivo(idFil)
 		{
 			window.open("../Controls/DwldFil.aspx?idFil=" + idFil, "", "height=400,width=500,resizable=no,scrollbars=yes");
 		}

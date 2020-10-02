@@ -51,7 +51,6 @@
 					SetSigWindow(1, 0, 0, 1, 1); //Permits inking in only this section of the SigWeb object
 					LcdRefresh(0, 0, 0, 240, 128);
 
-
 					ClearTablet();
 					KeyPadClearHotSpotList(); //borra cualquier hotspot que haya en la actual ejecucion
 
@@ -153,15 +152,13 @@
 					bsdCnt += "Wit";
 				}
 
-				//RETURN TOPAZ-FORMAT SIGSTRING 
+				//RETURN TOPAZ-FORMAT SIGSTRING
 				SetSigCompressionMode(1);
-
 
 				var sigStringData = document.getElementById(ssdCnt);
 				var bioSigData = document.getElementById(bsdCnt);
 				bioSigData.value = GetSigString();
 				sigStringData.value += GetSigString();
-
 
 				//RETURN BMP BYTE ARRAY CONVERTED TO BASE64 STRING
 				SetImageXSize(500);
@@ -176,13 +173,11 @@
 			}
 		}
 
-
 		function CheckBeforeSend(sender, e)
 		{
 			var errorMessage = "";
 			var signPacient = document.getElementById("sigImageDataPac");
 			var signWitness = document.getElementById("sigImageDataWit");
-
 
 			if (signPacient.value == "")
 			{
@@ -190,9 +185,9 @@
 			}
 
 			/*
-			if (sender._uniqueID == "rbtnDeclCan") 
+			if (sender._uniqueID == "rbtnDeclCan")
 			{
-			if (signWitness.value == "") 
+			if (signWitness.value == "")
 			{
 			errorMessage += "No se ha encontrado la firma del testigo \n";
 			}
@@ -214,108 +209,108 @@
 </head>
 <body style="width: 500px">
 	<form id="form1" runat="server" class="container-fluid">
-	<telerik:RadScriptManager ID="rsm" runat="server">
-	</telerik:RadScriptManager>
-	<telerik:RadFormDecorator ID="rfd" runat="server" DecoratedControls="All" />
-	<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
-		<AjaxSettings>
-			<telerik:AjaxSetting AjaxControlID="rbtnDeclCan">
-				<UpdatedControls>
-					<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
-				</UpdatedControls>
-			</telerik:AjaxSetting>
-			<telerik:AjaxSetting AjaxControlID="rbtnDeclNZ">
-				<UpdatedControls>
-					<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
-				</UpdatedControls>
-			</telerik:AjaxSetting>
-			<telerik:AjaxSetting AjaxControlID="rbtnDeclAus">
-				<UpdatedControls>
-					<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
-				</UpdatedControls>
-			</telerik:AjaxSetting>
-			<telerik:AjaxSetting AjaxControlID="rbtnDecVih">
-				<UpdatedControls>
-					<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
-				</UpdatedControls>
-			</telerik:AjaxSetting>
-			<telerik:AjaxSetting AjaxControlID="rbtnDecVenPun">
-				<UpdatedControls>
-					<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
-				</UpdatedControls>
-			</telerik:AjaxSetting>
-		</AjaxSettings>
-	</telerik:RadAjaxManager>
-	<asp:HiddenField ID="hfIdHist" runat="server" />
-	<div>
-		<div class="col-lg-12 col-xs-12" style="border: 5px double black; height: 118px;">
-			<div style="width: 444px; height: 104px; margin: 3px auto;">
-				<canvas name="SigImg" id="SigImg" style="width: 442px; height: 102px; border: 1px solid white"></canvas>
+		<telerik:RadScriptManager ID="rsm" runat="server">
+		</telerik:RadScriptManager>
+		<telerik:RadFormDecorator ID="rfd" runat="server" DecoratedControls="All" />
+		<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
+			<AjaxSettings>
+				<telerik:AjaxSetting AjaxControlID="rbtnDeclCan">
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
+					</UpdatedControls>
+				</telerik:AjaxSetting>
+				<telerik:AjaxSetting AjaxControlID="rbtnDeclNZ">
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
+					</UpdatedControls>
+				</telerik:AjaxSetting>
+				<telerik:AjaxSetting AjaxControlID="rbtnDeclAus">
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
+					</UpdatedControls>
+				</telerik:AjaxSetting>
+				<telerik:AjaxSetting AjaxControlID="rbtnDecVih">
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
+					</UpdatedControls>
+				</telerik:AjaxSetting>
+				<telerik:AjaxSetting AjaxControlID="rbtnDecVenPun">
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="rtbRspAjax" />
+					</UpdatedControls>
+				</telerik:AjaxSetting>
+			</AjaxSettings>
+		</telerik:RadAjaxManager>
+		<asp:HiddenField ID="hfIdHist" runat="server" />
+		<div>
+			<div class="col-lg-12 col-xs-12" style="border: 5px double black; height: 118px;">
+				<div style="width: 444px; height: 104px; margin: 3px auto;">
+					<canvas name="SigImg" id="SigImg" style="width: 442px; height: 102px; border: 1px solid white"></canvas>
+				</div>
 			</div>
-		</div>
-		<div class="col-lg-12 col-xs-12" style="padding: 10px 0px;">
-			<div class="col-lg-4 col-xs-4">
-				<telerik:RadButton runat="server" AutoPostBack="false" ID="SignBtn" Text="Habilitar Firma"
-					OnClientClicked="function(){startTablet(1);}" CssClass="leftSideButton" />
+			<div class="col-lg-12 col-xs-12" style="padding: 10px 0px;">
+				<div class="col-lg-4 col-xs-4">
+					<telerik:RadButton runat="server" AutoPostBack="false" ID="SignBtn" Text="Habilitar Firma"
+						OnClientClicked="function(){startTablet(1);}" CssClass="leftSideButton" />
+				</div>
+				<div class="col-lg-4 col-xs-4">
+					<telerik:RadButton runat="server" AutoPostBack="false" ID="SignBtnWit" Text="Habilitar Firma Testigo"
+						OnClientClicked="function(){startTablet(2)}" CausesValidation="false" CssClass="centeredButton" />
+				</div>
+				<div class="col-lg-4 col-xs-4">
+					<telerik:RadButton runat="server" AutoPostBack="false" ID="SignClr" Text="Limpiar firma"
+						OnClientClicked="function(){onClear();}" CssClass="rightSideButton" />
+				</div>
 			</div>
-			<div class="col-lg-4 col-xs-4">
-				<telerik:RadButton runat="server" AutoPostBack="false" ID="SignBtnWit" Text="Habilitar Firma Testigo"
-					OnClientClicked="function(){startTablet(2)}" CausesValidation="false" CssClass="centeredButton" />
+			<div style="margin: 10px">
+				<div class="col-lg-12 col-xs-12 centerContent">
+					<telerik:RadButton ID="rbtnDeclCan" runat="server" Text="Generar Consentimiento Canada"
+						OnClientClicking="CheckBeforeSend" OnClick="rbtnDeclCan_Click" />
+					<telerik:RadButton ID="rbtnDeclNZ" runat="server" Text="Generar Consentimiento Nueva Zelanda"
+						OnClientClicking="CheckBeforeSend" OnClick="rbtnDeclNZ_Click" />
+					<telerik:RadButton ID="rbtnDeclAus" runat="server" Text="Generar Consentimiento Australia"
+						OnClientClicking="CheckBeforeSend" OnClick="rbtnDeclAus_Click" />
+				</div>
+				<div>
+					<telerik:RadButton ID="rbtnDecVih" runat="server" Style="margin: 10px 0px" Text="Generar Consentimiento VIH"
+						OnClientClicking="CheckBeforeSend" OnClick="rbtnDecVih_Click">
+					</telerik:RadButton>
+					<telerik:RadButton ID="rbtnDecVenPun" runat="server" Style="margin: 10px 0px; float: right"
+						Text="Generar Consentimiento Venopuncion" OnClientClicking="CheckBeforeSend"
+						OnClick="rbtnDecVenPun_Click">
+					</telerik:RadButton>
+				</div>
 			</div>
-			<div class="col-lg-4 col-xs-4">
-				<telerik:RadButton runat="server" AutoPostBack="false" ID="SignClr" Text="Limpiar firma"
-					OnClientClicked="function(){onClear();}" CssClass="rightSideButton" />
-			</div>
-		</div>
-		<div style="margin: 10px">
-			<div class="col-lg-12 col-xs-12 centerContent">
-				<telerik:RadButton ID="rbtnDeclCan" runat="server" Text="Generar Consentimiento Canada"
-					OnClientClicking="CheckBeforeSend" OnClick="rbtnDeclCan_Click" />
-				<telerik:RadButton ID="rbtnDeclNZ" runat="server" Text="Generar Consentimiento Nueva Zelanda"
-					OnClientClicking="CheckBeforeSend" OnClick="rbtnDeclNZ_Click" />
-				<telerik:RadButton ID="rbtnDeclAus" runat="server" Text="Generar Consentimiento Australia"
-					OnClientClicking="CheckBeforeSend" OnClick="rbtnDeclAus_Click" />
-			</div>
-			<div>
-				<telerik:RadButton ID="rbtnDecVih" runat="server" Style="margin: 10px 0px" Text="Generar Consentimiento VIH"
-					OnClientClicking="CheckBeforeSend" OnClick="rbtnDecVih_Click">
-				</telerik:RadButton>
-				<telerik:RadButton ID="rbtnDecVenPun" runat="server" Style="margin: 10px 0px; float: right"
-					Text="Generar Consentimiento Venopuncion" OnClientClicking="CheckBeforeSend"
-					OnClick="rbtnDecVenPun_Click">
-				</telerik:RadButton>
+			<div style="display: none;">
+				<asp:Button ID="rbtnLoad" runat="server" Text="Cargar imagen" OnClick="rbtnLoad_Click" />
 			</div>
 		</div>
 		<div style="display: none;">
-			<asp:Button ID="rbtnLoad" runat="server" Text="Cargar imagen" OnClick="rbtnLoad_Click" />
-		</div>
-	</div>
-	<div style="display: none;">
-		<telerik:RadTextBox ID="rtbRspAjax" runat="server" />
-		<div class="col-lg-6 col-md-6">
-			Firma del paciente
+			<telerik:RadTextBox ID="rtbRspAjax" runat="server" />
+			<div class="col-lg-6 col-md-6">
+				Firma del paciente
 			<textarea id="sigStringData" name="sigStringData" rows="10" cols="50"></textarea>
-			<textarea id="sigImageDataPac" name="sigImageDataPac" runat="server" clientidmode="Static"
-				rows="10" cols="50">Base64 String: </textarea>
-			<img id="imgResultado" src="" alt="firma del paciente" height="100" width="500" style="border: 2 solid #AABBCC;"
-				runat="server" clientidmode="Static" />
-			<input type="hidden" name="bioSigData" id="bioSigData" />
-			<input type="hidden" name="sigImgData" id="sigImgData" />
-			<asp:TextBox ID="hfBase64Pac" runat="server" Value="" />
-		</div>
-		<div class="col-lg-6 col-md-6">
-			Firma del testigo
+				<textarea id="sigImageDataPac" name="sigImageDataPac" runat="server" clientidmode="Static"
+					rows="10" cols="50">Base64 String: </textarea>
+				<img id="imgResultado" src="" alt="firma del paciente" height="100" width="500" style="border: 2 solid #AABBCC;"
+					runat="server" clientidmode="Static" />
+				<input type="hidden" name="bioSigData" id="bioSigData" />
+				<input type="hidden" name="sigImgData" id="sigImgData" />
+				<asp:TextBox ID="hfBase64Pac" runat="server" Value="" />
+			</div>
+			<div class="col-lg-6 col-md-6">
+				Firma del testigo
 			<textarea id="sigStringDataWit" name="sigStringDataWit" rows="10" cols="50"></textarea>
-			<textarea id="sigImageDataWit" name="sigImageDataWit" runat="server" clientidmode="Static"
-				rows="10" cols="50">Base64 String: </textarea>
-			<img id="imgResultadoWit" src="" alt="firma del Testigo" height="100" width="500"
-				style="border: 2 solid #AABBCC;" runat="server" clientidmode="Static" />
-			<input type="hidden" name="bioSigDataWit" id="bioSigDataWit" />
-			<input type="hidden" name="sigImgDataWit" id="sigImgDataWit" />
-			<asp:TextBox ID="hfBase64Wit" runat="server" Value="" />
+				<textarea id="sigImageDataWit" name="sigImageDataWit" runat="server" clientidmode="Static"
+					rows="10" cols="50">Base64 String: </textarea>
+				<img id="imgResultadoWit" src="" alt="firma del Testigo" height="100" width="500"
+					style="border: 2 solid #AABBCC;" runat="server" clientidmode="Static" />
+				<input type="hidden" name="bioSigDataWit" id="bioSigDataWit" />
+				<input type="hidden" name="sigImgDataWit" id="sigImgDataWit" />
+				<asp:TextBox ID="hfBase64Wit" runat="server" Value="" />
+			</div>
+			<asp:HiddenField ID="hfTipoCarga" runat="server" />
 		</div>
-		<asp:HiddenField ID="hfTipoCarga" runat="server" />
-	</div>
 	</form>
 	<script id="manejoLoad" type="text/javascript">
 

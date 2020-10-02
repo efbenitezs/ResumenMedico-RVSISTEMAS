@@ -110,15 +110,15 @@
 									<asp:HiddenField ID="hfThisHistory" runat="server" Value='<%# Eval("ID")%>' />
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btnConntainner">
-                                    <telerik:RadButton CssClass="button" runat="server" ID='rbtnFinishHistory' OnClick="BtnSaveClick" Text="Finalizar Historia" ButtonType="LinkButton" />
+									<telerik:RadButton CssClass="button" runat="server" ID='rbtnFinishHistory' OnClick="BtnSaveClick" Text="Finalizar Historia" ButtonType="LinkButton" />
 								</div>
 							</div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 controlSide" style="margin: 0 auto;">
-                                Dr.<span><%# Eval("MEDICO")%></span>
-                            </div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 controlSide" style="margin: 0 auto;">
+								Dr.<span><%# Eval("MEDICO")%></span>
+							</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-								<img src='/Resources/<%# Eval("FLAG_USER")%>' class="img-responsive img-rounded" style="border: 0 none;
-									width: 99px; height: 50px; float:right;" alt='<%# Eval("Embajada") %>' />
+								<img src='/Resources/<%# Eval("FLAG_USER")%>' class="img-responsive img-rounded" style="border: 0 none; width: 99px; height: 50px; float: right;"
+									alt='<%# Eval("Embajada") %>' />
 							</div>
 						</div>
 					</div>

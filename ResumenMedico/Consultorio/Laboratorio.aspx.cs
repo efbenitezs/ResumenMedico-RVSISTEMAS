@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
+using System.Data;
+using System.IO;
+using System.Net.Configuration;
+using System.Net.Mail;
 using System.Web;
-using System.Web.UI;
+using System.Web.Configuration;
 using System.Web.UI.WebControls;
+using ResumenMedico.Controls;
 using RMBLL;
 using RMEntity;
-using ResumenMedico.Controls;
 using Telerik.Web.UI;
-using System.IO;
-using System.Data;
-using System.Configuration;
-using System.Net.Configuration;
-using System.Web.Configuration;
-using System.Net.Mail;
-
 
 namespace ResumenMedico.Consultorio
 {
@@ -23,6 +20,7 @@ namespace ResumenMedico.Consultorio
 		private int idHist = int.MinValue;
 
 		#region PathTemplateFiles
+
 		protected string PathTemplateFiles
 		{
 			get
@@ -30,6 +28,7 @@ namespace ResumenMedico.Consultorio
 				return Server.MapPath("~/Resources/Files/");
 			}
 		}
+
 		#endregion PathTemplateFiles
 
 		private int IdHist
@@ -56,6 +55,7 @@ namespace ResumenMedico.Consultorio
 		#region Eventos
 
 		#region Page_Load
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (this.IdUserCurrent != int.MinValue)
@@ -68,7 +68,6 @@ namespace ResumenMedico.Consultorio
 				{
 					if (!IsPostBack)
 					{
-
 						if (this.PerfilActual != Constants.Perfiles.Laboratorio)
 						{
 							rbtnGuardarInfo.Visible = false;
@@ -119,7 +118,6 @@ namespace ResumenMedico.Consultorio
 
 						//TODO: Cargar los datos del bacteriologo y el consultorio
 						this.LoadInfoLab();
-
 					}
 					LinkButton lbRegList = (LinkButton)Master.FindControl("lbRegList");
 					lbRegList.PostBackUrl = ResolveUrl("~/Pendientes.aspx") + "?T=1";
@@ -132,23 +130,25 @@ namespace ResumenMedico.Consultorio
 			Session["ShowMenu"] = false;
 
 			Session["ShowConsultorio"] = true;
-
 		}
+
 		#endregion Page_Load
 
 		#region lnkSalir_Click
+
 		private void lnkSalir_Click(object sender, EventArgs e)
 		{
 			Response.Redirect(ResolveUrl("~/Login.aspx"), true);
 		}
+
 		#endregion lnkSalir_Click
 
 		#region Botones
 
 		#region rbtnGuardarInfo_Click
+
 		protected void rbtnGuardarInfo_Click(object sender, EventArgs e)
 		{
-
 			MuestraLaboratorioBll objMlBll = new MuestraLaboratorioBll();
 			HistoriaMedicaBll objHmBll = new HistoriaMedicaBll();
 			HistoriaMedica objHmEnt = objHmBll.Load(this.IdHist);
@@ -176,9 +176,11 @@ namespace ResumenMedico.Consultorio
 				objHmEnt.Bacteriologo = (new UsuarioBll()).Load(this.IdUserCurrent);
 			}
 		}
+
 		#endregion rbtnGuardarInfo_Click
 
 		#region rbtnUrologia_Click
+
 		protected void rbtnUrologia_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -239,9 +241,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnUrologia_Click
 
 		#region rbtnGuardarVIH_Click
+
 		protected void rbtnGuardarVIH_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -278,9 +282,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnGuardarVIH_Click
 
 		#region rbtnGuardarSerologia_Click
+
 		protected void rbtnGuardarSerologia_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -313,9 +319,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnGuardarSerologia_Click
 
 		#region rbtnHepB_Click
+
 		protected void rbtnHepB_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -348,9 +356,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnHepB_Click
 
 		#region rbtnHepC_Click
+
 		protected void rbtnHepC_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -382,9 +392,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnHepC_Click
 
 		#region rbtnCuadroHematico_Click
+
 		protected void rbtnCuadroHematico_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -417,9 +429,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnCuadroHematico_Click
 
 		#region rbtnOtroGuardar_Click
+
 		protected void rbtnOtroGuardar_Click(object sender, EventArgs e)
 		{
 			try
@@ -461,9 +475,11 @@ namespace ResumenMedico.Consultorio
 				RadScriptManager.RegisterClientScriptBlock(this, this.GetType(), "errHisMed", scriptcontent, true);
 			}
 		}
+
 		#endregion rbtnOtroGuardar_Click
 
 		#region rbtnCreatinina_Click
+
 		protected void rbtnCreatinina_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -510,9 +526,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnCreatinina_Click
 
 		#region rbtnHemGli_Click
+
 		protected void rbtnHemGli_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -554,9 +572,11 @@ namespace ResumenMedico.Consultorio
 
 			this.SaveMuestraExamen(objEntML, tipoExamen);
 		}
+
 		#endregion rbtnHemGli_Click
 
 		#region rbtnAddCultivo_Click
+
 		protected void rbtnAddCultivo_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -580,9 +600,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.Estado = Constants.EstadosMuestraLaboratorio.Normal;
 			this.SaveMuestraExamen(objEntML, tipoExam);
 		}
+
 		#endregion rbtnAddCultivo_Click
 
 		#region rbtnAddBaciloscopia_Click
+
 		protected void rbtnAddBaciloscopia_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -605,13 +627,14 @@ namespace ResumenMedico.Consultorio
 
 			objEntML.Estado = Constants.EstadosMuestraLaboratorio.Normal;
 			this.SaveMuestraExamen(objEntML, tipoExam);
-
 		}
+
 		#endregion rbtnAddBaciloscopia_Click
 
 		#region Botones Eliminacion Muestras
 
 		#region rbtnEliminarUro_Click
+
 		protected void rbtnEliminarUro_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -624,9 +647,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarUro_Click
 
 		#region rbtnEliminarVih_Click
+
 		protected void rbtnEliminarVih_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -639,9 +664,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarVih_Click
 
 		#region rbtnEliminarSerologia_Click
+
 		protected void rbtnEliminarSerologia_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -654,9 +681,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
-		#endregion rbtnEliminarVih_Click
+
+		#endregion rbtnEliminarSerologia_Click
 
 		#region rbtnEliminarHepB_Click
+
 		protected void rbtnEliminarHepB_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -669,9 +698,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarHepB_Click
 
 		#region rbtnEliminarHepC_Click
+
 		protected void rbtnEliminarHepC_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -684,9 +715,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarHepC_Click
 
 		#region rbtnEliminarCuadroHematico_Click
+
 		protected void rbtnEliminarCuadroHematico_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -699,9 +732,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarCuadroHematico_Click
 
 		#region rbtnEliminarCreatinina_Click
+
 		protected void rbtnEliminarCreatinina_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -714,9 +749,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarCreatinina_Click
 
 		#region rbtnEliminarHemGli_Click
+
 		protected void rbtnEliminarHemGli_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -729,9 +766,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarHemGli_Click
 
 		#region rbtnEliminarOtro_Click
+
 		protected void rbtnEliminarOtro_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -744,9 +783,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarOtro_Click
 
 		#region rbtnEliminarCultivo_Click
+
 		protected void rbtnEliminarCultivo_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -759,9 +800,11 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarCultivo_Click
 
 		#region rbtnEliminarBacilo_Click
+
 		protected void rbtnEliminarBacilo_Click(object sender, EventArgs e)
 		{
 			MuestraLaboratorio objEntML = new MuestraLaboratorio();
@@ -774,6 +817,7 @@ namespace ResumenMedico.Consultorio
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			this.EliminarMuestra(objEntML);
 		}
+
 		#endregion rbtnEliminarBacilo_Click
 
 		#endregion Botones Eliminacion Muestras
@@ -783,18 +827,21 @@ namespace ResumenMedico.Consultorio
 		#region RadComboBoxes
 
 		#region rcbxSero_SelectedIndexChanged
+
 		protected void rcbxSero_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
 		{
 			this.lblValSer.Visible = this.rntValorSero.Visible = this.lblUnitValSer.Visible = this.rcbxSero.SelectedValue == "REACTIVO";
 		}
+
 		#endregion rcbxSero_SelectedIndexChanged
 
 		#region rcbxCreatinina_SelectedIndexChanged
+
 		protected void rcbxCreatinina_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
 		{
 			/*
             if (this.rcbxCreatinina.SelectedValue == "ANORMAL")
-            {   
+            {
                 this.divLblValCrea.Style.Add(HtmlTextWriterStyle.Display, "inline");
                 this.divValCrea.Style.Add(HtmlTextWriterStyle.Display, "inline");
             }
@@ -806,13 +853,16 @@ namespace ResumenMedico.Consultorio
             */
 			//this.lblValCrea.Visible = this.rntValorCrea.Visible = this.lblUnitValCrea.Visible = this.rcbxCreatinina.SelectedValue == "ANORMAL";
 		}
+
 		#endregion rcbxCreatinina_SelectedIndexChanged
 
 		#region rcbxHemGli_SelectedIndexChanged
+
 		protected void rcbxHemGli_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
 		{
 			this.lblValHemGli.Visible = this.rntValorHemGli.Visible = this.lblUnitValHemGli.Visible = this.rcbxCreatinina.SelectedValue == "ANORMAL";
 		}
+
 		#endregion rcbxHemGli_SelectedIndexChanged
 
 		#endregion RadComboBoxes
@@ -820,102 +870,124 @@ namespace ResumenMedico.Consultorio
 		#region Checks Habilitar examenes
 
 		#region chkUro_CheckedChanged
+
 		protected void chkUro_CheckedChanged(object sender, EventArgs e)
 		{
-			//Se obtiene el tab            
+			//Se obtiene el tab
 			RadTab tabUro = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.Uroanalisis).ToString());
 			this.rpvUrologia.Visible = tabUro.Visible = this.chkUro.Checked;
 		}
+
 		#endregion chkUro_CheckedChanged
 
 		#region chkVih_CheckedChanged
+
 		protected void chkVih_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabVih = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.Vih).ToString());
 			this.rpvHIV.Visible = tabVih.Visible = this.chkVih.Checked;
 		}
+
 		#endregion chkVih_CheckedChanged
 
 		#region chkSero_CheckedChanged
+
 		protected void chkSero_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabSero = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.SerologiaVdrl).ToString());
 			this.rpvVDRL.Visible = tabSero.Visible = this.chkSero.Checked;
 		}
+
 		#endregion chkSero_CheckedChanged
 
 		#region chkHepB_CheckedChanged
+
 		protected void chkHepB_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabHepB = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.HbsAg).ToString());
 			this.rpvHepatitisB.Visible = tabHepB.Visible = this.chkHepB.Checked;
 		}
+
 		#endregion chkHepB_CheckedChanged
 
 		#region chkHepC_CheckedChanged
+
 		protected void chkHepC_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabHepC = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.HepatitisC).ToString());
 			this.rpvHepC.Visible = tabHepC.Visible = this.chkHepC.Checked;
 		}
+
 		#endregion chkHepC_CheckedChanged
 
 		#region chkCH_CheckedChanged
+
 		protected void chkCH_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabCH = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.CuadroHematico).ToString());
 			this.rpvCuadroHematico.Visible = tabCH.Visible = this.chkCH.Checked;
 		}
+
 		#endregion chkCH_CheckedChanged
 
 		#region chkCrea_CheckedChanged
+
 		protected void chkCrea_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabCrea = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.Creatinina).ToString());
 			this.rpvCreatinina.Visible = tabCrea.Visible = this.chkCrea.Checked;
 		}
+
 		#endregion chkCrea_CheckedChanged
 
 		#region chkHemGli_CheckedChanged
+
 		protected void chkHemGli_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se Obtiene el tab
 			RadTab tabHemGli = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.HemoglobinaGlicosilada).ToString());
 			this.rpvHemoGli.Visible = tabHemGli.Visible = this.chkHemGli.Checked;
 		}
+
 		#endregion chkHemGli_CheckedChanged
 
 		#region chkOtro_CheckedChanged
+
 		protected void chkOtro_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se obtiene el tab
 			RadTab tabOtro = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.Otro).ToString());
 			this.rpvOtro.Visible = tabOtro.Visible = this.chkOtro.Checked;
 		}
+
 		#endregion chkOtro_CheckedChanged
 
 		#region chkCultivo_CheckedChanged
+
 		protected void chkCultivo_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se obtiene el tab
 			RadTab tabCult = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.Cultivo).ToString());
 			this.rpvCultivo.Visible = tabCult.Visible = this.chkCultivo.Checked;
 		}
+
 		#endregion chkCultivo_CheckedChanged
 
 		#region chkBaciloscopia_CheckedChanged
+
 		protected void chkBaciloscopia_CheckedChanged(object sender, EventArgs e)
 		{
 			//Se obtiene el tab
 			RadTab tabBacil = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.Baciloscopia).ToString());
 			this.rpvBaciloscopia.Visible = tabBacil.Visible = this.chkBaciloscopia.Checked;
 		}
+
 		#endregion chkBaciloscopia_CheckedChanged
 
 		#endregion Checks Habilitar examenes
@@ -923,8 +995,9 @@ namespace ResumenMedico.Consultorio
 		#region Carga Grillas Archivos
 
 		#region rgUrol_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -933,11 +1006,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraUrol.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraUrol.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, rgUrol);
 		}
+
 		#endregion rgUrol_NeedDataSource
 
 		#region rgVih_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -946,11 +1021,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraVIH.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraVIH.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, rgVih);
 		}
+
 		#endregion rgVih_NeedDataSource
 
 		#region rgSero_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -959,11 +1036,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraSero.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraSero.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgSero);
 		}
+
 		#endregion rgSero_NeedDataSource
 
 		#region rgHepB_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -972,11 +1051,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraHepB.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraHepB.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgHepB);
 		}
+
 		#endregion rgHepB_NeedDataSource
 
 		#region rgHepB_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -985,11 +1066,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraHepC.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraHepC.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgHepC);
 		}
+
 		#endregion rgHepB_NeedDataSource
 
 		#region rgCH_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -998,11 +1081,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraCH.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraCH.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgCH);
 		}
+
 		#endregion rgCH_NeedDataSource
 
 		#region rgCrea_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1011,11 +1096,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraCreatinina.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraCreatinina.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgCrea);
 		}
+
 		#endregion rgCrea_NeedDataSource
 
 		#region rgHemGli_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1024,11 +1111,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraHemGli.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraHemGli.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgHemGli);
 		}
+
 		#endregion rgHemGli_NeedDataSource
 
 		#region rgOtro_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1037,11 +1126,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraHepB.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraOtro.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, this.rgOtro);
 		}
+
 		#endregion rgOtro_NeedDataSource
 
 		#region rgCultivos_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1050,11 +1141,13 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraCultivo.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraCultivo.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, rgCultivos);
 		}
+
 		#endregion rgCultivos_NeedDataSource
 
 		#region rgBacilo_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1063,6 +1156,7 @@ namespace ResumenMedico.Consultorio
 			int idMuestra = this.hfIdMuestraBaciloscopia.Value != string.Empty ? Convert.ToInt32(this.hfIdMuestraBaciloscopia.Value) : 0;
 			this.LoadDataSourceFileGrids(idMuestra, rgBacilo);
 		}
+
 		#endregion rgBacilo_NeedDataSource
 
 		#endregion Carga Grillas Archivos
@@ -1070,8 +1164,9 @@ namespace ResumenMedico.Consultorio
 		#region Carga grillas muestras anteriores
 
 		#region rgUroAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1079,11 +1174,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.Uroanalisis, rgUroAnt);
 		}
-		#endregion rgUrol_NeedDataSource
+
+		#endregion rgUroAnt_NeedDataSource
 
 		#region rgVihAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1091,11 +1188,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.Vih, rgVihAnt);
 		}
-		#endregion rgVih_NeedDataSource
+
+		#endregion rgVihAnt_NeedDataSource
 
 		#region rgSeroAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1103,11 +1202,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.SerologiaVdrl, rgSeroAnt);
 		}
+
 		#endregion rgSeroAnt_NeedDataSource
 
 		#region rgHepB_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1115,12 +1216,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.HbsAg, rgHepBAnt);
 		}
+
 		#endregion rgHepB_NeedDataSource
 
-
 		#region rgHepCAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1128,11 +1230,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.HepatitisC, rgHepCAnt);
 		}
-		#endregion rgHepB_NeedDataSource
+
+		#endregion rgHepCAnt_NeedDataSource
 
 		#region rgCHAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1140,11 +1244,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.CuadroHematico, rgCHAnt);
 		}
-		#endregion rgCH_NeedDataSource
+
+		#endregion rgCHAnt_NeedDataSource
 
 		#region rgCreaAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1152,11 +1258,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.Creatinina, rgCreaAnt);
 		}
-		#endregion rgCrea_NeedDataSource
+
+		#endregion rgCreaAnt_NeedDataSource
 
 		#region rgHemGliAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1164,11 +1272,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.HemoglobinaGlicosilada, rgHemGliAnt);
 		}
-		#endregion rgHemGli_NeedDataSource
+
+		#endregion rgHemGliAnt_NeedDataSource
 
 		#region rgOtroAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1176,11 +1286,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.Otro, rgOtroAnt);
 		}
-		#endregion rgOtro_NeedDataSource
+
+		#endregion rgOtroAnt_NeedDataSource
 
 		#region rgCultivosAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1188,11 +1300,13 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.Cultivo, rgCultivosAnt);
 		}
-		#endregion rgCultivos_NeedDataSource
+
+		#endregion rgCultivosAnt_NeedDataSource
 
 		#region rgBaciloAnt_NeedDataSource
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1200,7 +1314,8 @@ namespace ResumenMedico.Consultorio
 		{
 			this.LoadDataSourceSampleGrids(Constants.ExamenLab.Baciloscopia, rgBaciloAnt);
 		}
-		#endregion rgBacilo_NeedDataSource
+
+		#endregion rgBaciloAnt_NeedDataSource
 
 		#endregion Carga grillas muestras anteriores
 
@@ -1215,14 +1330,17 @@ namespace ResumenMedico.Consultorio
 		}
 
 		#region LoadDataSourceFileGrids
+
 		private void LoadDataSourceFileGrids(int idMuestra, RadGrid gridToFill)
 		{
 			AnexoHistoriaBll objSrc = new AnexoHistoriaBll();
 			gridToFill.DataSource = objSrc.GetList(this.IdHist, Constants.TipoRevision.Laboratorio, false, idMuestra, string.Empty);
 		}
+
 		#endregion LoadDataSourceFileGrids
 
 		#region SaveMuestraExamen
+
 		/// <summary>
 		/// Metodo encargado de almacenar la información de la muestra tomada
 		/// </summary>
@@ -1256,46 +1374,55 @@ namespace ResumenMedico.Consultorio
 							this.rbtnLoadFileUro.Visible = true;
 							this.chkUro.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.Vih:
 							this.hfIdMuestraVIH.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileVih.Visible = true;
 							this.chkVih.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.SerologiaVdrl:
 							this.hfIdMuestraSero.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileSero.Visible = true;
 							this.chkSero.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.HbsAg:
 							this.hfIdMuestraHepB.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileHepaB.Visible = true;
 							this.chkHepB.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.HepatitisC:
 							this.hfIdMuestraHepC.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileHepaC.Visible = true;
 							this.chkHepC.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.CuadroHematico:
 							this.hfIdMuestraCH.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileCH.Visible = true;
 							this.chkCH.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.Creatinina:
 							this.hfIdMuestraCreatinina.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileCre.Visible = true;
 							this.chkCrea.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.HemoglobinaGlicosilada:
 							this.hfIdMuestraHemGli.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileHemGli.Visible = true;
 							this.chkHemGli.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.Otro:
 							this.hfIdMuestraOtro.Value = objEntML.Id.ToString();
 							this.rbtnLoadFileOtro.Visible = true;
 							this.chkOtro.Enabled = false;
 							break;
+
 						case Constants.ExamenLab.Cultivo:
 							this.hfIdMuestraCultivo.Value = objEntML.Id.ToString();
 							this.rbtnAddCultivo.Visible = false;
@@ -1303,6 +1430,7 @@ namespace ResumenMedico.Consultorio
 							this.rbtnAddFileCult.Visible = true;
 							RadScriptManager.RegisterClientScriptBlock(this, this.GetType(), "cultOkSav", "openFileupload(" + this.IdHist + ", " + objEntML.Id + ");", true);
 							break;
+
 						case Constants.ExamenLab.Baciloscopia:
 							this.hfIdMuestraBaciloscopia.Value = objEntML.Id.ToString();
 							this.rbtnAddBaciloscopia.Visible = false;
@@ -1318,11 +1446,13 @@ namespace ResumenMedico.Consultorio
 				objhbll.Save(historia, null);
 			}
 		}
+
 		#endregion SaveMuestraExamen
 
 		#region LoadInfoHist
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="idHistoria"></param>
 		private void LoadInfoHist(int idHistoria)
@@ -1336,8 +1466,8 @@ namespace ResumenMedico.Consultorio
 			Utilidades.LlenarRC(this.rcbxTipoDoc, new TipoDocumentoBll().GetList(string.Empty, true, false), "ID", "NOMBRE", true);
 			Utilidades.PosicionarRC(this.rcbxTipoDoc, objEntPac.IdTipoDocumento.ToString());
 
-
 			#region Profesional_laboratorio
+
 			if (objEntHm.Bacteriologo != null && objEntHm.Bacteriologo.FirmaProfesional != null)
 			{
 				this.nombreBacteriologo.Value = string.Format("{0} {1}",
@@ -1348,8 +1478,8 @@ namespace ResumenMedico.Consultorio
 				this.registroProfesional.Value = objEntHm.Bacteriologo.FirmaProfesional.RegistroProfesional;
 				this.firmaBase64.Value = objEntHm.Bacteriologo.FirmaProfesional.FirmaBase64;
 			}
-			#endregion
 
+			#endregion Profesional_laboratorio
 
 			this.hfIdHist.Value = idHistoria.ToString();
 			this.rdpFecha.SelectedDate = objEntHm.FechaIngreso;
@@ -1377,13 +1507,14 @@ namespace ResumenMedico.Consultorio
 			}
 
 			this.LoadMuestras(idHistoria);
-
 		}
+
 		#endregion LoadInfoHist
 
 		#region LoadMuestras
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="idHistoria"></param>
 		private void LoadMuestras(int idHistoria)
@@ -1564,7 +1695,6 @@ namespace ResumenMedico.Consultorio
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.HepatitisC, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
-
 				//Se habilita el tab
 				this.rpvHepC.Visible = true;
 				RadTab tabHepC = this.rtsPanelesExamenes.FindTabByValue(Convert.ToInt32(Constants.ExamenLab.HepatitisC).ToString());
@@ -1716,7 +1846,6 @@ namespace ResumenMedico.Consultorio
 				this.rtxtComentarioHemGli.Text = "";
 			}
 
-
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.Otro, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1811,9 +1940,11 @@ namespace ResumenMedico.Consultorio
 				this.hfIdMuestraBaciloscopia.Value = "";
 			}
 		}
+
 		#endregion LoadMuestras
 
 		#region LoadInfoLab
+
 		private void LoadInfoLab()
 		{
 			ParametroBll infoLab = new ParametroBll();
@@ -1830,26 +1961,33 @@ namespace ResumenMedico.Consultorio
 					case 2:
 						this.nombreLaboratorio.Value = fila[3].ToString();
 						break;
+
 					case 6:
 						this.direccionLaboratorio.Value = fila[3].ToString();
 						break;
+
 					case 4:
 						this.ciudad.Value = fila[3].ToString();
 						break;
+
 					case 7:
 						this.telefonoLaboratorio.Value = fila[3].ToString();
 						break;
+
 					case 8:
 						this.faxLaboratorio.Value = fila[3].ToString();
 						break;
+
 					default:
 						break;
 				}
 			}
 		}
+
 		#endregion LoadInfoLab
 
 		#region EliminarMuestra
+
 		private void EliminarMuestra(MuestraLaboratorio objEntML)
 		{
 			objEntML.IdUltimaModificacion = this.IdUserCurrent;
@@ -1864,6 +2002,7 @@ namespace ResumenMedico.Consultorio
 			}
 			this.LoadMuestras(this.IdHist);
 		}
+
 		#endregion EliminarMuestra
 
 		protected void rbtnSendMail_Click(object sender, EventArgs e)
@@ -1895,7 +2034,6 @@ namespace ResumenMedico.Consultorio
 						Mailing objMail = new Mailing(smtpConfig.Network.Host, smtpConfig.Network.Port, "Resultados Laboratorio", mailContent, new MailAddress(smtpConfig.From), new MailAddress(objEntPac.Correo),
 							true, MailPriority.High, adjuntos, true, smtpConfig.Network.UserName, smtpConfig.Network.Password);
 
-
 						objMail.SendMailMessage();
 
 						RadScriptManager.RegisterClientScriptBlock(this, this.GetType(), "noEmailSend", "alert('Se ha enviado el correo al paciente " + objEntPac.Nombres + " " + objEntPac.Apellidos + " a la dirección de correo: " + objEntPac.Correo + "');", true);
@@ -1917,6 +2055,5 @@ namespace ResumenMedico.Consultorio
 		}
 
 		#endregion Metodos
-
 	}
 }

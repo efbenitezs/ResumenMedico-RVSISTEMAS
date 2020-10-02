@@ -585,7 +585,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -622,7 +621,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -630,7 +628,6 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
-
 		</telerik:RadPageView>
 
 		<telerik:RadPageView runat="server" ID="rpvHIV" Width="100%" Visible="false">
@@ -755,7 +752,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -854,7 +850,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -895,7 +890,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -927,7 +921,7 @@
 					Técnica Inmunocromatográfica (rápida)
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-					Resultado                    
+					Resultado
 				</div>
 				<div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
 					<telerik:RadComboBox ID="rcbxHepB" runat="server" Filter="Contains" MarkFirstMatch="true" Width="200px" Font-Names="Verdana">
@@ -986,7 +980,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1024,7 +1017,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1115,7 +1107,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1153,7 +1144,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1248,12 +1238,10 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
@@ -1287,7 +1275,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1417,7 +1404,6 @@
 									<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 										<ItemStyle Width="15%" />
 									</telerik:GridBoundColumn>
-
 								</Columns>
 							</MasterTableView>
 						</telerik:RadGrid>
@@ -1460,7 +1446,6 @@
 									<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 										<ItemStyle Width="15%" />
 									</telerik:GridBoundColumn>
-
 								</Columns>
 							</MasterTableView>
 						</telerik:RadGrid>
@@ -1546,12 +1531,10 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
@@ -1585,7 +1568,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1620,7 +1602,6 @@
 					<asp:RequiredFieldValidator ID="rfvOtroDesc" runat="server" ControlToValidate="rtxtOtroDesc" Text="Debe dar una descripción para el exámen" ValidationGroup="Otro"></asp:RequiredFieldValidator>
 				</div>
 
-
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 					Resultado:
 				</div>
@@ -1630,14 +1611,12 @@
 					<asp:RequiredFieldValidator ID="rfvOtroResultado" runat="server" ControlToValidate="rtxtOtroResultado" Text="Debe indicar un resultado para el exámen" ValidationGroup="Otro"></asp:RequiredFieldValidator>
 				</div>
 
-
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 					Observaciones:
 				</div>
 				<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
 					<telerik:RadTextBox ID="rtxtOtroComentario" runat="server" MaxLength="8000" TextMode="MultiLine" Rows="5" Columns="150" Width="95%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 					<telerik:RadButton ID="rbtnOtroGuardar" runat="server" CausesValidation="true" ValidationGroup="Otro" Text="Guardar Información" OnClick="rbtnOtroGuardar_Click" Font-Bold="True" Font-Names="Verdana">
@@ -1679,12 +1658,10 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
@@ -1722,7 +1699,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1776,12 +1752,10 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
@@ -1807,7 +1781,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="30%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1861,12 +1834,10 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
@@ -1892,7 +1863,6 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="30%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1924,7 +1894,6 @@
 					<p style="font-family: 'Avenir'; font-size: 10px; font-weight: 500">
 						Bacterióloga <span id="spUniversidad1">Bacteriologo Colegio Mayor de Cundinamarca</span>
 					</p>
-
 				</div>
 				<div class="col-lg-4 text-center">
 					<img src="../Resources/Logos/imgImpresion.jpg" class="logo-central" alt="Logo labratorio" />
@@ -2241,7 +2210,6 @@
 					<p style="font-family: 'Avenir'; font-size: 10px; font-weight: 500">
 						Bacteriologist <span id="spUniversidad1Eng"></span>
 					</p>
-
 				</div>
 				<div class="col-lg-4 text-center">
 					<img src="../Resources/Logos/imgImpresion.jpg" class="logo-central" alt="Logo labratorio" />
@@ -2687,7 +2655,6 @@
 				e.set_cancel(true);
 			}
 		}
-
 	</script>
 	<script id="scrShowSendMail" type="text/javascript">
 		//No se si esta funcion se esta Llamando
@@ -2726,7 +2693,7 @@
 			body.appendChild(ficha);
 			var entireText = head.outerHTML + body.outerHTML;
 
-			hf.value = entireText.replace(/</g, "___|").replace(/>/g, "|___");
+			hf.value = entireText.replace(/</g, "___|").replace( />/g, "|___");
 			console.log("El resultado");
 			console.log(hf.value);
 			btn.click();
@@ -2763,7 +2730,6 @@
 			var objReturn = divSelExamenesObj(checks);
 			return objReturn;
 		}
-
 
 		function updateLayout(sender, e)
 		{
@@ -2952,7 +2918,6 @@
 				removeChildren("uroanalisis");
 			}
 
-
 			//verificacion VIH
 			if (document.getElementById("<%=this.rblEstadoVih.ClientID %>") != undefined)
 			{
@@ -3088,7 +3053,6 @@
 				removeChildren("hepatitisC");
 			}
 
-
 			//verificacion Cuadro hemático
 			if (document.getElementById("<%=this.rblEstadoCH.ClientID %>") != undefined)
 			{
@@ -3120,7 +3084,6 @@
 				removeChildren("cuadroHematico");
 			}
 
-
 			//verificacion Creatinina
 			if (document.getElementById("<%=this.rblEstadoCreat.ClientID %>") != undefined)
 			{
@@ -3151,7 +3114,6 @@
 				removeChildren("creatinina");
 			}
 
-
 			//verificacion Hemoglobina Glicosilada
 			if (document.getElementById("<%=this.rblEstadoHemGli.ClientID %>") != undefined)
 			{
@@ -3181,17 +3143,16 @@
 				removeChildren("hemGlic");
 			}
 
-
-			if (document.getElementById("<%=this.rblEstadoOtro.ClientID %>") != undefined) 
+			if (document.getElementById("<%=this.rblEstadoOtro.ClientID %>") != undefined)
 			{
-				if (checks.OEx == true) 
+				if (checks.OEx == true)
 				{
 					var check = document.getElementById("<%=this.rblEstadoOtro.ClientID %>").id;
 					check = check + '_0';
 
 					bit = document.getElementById(check).checked;
 
-					if (bit == false) 
+					if (bit == false)
 					{
 						document.getElementById('pDescrOtro').innerHTML = document.getElementById("<%=this.rtxtOtroDesc.ClientID%>").value;
 						document.getElementById('spValorResultadoOtroExamen').innerHTML = document.getElementById("<%=this.rtxtOtroResultado.ClientID%>").value;
@@ -3200,22 +3161,20 @@
 						document.getElementById('spValorResultadoOtroExamenEng').innerHTML = document.getElementById("<%=this.rtxtOtroResultado.ClientID%>").value;
 						document.getElementById('pComentarioOtrosExamenesEng').innerHTML = document.getElementById("<%=this.rtxtOtroComentario.ClientID%>").value;
 					}
-					else 
+					else
 					{
 						message = message + '\n Aun no se ha tomado la muestra programada de Otros Examenes'
 					}
 				}
-				else 
+				else
 				{
 					removeChildren("otrExam");
 				}
 			}
-			else 
+			else
 			{
 				removeChildren("otrExam");
 			}
-
-
 
 			if (message.length > 0)
 			{
@@ -3225,7 +3184,6 @@
 
 				e._cancel = true;
 			}
-
 
 			//Verificacion de examenes de suero
 			if (!checks.VIH && !checks.CHm && !checks.Crt && !checks.HmG && !checks.HpB && !checks.HpC && !checks.Ser && !checks.OEx)
@@ -3238,7 +3196,7 @@
 			subModal.className = "impresion";
 
 			var copyLayout = document.getElementById("examsLayout").cloneNode(true);
-			
+
 			copyLayout.className = 'collapse';
 			copyLayout.id = "printable";
 			subModal.appendChild(copyLayout);
@@ -3272,7 +3230,6 @@
 			btnSendMail.className = "botonesVPE btnCerrarVP";
 			btnSendMail.addEventListener("click", MostrarEnvio);
 
-
 			contButton.appendChild(btnPrint);
 			contButton.appendChild(btnSendMail);
 
@@ -3290,8 +3247,6 @@
 
 			return false;
 		}
-
-
 	</script>
 
 	<script type="text/javascript">
@@ -3318,7 +3273,6 @@
 				div1.style.display = "none";
 			}
 		}
-
 
 		function rcbxCreatinina_SelIndChang(sender, eventArgs)
 		{

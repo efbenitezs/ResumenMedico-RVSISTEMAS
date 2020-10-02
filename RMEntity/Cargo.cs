@@ -6,14 +6,14 @@
 
 namespace RMEntity
 {
-  public class Cargo : BaseEntityAdmin
-  {
-    private string nombreCargo = string.Empty;
+	public class Cargo : BaseEntityAdmin
+	{
+		private string nombreCargo = string.Empty;
 
-    public string NombreCargo
-    {
-      get => this.nombreCargo;
-      set => this.nombreCargo = value;
-    }
-  }
+		public string NombreCargo
+		{
+			get => this.nombreCargo;
+			set => this.nombreCargo = value;
+		}
+	}
 }

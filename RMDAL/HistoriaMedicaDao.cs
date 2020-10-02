@@ -540,12 +540,14 @@ namespace RMDAL
 					this.instance.ExecuteNonQuery(storedProcCommand);
 					flag = true;
 				}
-				catch (Exception ex)
+				catch 
 				{
+					throw;
 				}
 			}
-			catch (Exception ex)
+			catch 
 			{
+				throw;
 			}
 			return flag;
 		}

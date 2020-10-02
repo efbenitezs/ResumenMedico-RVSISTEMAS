@@ -14,46 +14,46 @@
 			Fecha inicial del reporte:
 		</div>
 		<div class="">
-			<telerik:RadDatePicker ID="FechaInicial" runat="server" />
+			<telerik:raddatepicker id="FechaInicial" runat="server" />
 		</div>
 		<div class="">
 			Fecha final del reporte:
 		</div>
 		<div class="">
-			<telerik:RadDatePicker ID="FechaFinal" runat="server" />
+			<telerik:raddatepicker id="FechaFinal" runat="server" />
 		</div>
 		<div class="">
-			<telerik:RadButton runat="server" ID="btnConsultar" Text="Consultar" OnClick="btnConsultar_Click" />
+			<telerik:radbutton runat="server" id="btnConsultar" text="Consultar" onclick="btnConsultar_Click" />
 		</div>
 	</div>
 	<div id="contenedorReporte">
-		<telerik:ReportViewer ID="examenesXFechas" runat="server" Height="1250px" ProgressText="Obteniendo informacion de reporte..."
-			ViewMode="PrintPreview" Width="100%">
-			<Resources CurrentPageToolTip="Pagina actual" 
-				DocumentMapToolTip="Ocultar mapa de documento" ExportButtonText="Exportar" 
-				ExportSelectFormatText="Seleccionar formato para exportar" 
-				ExportToolTip="Exportar" FirstPageToolTip="Primera página" LabelOf="de" 
-				LastPageToolTip="Ultima página" 
-				MissingReportSource="No hya una fuente especificada para el reporte" 
-				NavigateBackToolTip="Atras" NavigateForwardToolTip="Adelante" 
-				NextPageToolTip="Página siguiente" NoPageToDisplay="No hay página para mostrar" 
-				ParametersToolTip="Ocultar área de parametros|mostrar area de parametros" 
-				PreviousPageToolTip="Página anterior" PrintToolTip="Imprimir" 
-				ProcessingReportMessage="Generando reporte" RefreshToolTip="Actualizar" 
-				ReportParametersFalseValueLabel="Falso" 
-				ReportParametersInputDataError="Parametros invalidos o ausentes" 
-				ReportParametersInvalidValueText="Valor invalido" 
-				ReportParametersNoValueText="Valor requerido" 
-				ReportParametersNullText="[Vacío]" 
-				ReportParametersPreviewButtonText="Vista preliminar" 
-				ReportParametersSelectAllText="&lt;Seleccionar todos&gt;" 
-				ReportParametersSelectAValueText="&lt;Seleccione un valor&gt;" 
-				ReportParametersTrueValueLabel="Verdadero" 
-				SessionHasExpiredError="La sesion ha caducado" 
-				SessionHasExpiredMessage="Por favor, actualice la pagina o presione F5" 
-				TogglePageLayoutToolTip="Cambiar a vista interactiva|Cambiar a vista de impresion" 
+		<telerik:reportviewer id="examenesXFechas" runat="server" height="1250px" progresstext="Obteniendo informacion de reporte..."
+			viewmode="PrintPreview" width="100%">
+			<Resources CurrentPageToolTip="Pagina actual"
+				DocumentMapToolTip="Ocultar mapa de documento" ExportButtonText="Exportar"
+				ExportSelectFormatText="Seleccionar formato para exportar"
+				ExportToolTip="Exportar" FirstPageToolTip="Primera página" LabelOf="de"
+				LastPageToolTip="Ultima página"
+				MissingReportSource="No hya una fuente especificada para el reporte"
+				NavigateBackToolTip="Atras" NavigateForwardToolTip="Adelante"
+				NextPageToolTip="Página siguiente" NoPageToDisplay="No hay página para mostrar"
+				ParametersToolTip="Ocultar área de parametros|mostrar area de parametros"
+				PreviousPageToolTip="Página anterior" PrintToolTip="Imprimir"
+				ProcessingReportMessage="Generando reporte" RefreshToolTip="Actualizar"
+				ReportParametersFalseValueLabel="Falso"
+				ReportParametersInputDataError="Parametros invalidos o ausentes"
+				ReportParametersInvalidValueText="Valor invalido"
+				ReportParametersNoValueText="Valor requerido"
+				ReportParametersNullText="[Vacío]"
+				ReportParametersPreviewButtonText="Vista preliminar"
+				ReportParametersSelectAllText="&lt;Seleccionar todos&gt;"
+				ReportParametersSelectAValueText="&lt;Seleccione un valor&gt;"
+				ReportParametersTrueValueLabel="Verdadero"
+				SessionHasExpiredError="La sesion ha caducado"
+				SessionHasExpiredMessage="Por favor, actualice la pagina o presione F5"
+				TogglePageLayoutToolTip="Cambiar a vista interactiva|Cambiar a vista de impresion"
 				ZoomToPageWidth="Ancho de la pagina" ZoomToWholePage="Pagina completa">
 			</Resources>
-		</telerik:ReportViewer>
+		</telerik:reportviewer>
 	</div>
 </asp:Content>

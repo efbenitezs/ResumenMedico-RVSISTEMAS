@@ -4,31 +4,31 @@
 // MVID: BA8C66A3-8A06-4F3F-AEA9-08BB88600DCC
 // Assembly location: C:\Users\Personal\source\RMDAL.dll
 
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace RMDAL
 {
-  public abstract class BaseConnection
-  {
-    protected Database instance;
-    protected string error = string.Empty;
+	public abstract class BaseConnection
+	{
+		protected Database instance;
+		protected string error = string.Empty;
 
-    public string Error => this.error;
+		public string Error => this.error;
 
-    protected Database ObtainInstance()
-    {
-      this.instance = DatabaseFactory.CreateDatabase("rmConn");
-      return this.instance;
-    }
+		protected Database ObtainInstance()
+		{
+			this.instance = DatabaseFactory.CreateDatabase("rmConn");
+			return this.instance;
+		}
 
-    protected static Database ObtainInstanceStatic() => DatabaseFactory.CreateDatabase("rmConn");
+		protected static Database ObtainInstanceStatic() => DatabaseFactory.CreateDatabase("rmConn");
 
-    public static DbTransaction GetTransaction()
-    {
-      DbConnection connection = DatabaseFactory.CreateDatabase("rmConn").CreateConnection();
-      connection.Open();
-      return connection.BeginTransaction();
-    }
-  }
+		public static DbTransaction GetTransaction()
+		{
+			DbConnection connection = DatabaseFactory.CreateDatabase("rmConn").CreateConnection();
+			connection.Open();
+			return connection.BeginTransaction();
+		}
+	}
 }

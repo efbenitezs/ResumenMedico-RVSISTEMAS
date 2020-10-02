@@ -11,25 +11,34 @@ namespace ResumenMedico.Consultorio
 {
 
 
-    public partial class Consultorio
-    {
+	public partial class Consultorio
+	{
 
-        /// <summary>
-        /// cphHeadMaster control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphHeadMaster;
+		/// <summary>
+		/// cphHeadMaster control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.ContentPlaceHolder cphHeadMaster;
 
-        /// <summary>
-        /// cphBodyMaster control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphBodyMaster;
-    }
+		/// <summary>
+		/// lbRegList control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton lbRegList;
+
+		/// <summary>
+		/// cphBodyMaster control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.ContentPlaceHolder cphBodyMaster;
+	}
 }

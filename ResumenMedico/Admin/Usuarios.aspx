@@ -1,274 +1,272 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Usuarios.aspx.cs" Inherits="ResumenMedico.Admin.Usuarios" %>
+	CodeBehind="Usuarios.aspx.cs" Inherits="ResumenMedico.Admin.Usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" ClientIDMode="Static">
-    <div class="titulo">
-        Administración de Usuarios
-    </div>
-    <div>
-        <telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
-            <ClientEvents OnResponseEnd="TelerikAjaxResponseEnd" />
-            <AjaxSettings>
+	<div class="titulo">
+		Administración de Usuarios
+	</div>
+	<div>
+		<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
+			<ClientEvents OnResponseEnd="TelerikAjaxResponseEnd" />
+			<AjaxSettings>
 
-                <telerik:AjaxSetting AjaxControlID="gvUsuarios">
-                    <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="gvUsuarios" LoadingPanelID="ralpImage" />
-                    </UpdatedControls>
-                    <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="emailValidator" />
-                    </UpdatedControls>
-                    <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="erroresCarga" />
-                    </UpdatedControls>
-                </telerik:AjaxSetting>
-            </AjaxSettings>
-        </telerik:RadAjaxManager>
+				<telerik:AjaxSetting AjaxControlID="gvUsuarios">
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="gvUsuarios" LoadingPanelID="ralpImage" />
+					</UpdatedControls>
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="emailValidator" />
+					</UpdatedControls>
+					<UpdatedControls>
+						<telerik:AjaxUpdatedControl ControlID="erroresCarga" />
+					</UpdatedControls>
+				</telerik:AjaxSetting>
+			</AjaxSettings>
+		</telerik:RadAjaxManager>
 
-        <telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" BackgroundPosition="Center" HorizontalAlign="Center"></telerik:RadAjaxLoadingPanel>
+		<telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" BackgroundPosition="Center" HorizontalAlign="Center"></telerik:RadAjaxLoadingPanel>
 
-        <div class="ocultos">
+		<div class="ocultos">
 
-            <telerik:RadTextBox ID="erroresCarga" ClientIDMode="Static" runat="server" onchange="mostrar(this)"></telerik:RadTextBox>
+			<telerik:RadTextBox ID="erroresCarga" ClientIDMode="Static" runat="server" onchange="mostrar(this)"></telerik:RadTextBox>
 
-            <telerik:RadTextBox ID="tbxhidden" ClientIDMode="Static" runat="server" onchange="detectar(this)"></telerik:RadTextBox>
+			<telerik:RadTextBox ID="tbxhidden" ClientIDMode="Static" runat="server" onchange="detectar(this)"></telerik:RadTextBox>
 
-            <asp:RegularExpressionValidator ID="emailValidator" runat="server" Display="Dynamic" ErrorMessage="Hay errores en los datos que quiere enviar"
-                ValidationExpression="Correcto" ControlToValidate="tbxhidden">
-            </asp:RegularExpressionValidator>
-        </div>
+			<asp:RegularExpressionValidator ID="emailValidator" runat="server" Display="Dynamic" ErrorMessage="Hay errores en los datos que quiere enviar"
+				ValidationExpression="Correcto" ControlToValidate="tbxhidden">
+			</asp:RegularExpressionValidator>
+		</div>
 
-        <telerik:RadGrid ID="gvUsuarios" runat="server" Culture="es-CO" AutoGenerateColumns="False" AllowSorting="True" PageSize="15"
-            OnNeedDataSource="gvUsuarios_NeedDataSource" OnDeleteCommand="gvUsuarios_DeleteCommand"
-            OnInsertCommand="gvUsuarios_InsertCommand" OnUpdateCommand="gvUsuarios_UpdateCommand"
-            OnItemDataBound="gvUsuarios_ItemDataBound" CellSpacing="-1" GridLines="Both"
-            GroupPanelPosition="Top" ResolvedRenderMode="Classic" AllowPaging="True" Font-Names="Verdana" Font-Size="12px" Font-Bold="True">
+		<telerik:RadGrid ID="gvUsuarios" runat="server" Culture="es-CO" AutoGenerateColumns="False" AllowSorting="True" PageSize="15"
+			OnNeedDataSource="gvUsuarios_NeedDataSource" OnDeleteCommand="gvUsuarios_DeleteCommand"
+			OnInsertCommand="gvUsuarios_InsertCommand" OnUpdateCommand="gvUsuarios_UpdateCommand"
+			OnItemDataBound="gvUsuarios_ItemDataBound" CellSpacing="-1" GridLines="Both"
+			GroupPanelPosition="Top" ResolvedRenderMode="Classic" AllowPaging="True" Font-Names="Verdana" Font-Size="12px" Font-Bold="True">
 
-            <ValidationSettings CommandsToValidate="PerformInsert,Update" ValidationGroup="Usuarios" />
+			<ValidationSettings CommandsToValidate="PerformInsert,Update" ValidationGroup="Usuarios" />
 
-            <PagerStyle AlwaysVisible="true" />
+			<PagerStyle AlwaysVisible="true" />
 
-            <ClientSettings>
-                <Scrolling UseStaticHeaders="true" />
-            </ClientSettings>
+			<ClientSettings>
+				<Scrolling UseStaticHeaders="true" />
+			</ClientSettings>
 
-            <MasterTableView CommandItemDisplay="Top" DataKeyNames="ID">
+			<MasterTableView CommandItemDisplay="Top" DataKeyNames="ID">
 
-                <CommandItemSettings AddNewRecordText="Agregar Nuevo Usuario" ShowRefreshButton="false" />
+				<CommandItemSettings AddNewRecordText="Agregar Nuevo Usuario" ShowRefreshButton="false" />
 
-                <Columns>
-                    <telerik:GridButtonColumn UniqueName="EditColumn" ButtonType="ImageButton" CommandName="Edit"></telerik:GridButtonColumn>
+				<Columns>
+					<telerik:GridButtonColumn UniqueName="EditColumn" ButtonType="ImageButton" CommandName="Edit"></telerik:GridButtonColumn>
 
-                    <telerik:GridBoundColumn UniqueName="Nombres" HeaderText="Nombres Usuario" DataField="NOMBRES">
-                    </telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="Apellidos" HeaderText="Apellidos Usuario" DataField="APELLIDOS">
-                    </telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="Cuenta" HeaderText="Cuenta de usuario" DataField="CUENTA">
-                    </telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="Cargo" HeaderText="Cargo Usuario" DataField="NOMBRE_CARGO">
-                    </telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="Perfil" HeaderText="Perfil Usuario" DataField="PERFIL">
-                    </telerik:GridBoundColumn>
-                    <telerik:GridCheckBoxColumn UniqueName="FinalizaHistoria" HeaderText="Finaliza Historias" DataField="FINALIZA_HISTORIA">
+					<telerik:GridBoundColumn UniqueName="Nombres" HeaderText="Nombres Usuario" DataField="NOMBRES">
+					</telerik:GridBoundColumn>
+					<telerik:GridBoundColumn UniqueName="Apellidos" HeaderText="Apellidos Usuario" DataField="APELLIDOS">
+					</telerik:GridBoundColumn>
+					<telerik:GridBoundColumn UniqueName="Cuenta" HeaderText="Cuenta de usuario" DataField="CUENTA">
+					</telerik:GridBoundColumn>
+					<telerik:GridBoundColumn UniqueName="Cargo" HeaderText="Cargo Usuario" DataField="NOMBRE_CARGO">
+					</telerik:GridBoundColumn>
+					<telerik:GridBoundColumn UniqueName="Perfil" HeaderText="Perfil Usuario" DataField="PERFIL">
+					</telerik:GridBoundColumn>
+					<telerik:GridCheckBoxColumn UniqueName="FinalizaHistoria" HeaderText="Finaliza Historias" DataField="FINALIZA_HISTORIA">
 						<HeaderStyle Width="123px" />
 					</telerik:GridCheckBoxColumn>
-                    <telerik:GridCheckBoxColumn UniqueName="Administrador" HeaderText="Es Administrador?" DataField="ADMINISTRADOR">
+					<telerik:GridCheckBoxColumn UniqueName="Administrador" HeaderText="Es Administrador?" DataField="ADMINISTRADOR">
 						<HeaderStyle Width="123px" />
 					</telerik:GridCheckBoxColumn>
-                    <telerik:GridCheckBoxColumn UniqueName="Activo" HeaderText="Activo" DataField="ACTIVO">
+					<telerik:GridCheckBoxColumn UniqueName="Activo" HeaderText="Activo" DataField="ACTIVO">
 						<HeaderStyle Width="123px" />
 					</telerik:GridCheckBoxColumn>
-                </Columns>
-                <EditFormSettings EditFormType="Template">
-                    <FormTemplate>
-                        <div style="display: grid; padding: 10px;">
-                            <div class="text-center">
-                                <h3>Detalles de Usuario</h3>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Nombres:</div>
-                                        <div>
-                                            <telerik:RadTextBox ID="tbxNombres" runat="server" TabIndex="1"
-                                                Text='<%# Bind("NOMBRES")%>' Width="100%">
-                                            </telerik:RadTextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Apellidos:</div>
-                                        <div>
-                                            <telerik:RadTextBox ID="tbxApellidos" runat="server" TabIndex="2"
-                                                Text='<%# Bind("APELLIDOS")%>' Width="100%">
-                                            </telerik:RadTextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Cuenta:</div>
-                                        <div>
-                                            <telerik:RadTextBox ID="tbxCuenta" runat="server" TabIndex="3"
-                                                Text='<%# Bind("CUENTA")%>' Width="100%">
-                                            </telerik:RadTextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Cambiar Password:</div>
-                                        <div>
-                                            <asp:CheckBox ID="chkChangePass" Checked="false" runat="server" CssClass="chBx" onclick="ShowHidePasswordChange(this)" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8 col-md-8 col-lg-8 collapse" id="passContainner">
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <div class="form-group">
-                                            <div class="label">Ingrese contraseña:</div>
-                                            <div>
-                                                <telerik:RadTextBox ID="tbxPassword12" runat="server" TextMode="Password"
-                                                    TabIndex="4" ClientEvents-OnBlur="chkPwd" Width="100%">
-                                                </telerik:RadTextBox>
-                                                <span id="RFVPassword1" style="display: inline;">*
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <div class="form-group">
-                                            <div class="label">Confirme contraseña:</div>
-                                            <div>
-                                                <telerik:RadTextBox ID="tbxPassword22" runat="server" TextMode="Password"
-                                                    TabIndex="5" ClientEvents-OnBlur="chkPwd" Width="100%">
-                                                </telerik:RadTextBox>
-                                                <span id="RFVPassword2" style="display: inline;">*
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Perfil:</div>
-                                        <div>
-                                            <telerik:RadComboBox ID="rcbPerfil" runat="server" TabIndex="7"
-                                                Width="100%" OnClientDropDownClosed="ShowHideSignPanel">
-                                            </telerik:RadComboBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Cargo:</div>
-                                        <div>
-                                            <telerik:RadComboBox ID="rcbCargo" runat="server" TabIndex="6" DataSourceID="odsCargo"
-                                                DataTextField="NOMBRE_CARGO" DataValueField="ID" SelectedValue='<%# Bind("ID_CARGO") %>'
-                                                Width="100%">
-                                            </telerik:RadComboBox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 collapse" id="panelFirmaContainner">
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Registro profesional:</div>
-                                        <div>
-                                            <telerik:RadTextBox ID="tbxRegistroProfesional" runat="server" Width="100%">
-                                            </telerik:RadTextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Correo electrónico:</div>
-                                        <div>
-                                            <telerik:RadTextBox ID="tbxCorreoElectronico" runat="server" Width="100%">
-                                            </telerik:RadTextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Universidad:</div>
-                                        <div>
-                                            <telerik:RadTextBox ID="tbxUniversidad" runat="server" Width="100%">
-                                            </telerik:RadTextBox>
-                                        </div>
-                                    </div>
-                                </div>
+				</Columns>
+				<EditFormSettings EditFormType="Template">
+					<FormTemplate>
+						<div style="display: grid; padding: 10px;">
+							<div class="text-center">
+								<h3>Detalles de Usuario</h3>
+							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12">
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Nombres:</div>
+										<div>
+											<telerik:RadTextBox ID="tbxNombres" runat="server" TabIndex="1"
+												Text='<%# Bind("NOMBRES")%>' Width="100%">
+											</telerik:RadTextBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Apellidos:</div>
+										<div>
+											<telerik:RadTextBox ID="tbxApellidos" runat="server" TabIndex="2"
+												Text='<%# Bind("APELLIDOS")%>' Width="100%">
+											</telerik:RadTextBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Cuenta:</div>
+										<div>
+											<telerik:RadTextBox ID="tbxCuenta" runat="server" TabIndex="3"
+												Text='<%# Bind("CUENTA")%>' Width="100%">
+											</telerik:RadTextBox>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12">
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Cambiar Password:</div>
+										<div>
+											<asp:CheckBox ID="chkChangePass" Checked="false" runat="server" CssClass="chBx" onclick="ShowHidePasswordChange(this)" />
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-8 col-md-8 col-lg-8 collapse" id="passContainner">
+									<div class="col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<div class="label">Ingrese contraseña:</div>
+											<div>
+												<telerik:RadTextBox ID="tbxPassword12" runat="server" TextMode="Password"
+													TabIndex="4" ClientEvents-OnBlur="chkPwd" Width="100%">
+												</telerik:RadTextBox>
+												<span id="RFVPassword1" style="display: inline;">*
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<div class="label">Confirme contraseña:</div>
+											<div>
+												<telerik:RadTextBox ID="tbxPassword22" runat="server" TextMode="Password"
+													TabIndex="5" ClientEvents-OnBlur="chkPwd" Width="100%">
+												</telerik:RadTextBox>
+												<span id="RFVPassword2" style="display: inline;">*
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12">
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Perfil:</div>
+										<div>
+											<telerik:RadComboBox ID="rcbPerfil" runat="server" TabIndex="7"
+												Width="100%" OnClientDropDownClosed="ShowHideSignPanel">
+											</telerik:RadComboBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Cargo:</div>
+										<div>
+											<telerik:RadComboBox ID="rcbCargo" runat="server" TabIndex="6" DataSourceID="odsCargo"
+												DataTextField="NOMBRE_CARGO" DataValueField="ID" SelectedValue='<%# Bind("ID_CARGO") %>'
+												Width="100%">
+											</telerik:RadComboBox>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12 collapse" id="panelFirmaContainner">
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Registro profesional:</div>
+										<div>
+											<telerik:RadTextBox ID="tbxRegistroProfesional" runat="server" Width="100%">
+											</telerik:RadTextBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Correo electrónico:</div>
+										<div>
+											<telerik:RadTextBox ID="tbxCorreoElectronico" runat="server" Width="100%">
+											</telerik:RadTextBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Universidad:</div>
+										<div>
+											<telerik:RadTextBox ID="tbxUniversidad" runat="server" Width="100%">
+											</telerik:RadTextBox>
+										</div>
+									</div>
+								</div>
 
-
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <div class="form-group">
-                                        <div class="label">Firma</div>
-                                        <div>
-                                            <canvas id="cnv" name="cnv" width="448" height="106" style="border-style: outset; border-width: 3px;"></canvas>
-                                            <asp:HiddenField ID="hidBase64ImageData" runat="server" />
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Finaliza Historias:</div>
-                                        <div>
-                                            <asp:CheckBox ID="chkFinHis" runat="server" TabIndex="8" Checked='<%# (Container is GridEditFormInsertItem)? false : Eval("FINALIZA_HISTORIA") %>' CssClass="chBx"></asp:CheckBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Es administrador:</div>
-                                        <div>
-                                            <asp:CheckBox ID="chkAdmin" runat="server" TabIndex="9" Checked='<%# (Container is GridEditFormInsertItem)? false : Eval("ADMINISTRADOR") %>' CssClass="chBx"></asp:CheckBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <div class="label">Activo:</div>
-                                        <div>
-                                            <asp:CheckBox ID="chkbxActivo" runat="server" TabIndex="10" Checked='<%# (Container is GridEditFormInsertItem)? false : Eval("ACTIVO") %>' CssClass="chBx"></asp:CheckBox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <telerik:RadButton ID="btnUpdate" Text='<%# (Container is GridEditFormInsertItem) ? "Crear" : "Actualizar" %>' runat="server"
-                                        CommandName='<%# (Container is GridEditFormInsertItem) ? "PerformInsert" : "Update" %>'
-                                        OnClientClicking="ValidateUser">
-                                    </telerik:RadButton>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <telerik:RadButton ID="rbtnCancel" runat="server" CausesValidation="false" CommandName="Cancel" Text="Cancelar"></telerik:RadButton>
-                                </div>
-                            </div>
-                        </div>
-                    </FormTemplate>
-                </EditFormSettings>
-            </MasterTableView>
-        </telerik:RadGrid>
-        <asp:ObjectDataSource ID="odsCargo" runat="server" SelectMethod="GetList" TypeName="RMBLL.CargoBll">
-            <SelectParameters>
-                <asp:Parameter Name="nombreCargo" Type="String" DefaultValue="" />
-                <asp:Parameter Name="activo" Type="Boolean" DefaultValue="true" />
-                <asp:Parameter Name="showAllActivo" Type="Boolean" DefaultValue="false" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
-    </div>
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="form-group">
+										<div class="label">Firma</div>
+										<div>
+											<canvas id="cnv" name="cnv" width="448" height="106" style="border-style: outset; border-width: 3px;"></canvas>
+											<asp:HiddenField ID="hidBase64ImageData" runat="server" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Finaliza Historias:</div>
+										<div>
+											<asp:CheckBox ID="chkFinHis" runat="server" TabIndex="8" Checked='<%# (Container is GridEditFormInsertItem)? false : Eval("FINALIZA_HISTORIA") %>' CssClass="chBx"></asp:CheckBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Es administrador:</div>
+										<div>
+											<asp:CheckBox ID="chkAdmin" runat="server" TabIndex="9" Checked='<%# (Container is GridEditFormInsertItem)? false : Eval("ADMINISTRADOR") %>' CssClass="chBx"></asp:CheckBox>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<div class="form-group">
+										<div class="label">Activo:</div>
+										<div>
+											<asp:CheckBox ID="chkbxActivo" runat="server" TabIndex="10" Checked='<%# (Container is GridEditFormInsertItem)? false : Eval("ACTIVO") %>' CssClass="chBx"></asp:CheckBox>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<telerik:RadButton ID="btnUpdate" Text='<%# (Container is GridEditFormInsertItem) ? "Crear" : "Actualizar" %>' runat="server"
+										CommandName='<%# (Container is GridEditFormInsertItem) ? "PerformInsert" : "Update" %>'
+										OnClientClicking="ValidateUser">
+									</telerik:RadButton>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<telerik:RadButton ID="rbtnCancel" runat="server" CausesValidation="false" CommandName="Cancel" Text="Cancelar"></telerik:RadButton>
+								</div>
+							</div>
+						</div>
+					</FormTemplate>
+				</EditFormSettings>
+			</MasterTableView>
+		</telerik:RadGrid>
+		<asp:ObjectDataSource ID="odsCargo" runat="server" SelectMethod="GetList" TypeName="RMBLL.CargoBll">
+			<SelectParameters>
+				<asp:Parameter Name="nombreCargo" Type="String" DefaultValue="" />
+				<asp:Parameter Name="activo" Type="Boolean" DefaultValue="true" />
+				<asp:Parameter Name="showAllActivo" Type="Boolean" DefaultValue="false" />
+			</SelectParameters>
+		</asp:ObjectDataSource>
+	</div>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="PageScriptsHolder" runat="server">
-    <script type="text/javascript">
+	<script type="text/javascript">
         var grid;
 
         $(document).ready(function () {
@@ -438,7 +436,5 @@
             }
 
         }
-    </script>
-
-
+	</script>
 </asp:Content>

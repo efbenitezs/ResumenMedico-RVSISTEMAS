@@ -6,14 +6,14 @@
 
 namespace RMEntity
 {
-  public abstract class BaseEntityAdmin : BaseEntity
-  {
-    private bool activo;
+	public abstract class BaseEntityAdmin : BaseEntity
+	{
+		private bool activo;
 
-    public bool Activo
-    {
-      get => this.activo;
-      set => this.activo = value;
-    }
-  }
+		public bool Activo
+		{
+			get => this.activo;
+			set => this.activo = value;
+		}
+	}
 }

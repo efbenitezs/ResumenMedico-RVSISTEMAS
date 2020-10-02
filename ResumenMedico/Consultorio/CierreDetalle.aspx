@@ -25,7 +25,7 @@
 	<div class="ocultos">
 		<asp:ValidationSummary ID="vsErrors" runat="server" ValidationGroup="Paciente" ShowMessageBox="true"
 			ShowSummary="false" DisplayMode="BulletList" HeaderText="Al validar la informacion se han detectado los siguientes inconvenientes:" />
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Cierre" ShowMessageBox="true"
+		<asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Cierre" ShowMessageBox="true"
 			ShowSummary="false" DisplayMode="BulletList" HeaderText="Al validar la informacion se han detectado los siguientes inconvenientes:" />
 	</div>
 	<div class="row">
@@ -406,7 +406,6 @@
 									<ItemStyle Width="40%" />
 									<HeaderStyle Width="40%" />
 								</telerik:GridBoundColumn>
-
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -625,6 +624,5 @@
 			$(divName).toggleClass('in');
 
 		}
-
 	</script>
 </asp:Content>

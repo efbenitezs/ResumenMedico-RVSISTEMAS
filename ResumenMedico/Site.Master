@@ -11,7 +11,7 @@
 		<link href="<%=ResolveUrl("~/")%>Content/bootstrap.css" rel="stylesheet" />
 		<link href="<%=ResolveUrl("~/")%>Content/Site.css" rel="stylesheet" />
 	</telerik:RadCodeBlock>
-	
+
 	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
 	</asp:ContentPlaceHolder>
 	<telerik:RadCodeBlock runat="server">
@@ -26,10 +26,9 @@
 			<div id="modal"></div>
 			<div class="row header">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="display: flex; align-items: center;">
-						<a href="<%=ResolveUrl("~/")%>Inicio.aspx">
-							<img src="<%=ResolveUrl("~/")%>Resources/logo.png" class="img-responsive" alt="IMMIMED" />
-						</a>
-
+					<a href="<%=ResolveUrl("~/")%>Inicio.aspx">
+						<img src="<%=ResolveUrl("~/")%>Resources/logo.png" class="img-responsive" alt="IMMIMED" />
+					</a>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="display: flex; align-items: center; justify-content: center;">
 					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
@@ -38,7 +37,6 @@
 							<telerik:RadCodeBlock runat="server">
 								<%=this.NameUserCurrent%>
 							</telerik:RadCodeBlock>
-						        
 						</div>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tex_cuenta" style="text-align: right;">
 							<asp:LinkButton ID="lnkCerrarSesion" runat="server" Text="Cerrar Sesión" Style="text-decoration: none; color: #666666;"
@@ -79,7 +77,8 @@
 			</div>
 		</form>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pie_pagina">
-			*Copyright © 2020 Colombia. Desarrollado por <a href="http://www.rvsistemas.com" target="_blank">RV SISTEMAS</a>. <asp:label ID="lblVersion" runat="server"></asp:label>
+			*Copyright © 2020 Colombia. Desarrollado por <a href="http://www.rvsistemas.com" target="_blank">RV SISTEMAS</a>.
+			<asp:Label ID="lblVersion" runat="server"></asp:Label>
 		</div>
 	</div>
 	<telerik:RadCodeBlock runat="server">
@@ -103,7 +102,6 @@
 				});
 			}
 		);
-
 	</script>
 </body>
 </html>

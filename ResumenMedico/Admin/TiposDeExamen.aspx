@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="TiposDeExamen.aspx.cs" Inherits="ResumenMedico.Admin.TiposDeExamen" %>
+	CodeBehind="TiposDeExamen.aspx.cs" Inherits="ResumenMedico.Admin.TiposDeExamen" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -52,7 +52,7 @@
 					<telerik:GridButtonColumn UniqueName="EditColumn" ButtonType="ImageButton" CommandName="Edit">
 					</telerik:GridButtonColumn>
 					<telerik:GridBoundColumn UniqueName="NombreExamen" HeaderText="Nombre Examen" SortExpression="NombreExamen"
-						DataField="NOMBRE" >
+						DataField="NOMBRE">
 						<ColumnValidationSettings EnableRequiredFieldValidation="true">
 							<RequiredFieldValidator ValidationGroup="TiposExamen"></RequiredFieldValidator>
 						</ColumnValidationSettings>
@@ -84,7 +84,7 @@
 			/*alert( arrgl );
 			alert( texto );*/
 			var hid2 = document.getElementById( "erroresCarga" );
-			
+
 			var longitud = ( hid2.value ).length;
 			if ( longitud > 0 )
 			{
@@ -92,7 +92,5 @@
 				hid2.value = "";
 			}
 		}
-
-        
 	</script>
 </asp:Content>

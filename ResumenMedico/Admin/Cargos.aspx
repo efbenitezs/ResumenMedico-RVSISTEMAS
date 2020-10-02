@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Cargos.aspx.cs" Inherits="ResumenMedico.Admin.Cargos" %>
+	CodeBehind="Cargos.aspx.cs" Inherits="ResumenMedico.Admin.Cargos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="titulo">
-        Administración de Cargos
-    </div>
-    <div>
-        <telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
+	<div class="titulo">
+		Administración de Cargos
+	</div>
+	<div>
+		<telerik:radajaxmanager id="ram" runat="server" updatepanelsrendermode="Block">
             <ClientEvents OnResponseEnd="responseEnd" />
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="gvCargos">
@@ -19,23 +19,23 @@
                     </UpdatedControls>
                 </telerik:AjaxSetting>
             </AjaxSettings>
-        </telerik:RadAjaxManager>
-        <telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" BackgroundPosition="Center"
-            HorizontalAlign="Center">
-        </telerik:RadAjaxLoadingPanel>
-        <div class="ocultos">
-            <telerik:RadTextBox ID="erroresCarga" ClientIDMode="Static" runat="server" onchange="mostrar(this)">
-            </telerik:RadTextBox>
-            <telerik:RadTextBox ID="tbxhidden" ClientIDMode="Static" runat="server" onchange="detectar(this)">
-            </telerik:RadTextBox>
-            <asp:RegularExpressionValidator ID="Validator" runat="server" Display="Dynamic" ErrorMessage="Hay errores en los datos que quiere enviar"
-                ValidationExpression="Correcto" ControlToValidate="tbxhidden">
-            </asp:RegularExpressionValidator>
-        </div>
-        <telerik:RadGrid ID="gvCargos" runat="server" AutoGenerateColumns="false" AllowSorting="true"
-            OnNeedDataSource="gvCargos_NeedDataSource" OnDeleteCommand="gvCargos_DeleteCommand"
-            OnInsertCommand="gvCargos_InsertCommand" OnUpdateCommand="gvCargos_UpdateCommand"
-            PageSize="15" Font-Names="Verdana" Font-Size="12px" Font-Bold="True">
+        </telerik:radajaxmanager>
+		<telerik:radajaxloadingpanel id="ralpImage" runat="server" backgroundposition="Center"
+			horizontalalign="Center">
+        </telerik:radajaxloadingpanel>
+		<div class="ocultos">
+			<telerik:radtextbox id="erroresCarga" clientidmode="Static" runat="server" onchange="mostrar(this)">
+            </telerik:radtextbox>
+			<telerik:radtextbox id="tbxhidden" clientidmode="Static" runat="server" onchange="detectar(this)">
+            </telerik:radtextbox>
+			<asp:RegularExpressionValidator ID="Validator" runat="server" Display="Dynamic" ErrorMessage="Hay errores en los datos que quiere enviar"
+				ValidationExpression="Correcto" ControlToValidate="tbxhidden">
+			</asp:RegularExpressionValidator>
+		</div>
+		<telerik:radgrid id="gvCargos" runat="server" autogeneratecolumns="false" allowsorting="true"
+			onneeddatasource="gvCargos_NeedDataSource" ondeletecommand="gvCargos_DeleteCommand"
+			oninsertcommand="gvCargos_InsertCommand" onupdatecommand="gvCargos_UpdateCommand"
+			pagesize="15" font-names="Verdana" font-size="12px" font-bold="True">
 
             <ValidationSettings CommandsToValidate="PerformInsert,Update" ValidationGroup="Cargos" />
             <PagerStyle AlwaysVisible="true" />
@@ -43,7 +43,7 @@
                 <Scrolling UseStaticHeaders="true" />
             </ClientSettings>
             <GroupPanel Font-Names="Verdana" Font-Size="12px">
-                <PanelItemsStyle Font-Names="Verdana" Font-Size="12px"  />
+                <PanelItemsStyle Font-Names="Verdana" Font-Size="12px" />
             </GroupPanel>
             <MasterTableView CommandItemDisplay="Top" DataKeyNames="ID" EditItemStyle-CssClass="h2">
                 <CommandItemSettings AddNewRecordText="Agregar Nuevo Cargo" ShowRefreshButton="false" />
@@ -55,7 +55,7 @@
                     <telerik:GridButtonColumn UniqueName="EditColumn" ButtonType="ImageButton" CommandName="Edit">
                     </telerik:GridButtonColumn>
                     <telerik:GridBoundColumn UniqueName="NombreCargo" HeaderText="Nombre Cargo" SortExpression="NombreCargo"
-                        DataField="NOMBRE_CARGO" >
+                        DataField="NOMBRE_CARGO">
                         <ColumnValidationSettings EnableRequiredFieldValidation="true">
                             <RequiredFieldValidator ValidationGroup="Cargo"></RequiredFieldValidator>
                         </ColumnValidationSettings>
@@ -66,11 +66,11 @@
                 </Columns>
                 <PagerStyle AlwaysVisible="True"></PagerStyle>
             </MasterTableView>
-        </telerik:RadGrid>
-    </div>
+        </telerik:radgrid>
+	</div>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="PageScriptsHolder" runat="server">
-        <script type="text/javascript">
+	<script type="text/javascript">
             function responseEnd(sender, eventArgs) {
                 var origen = eventArgs.get_eventTarget();
                 var arbol = origen.split("$");
@@ -84,5 +84,5 @@
                     hid2.value = "";
                 }
             }
-        </script>
+	</script>
 </asp:Content>

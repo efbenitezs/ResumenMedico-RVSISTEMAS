@@ -4,12 +4,12 @@
 // MVID: 1F2C48D5-ED72-4974-B910-3403631DD6A0
 // Assembly location: C:\Users\Personal\source\RMBLL.dll
 
-using RMDAL;
-using RMEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using RMDAL;
+using RMEntity;
 
 namespace RMBLL
 {
@@ -159,21 +159,27 @@ namespace RMBLL
 					case 1:
 						str1 = "AND FECHA_INGRESO = '" + fechExmIni.ToString("yyyyMMdd") + "'";
 						break;
+
 					case 2:
 						str1 = "AND FECHA_INGRESO > '" + fechExmIni.ToString("yyyyMMdd") + "'";
 						break;
+
 					case 3:
 						str1 = "AND FECHA_INGRESO >= '" + fechExmIni.ToString("yyyyMMdd") + "'";
 						break;
+
 					case 4:
 						str1 = "AND FECHA_INGRESO < '" + fechExmIni.ToString("yyyyMMdd") + "'";
 						break;
+
 					case 5:
 						str1 = "AND FECHA_INGRESO <= '" + fechExmIni.ToString("yyyyMMdd") + "'";
 						break;
+
 					case 6:
 						str1 = "AND FECHA_INGRESO <> '" + fechExmIni.ToString("yyyyMMdd") + "'";
 						break;
+
 					case 7:
 						str1 = "AND (FECHA_INGRESO >= '" + fechExmIni.ToString("yyyyMMdd") + "' AND FECHA_INGRESO <= '" + fechExmFin.ToString("yyyyMMdd") + "')";
 						break;

@@ -6,28 +6,28 @@
 
 namespace RMEntity
 {
-  public class OrdenesHistoria : BaseEntity
-  {
-    private int idHistoria = int.MinValue;
-    private string descripcion = string.Empty;
-    private string medicoTratante = string.Empty;
+	public class OrdenesHistoria : BaseEntity
+	{
+		private int idHistoria = int.MinValue;
+		private string descripcion = string.Empty;
+		private string medicoTratante = string.Empty;
 
-    public int IdHistoria
-    {
-      get => this.idHistoria;
-      set => this.idHistoria = value;
-    }
+		public int IdHistoria
+		{
+			get => this.idHistoria;
+			set => this.idHistoria = value;
+		}
 
-    public string Descripcion
-    {
-      get => this.descripcion;
-      set => this.descripcion = value;
-    }
+		public string Descripcion
+		{
+			get => this.descripcion;
+			set => this.descripcion = value;
+		}
 
-    public string MedicoTratante
-    {
-      get => this.medicoTratante;
-      set => this.medicoTratante = value;
-    }
-  }
+		public string MedicoTratante
+		{
+			get => this.medicoTratante;
+			set => this.medicoTratante = value;
+		}
+	}
 }

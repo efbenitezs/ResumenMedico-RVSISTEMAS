@@ -8,11 +8,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Sistema de Informacion Medica - Inmigration Medical</title>
-	<telerik:radcodeblock runat="server">
+	<telerik:RadCodeBlock runat="server">
 		<link href="<%=ResolveUrl("~/")%>Content/bootstrap.css" rel="stylesheet" />
 		<link href="<%=ResolveUrl("~/")%>Content/Site.css" rel="stylesheet" />
-	</telerik:radcodeblock>
-	
+	</telerik:RadCodeBlock>
+
 	<style type="text/css">
 		.loginContainner
 		{
@@ -28,7 +28,7 @@
 		}
 	</style>
 	<script type="text/javascript">
-		function AbrirCambio() 
+		function AbrirCambio()
 		{
 			window.open("CambioPass.aspx", "ChngPwrd", "menubar=1,resizable=1,width=350,height=250");
 		}

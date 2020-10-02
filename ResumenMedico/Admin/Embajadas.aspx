@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="Embajadas.aspx.cs" Inherits="ResumenMedico.Admin.Embajadas" %>
+	CodeBehind="Embajadas.aspx.cs" Inherits="ResumenMedico.Admin.Embajadas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="titulo">
-        Administración de Embajadas
-    </div>
-    <div>
-        <telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
+	<div class="titulo">
+		Administración de Embajadas
+	</div>
+	<div>
+		<telerik:radajaxmanager id="ram" runat="server" updatepanelsrendermode="Block">
             <ClientEvents OnResponseEnd="responseEnd" />
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="gvEmbajadas">
@@ -19,23 +19,23 @@
                     </UpdatedControls>
                 </telerik:AjaxSetting>
             </AjaxSettings>
-        </telerik:RadAjaxManager>
-        <telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" BackgroundPosition="Center"
-            HorizontalAlign="Center">
-        </telerik:RadAjaxLoadingPanel>
-        <div class="ocultos">
-            <telerik:RadTextBox ID="erroresCarga" ClientIDMode="Static" runat="server" onchange="mostrar(this)">
-            </telerik:RadTextBox>
-            <telerik:RadTextBox ID="tbxhidden" ClientIDMode="Static" runat="server" onchange="detectar(this)">
-            </telerik:RadTextBox>
-            <asp:RegularExpressionValidator ID="Validator" runat="server" Display="Dynamic" ErrorMessage="Hay errores en los datos que quiere enviar"
-                ValidationExpression="Correcto" ControlToValidate="tbxhidden">
-            </asp:RegularExpressionValidator>
-        </div>
-        <telerik:RadGrid ID="gvEmbajadas" runat="server" AutoGenerateColumns="false" AllowSorting="true"
-            OnNeedDataSource="gvEmbajadas_NeedDataSource" OnDeleteCommand="gvEmbajadas_DeleteCommand"
-            OnInsertCommand="gvEmbajadas_InsertCommand" OnUpdateCommand="gvEmbajadas_UpdateCommand"
-            PageSize="15" Font-Names="Verdana" Font-Size="12px" Font-Bold="True">
+        </telerik:radajaxmanager>
+		<telerik:radajaxloadingpanel id="ralpImage" runat="server" backgroundposition="Center"
+			horizontalalign="Center">
+        </telerik:radajaxloadingpanel>
+		<div class="ocultos">
+			<telerik:radtextbox id="erroresCarga" clientidmode="Static" runat="server" onchange="mostrar(this)">
+            </telerik:radtextbox>
+			<telerik:radtextbox id="tbxhidden" clientidmode="Static" runat="server" onchange="detectar(this)">
+            </telerik:radtextbox>
+			<asp:RegularExpressionValidator ID="Validator" runat="server" Display="Dynamic" ErrorMessage="Hay errores en los datos que quiere enviar"
+				ValidationExpression="Correcto" ControlToValidate="tbxhidden">
+			</asp:RegularExpressionValidator>
+		</div>
+		<telerik:radgrid id="gvEmbajadas" runat="server" autogeneratecolumns="false" allowsorting="true"
+			onneeddatasource="gvEmbajadas_NeedDataSource" ondeletecommand="gvEmbajadas_DeleteCommand"
+			oninsertcommand="gvEmbajadas_InsertCommand" onupdatecommand="gvEmbajadas_UpdateCommand"
+			pagesize="15" font-names="Verdana" font-size="12px" font-bold="True">
             <ValidationSettings CommandsToValidate="PerformInsert,Update" ValidationGroup="Embajada" />
             <PagerStyle AlwaysVisible="true" />
             <ClientSettings>
@@ -51,7 +51,7 @@
                     <telerik:GridButtonColumn UniqueName="EditColumn" ButtonType="ImageButton" CommandName="Edit">
                     </telerik:GridButtonColumn>
                     <telerik:GridBoundColumn UniqueName="NombreEmbajada" HeaderText="Nombre embajada"
-                        SortExpression="NombreEmbajada" DataField="NOMBRE" >
+                        SortExpression="NombreEmbajada" DataField="NOMBRE">
                         <ColumnValidationSettings EnableRequiredFieldValidation="true">
                             <RequiredFieldValidator ValidationGroup="Embajada"></RequiredFieldValidator>
                         </ColumnValidationSettings>
@@ -61,9 +61,9 @@
                     </telerik:GridCheckBoxColumn>
                 </Columns>
             </MasterTableView>
-        </telerik:RadGrid>
-    </div>
-    <script type="text/javascript">
+        </telerik:radgrid>
+	</div>
+	<script type="text/javascript">
         function responseEnd(sender, eventArgs) {
             var origen = eventArgs.get_eventTarget();
             var arbol = origen.split("$");
@@ -78,7 +78,5 @@
                 hid2.value = "";
             }
         }
-
-        
-    </script>
+	</script>
 </asp:Content>

@@ -176,7 +176,7 @@
 										<span class="controlSide">Edad: </span>
 										<%# Eval("Edad")%><span> años</span>
 									</div>
-									<div >
+									<div>
 										<span class="controlSide">Fecha Ingreso: </span>
 										<%# Convert.ToDateTime(Eval("FECHA_INGRESO")).ToString("yyyy-MM-dd")%>
 									</div>
@@ -384,6 +384,5 @@
 
 			$(divName).toggleClass('in');
 		}
-
 	</script>
 </asp:Content>

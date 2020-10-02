@@ -64,6 +64,7 @@ namespace RMEntity
 			get => this.administrador;
 			set => this.administrador = value;
 		}
+
 		private FirmaProfesional _firmaProfesional;
 
 		public FirmaProfesional FirmaProfesional
@@ -103,16 +104,16 @@ namespace RMEntity
 
 		public string CorreoElectronico
 		{
-			get => _correoElectronico; 
-			set => _correoElectronico = value; 
+			get => _correoElectronico;
+			set => _correoElectronico = value;
 		}
 
 		private string _firmaBase64;
 
 		public string FirmaBase64
 		{
-			get => _firmaBase64; 
-			set => _firmaBase64 = value; 
+			get => _firmaBase64;
+			set => _firmaBase64 = value;
 		}
 	}
 }

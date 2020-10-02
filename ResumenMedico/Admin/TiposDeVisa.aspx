@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="TiposDeVisa.aspx.cs" Inherits="ResumenMedico.Admin.TiposDeVisa" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -31,8 +32,8 @@
 		</div>
 
 		<telerik:RadGrid ClientIDMode="Static" ID="gvTipoVisa" runat="server" AutoGenerateColumns="False" AllowSorting="True" OnNeedDataSource="gvTipoVisa_NeedDataSource" OnDeleteCommand="gvTipoVisa_DeleteCommand"
-			OnInsertCommand="gvTipoVisa_InsertCommand" OnUpdateCommand="gvTipoVisa_UpdateCommand" PageSize="15" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top" ResolvedRenderMode="Classic" Font-Names="Verdana" 
-            Font-Size="12px" Font-Bold="True">
+			OnInsertCommand="gvTipoVisa_InsertCommand" OnUpdateCommand="gvTipoVisa_UpdateCommand" PageSize="15" CellSpacing="-1" GridLines="Both" GroupPanelPosition="Top" ResolvedRenderMode="Classic" Font-Names="Verdana"
+			Font-Size="12px" Font-Bold="True">
 
 			<ValidationSettings CommandsToValidate="PerformInsert,Update" ValidationGroup="TipoVisa" />
 
@@ -53,15 +54,15 @@
 				<Columns>
 
 					<telerik:GridButtonColumn UniqueName="EditColumn" ButtonType="ImageButton" CommandName="Edit"></telerik:GridButtonColumn>
-					
-                    <telerik:GridBoundColumn UniqueName="NombreVisa" HeaderText="Nombre Código" SortExpression="NombreVisa" DataField="NOMBRE">
+
+					<telerik:GridBoundColumn UniqueName="NombreVisa" HeaderText="Nombre Código" SortExpression="NombreVisa" DataField="NOMBRE">
 						<ColumnValidationSettings EnableRequiredFieldValidation="true">
 							<RequiredFieldValidator ValidationGroup="TipoVisa"></RequiredFieldValidator>
 						</ColumnValidationSettings>
 					</telerik:GridBoundColumn>
 
-					<telerik:GridDropDownColumn DataSourceID="odsEmbajadas" ListTextField="NOMBRE" ListValueField="ID" UniqueName="Embajada" SortExpression="EMBAJADA" HeaderText="Embajada" DataField="ID_EMBAJADA" 
-                        AllowAutomaticLoadOnDemand="true" ShowMoreResultsBox="true" ItemsPerRequest="10" DropDownControlType="RadComboBox">
+					<telerik:GridDropDownColumn DataSourceID="odsEmbajadas" ListTextField="NOMBRE" ListValueField="ID" UniqueName="Embajada" SortExpression="EMBAJADA" HeaderText="Embajada" DataField="ID_EMBAJADA"
+						AllowAutomaticLoadOnDemand="true" ShowMoreResultsBox="true" ItemsPerRequest="10" DropDownControlType="RadComboBox">
 					</telerik:GridDropDownColumn>
 
 					<telerik:GridCheckBoxColumn UniqueName="Activo" HeaderText="Activo?" SortExpression="Activo"
@@ -69,7 +70,7 @@
 					</telerik:GridCheckBoxColumn>
 				</Columns>
 
-<PagerStyle AlwaysVisible="True"></PagerStyle>
+				<PagerStyle AlwaysVisible="True"></PagerStyle>
 			</MasterTableView>
 		</telerik:RadGrid>
 		<asp:ObjectDataSource ID="odsEmbajadas" runat="server" SelectMethod="GetList" TypeName="RMBLL.EmbajadaBll">
@@ -97,7 +98,5 @@
 				hid2.value = "";
 			}
 		}
-
-        
 	</script>
 </asp:Content>
