@@ -55,7 +55,7 @@
 		<asp:HiddenField ID="hfRutImg" runat="server" />
 		<asp:HiddenField ID="hfIdHist" runat="server" />
 	</div>
-	<div class="row">
+	<div class="row" style="margin-right: 15px;">
 		<div class="titulo">
 			Información Paciente
 		</div>
@@ -155,6 +155,14 @@
 							        Display="None" />
 					        </div>
 				        </div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+								Número Pasaporte
+							</div>
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+								<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="100%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana"></telerik:RadTextBox>
+							</div>
+						</div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
 					        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 						        Género

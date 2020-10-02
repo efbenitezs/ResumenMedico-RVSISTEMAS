@@ -121,6 +121,7 @@ namespace ResumenMedico.Consultorio
                     this.rtxtNumDoc.Text = objEntPac.NumeroDocumento;
                     this.hdIdPaciente.Value = objEntPac.Id.ToString();
                     this.rtxtNombres.Text = objEntPac.Nombres;
+                    this.rtxtPasaporte.Text = objEntPac.NumeroPasaporte;
                     this.rtxtApellidos.Text = objEntPac.Apellidos;
                     this.rtxtAcudiente.Text = objEntPac.Acudiente;
                     this.rtxtCorreo.Text = objEntPac.Correo;
@@ -268,7 +269,8 @@ namespace ResumenMedico.Consultorio
 				{ 
 					this.hdIdPaciente.Value = paciente.Id.ToString();
                     this.IdPac = paciente.Id;
-					this.rtxtNombres.Text = paciente.Nombres;
+                    this.rtxtPasaporte.Text = paciente.NumeroPasaporte;
+                    this.rtxtNombres.Text = paciente.Nombres;
 					this.rtxtApellidos.Text = paciente.Apellidos;
 					this.rtxtAcudiente.Text = paciente.Acudiente;
 					this.rtxtCorreo.Text = paciente.Correo;
@@ -280,7 +282,8 @@ namespace ResumenMedico.Consultorio
 				}
 				else
 				{
-					this.hdIdPaciente.Value = "";
+                    this.rtxtPasaporte.Text = "";
+                    this.hdIdPaciente.Value = "";
                     this.IdPac = int.MinValue;
 					this.rtxtNombres.Text = "";
 					this.rtxtApellidos.Text = "";
@@ -319,6 +322,7 @@ namespace ResumenMedico.Consultorio
             objEntPac.Id = this.hdIdPaciente.Value != string.Empty ? Convert.ToInt32(this.hdIdPaciente.Value) : int.MinValue;
             objEntPac.IdTipoDocumento = Convert.ToInt32(this.rcbxTipoDoc.SelectedValue);
             objEntPac.NumeroDocumento = this.rtxtNumDoc.Text.Trim();
+            objEntPac.NumeroPasaporte = this.rtxtPasaporte.Text.Trim(); 
             objEntPac.Genero = this.rblGenero.SelectedValue != null && this.rblGenero.SelectedValue != string.Empty ? Convert.ToBoolean(Convert.ToByte(this.rblGenero.SelectedValue)) : false;
             objEntPac.Nombres = this.rtxtNombres.Text.Trim();
             objEntPac.Apellidos = this.rtxtApellidos.Text.Trim();
@@ -544,8 +548,5 @@ namespace ResumenMedico.Consultorio
                 RadScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ValErr", "alert('Se han encontrado los siguientes errores al validar la información previo a liberar la historia a las demas areas\\n\\n" + mensajeError + "');", true);
             }
         }
-
-
-        
     }
 }

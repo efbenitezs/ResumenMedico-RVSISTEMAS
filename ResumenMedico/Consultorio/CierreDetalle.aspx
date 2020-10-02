@@ -44,10 +44,10 @@
 						<DateInput ID="diFecha" runat="server" DisplayDateFormat="yyyy/MM/dd" ReadOnly="true" />
 					</telerik:RadDatePicker>
 				</div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlHousing controlSide">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlHousing controlSide">
 					Edad
 				</div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlHousing controlSide">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlHousing controlSide">
 					<asp:Label ID="lblEdad" runat="server"></asp:Label>&nbsp;Años
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
 			<!--fila Informacion personal -->
 			<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 controlRow">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 						Nombres
 					</div>
@@ -67,7 +67,7 @@
 							Display="None" />
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 						Apellidos
 					</div>
@@ -78,6 +78,16 @@
 						<asp:RequiredFieldValidator ID="rfvApellidos" runat="server" ControlToValidate="rtxtApellidos"
 							ValidationGroup="Paciente" ErrorMessage="Debe especificar los apellidos del paciente"
 							Display="None" />
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+						Número Pasaporte
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+						<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="100%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana">
+							<ClientEvents OnKeyPress="controlPress" />
+						</telerik:RadTextBox>
 					</div>
 				</div>
 			</div>
@@ -171,8 +181,8 @@
 			<!--Datos generales-->
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)" id="btnmedicalData">
 				<span class="glyphicon glyphicon-chevron-down"></span>
-                <span class="texto txtMostrar"></span>
-                Datos Biométricos
+				<span class="texto txtMostrar"></span>
+				Datos Biométricos
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow">
 				<div class="collapse" id="medicalData">
@@ -188,7 +198,7 @@
 							</telerik:RadNumericTextBox>
 							<span style="width: 20%; float: right; padding-left: 5px">m</span>
 							<asp:RequiredFieldValidator ID="rfvEstatura" runat="server" ControlToValidate="rntEstatura" ValidationGroup="Paciente" ErrorMessage="debe indicar la estatura del paciente" Display="None" />
-                            <asp:RequiredFieldValidator ID="rfvEstCierre" runat="server" ControlToValidate="rntEstatura" ValidationGroup="Cierre" ErrorMessage="debe indicar la estatura del paciente" Display="None" />
+							<asp:RequiredFieldValidator ID="rfvEstCierre" runat="server" ControlToValidate="rntEstatura" ValidationGroup="Cierre" ErrorMessage="debe indicar la estatura del paciente" Display="None" />
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
@@ -203,7 +213,7 @@
 							<span style="width: 20%; float: right; padding-left: 5px">kg</span>
 							<asp:RequiredFieldValidator ID="rfvPeso" runat="server" ControlToValidate="rntPeso"
 								ValidationGroup="Paciente" ErrorMessage="debe indicar el peso del paciente" Display="None" />
-                            <asp:RequiredFieldValidator ID="rfvPesoCierre" runat="server" ControlToValidate="rntPeso"
+							<asp:RequiredFieldValidator ID="rfvPesoCierre" runat="server" ControlToValidate="rntPeso"
 								ValidationGroup="Cierre" ErrorMessage="debe indicar el peso del paciente" Display="None" />
 						</div>
 					</div>
@@ -233,11 +243,11 @@
 							</telerik:RadNumericTextBox>
 						</div>
 					</div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <telerik:RadButton ID="rbtnSavePeso" runat="server" CausesValidation="true" ValidationGroup="Cierre" Text="Guardar Datos Biometricos"
-			                Font-Names="Verdana" Font-Bold="True" ForeColor="#666666" onclick="rbtnSavePeso_Click">
-		                </telerik:RadButton>
-                    </div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+						<telerik:RadButton ID="rbtnSavePeso" runat="server" CausesValidation="true" ValidationGroup="Cierre" Text="Guardar Datos Biometricos"
+							Font-Names="Verdana" Font-Bold="True" ForeColor="#666666" OnClick="rbtnSavePeso_Click">
+						</telerik:RadButton>
+					</div>
 				</div>
 			</div>
 			<!--fila de datos de contacto-->
@@ -292,46 +302,46 @@
 								CssClass="chBx" Text="Requiere ser notificado?" />
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlHousing controlSide">
-							<asp:CheckBox ID="chkNotEnv" runat="server" style="z-index:-10" CssClass="chBx" Text="Ya se ha enviado la notificación?" />
+							<asp:CheckBox ID="chkNotEnv" runat="server" Style="z-index: -10" CssClass="chBx" Text="Ya se ha enviado la notificación?" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)" id="btnMedData" >
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)" id="btnMedData">
 			<span id="spMedData1" runat="server" clientidmode="Static" class="glyphicon glyphicon-chevron-down"></span>
-            <span id="spMedData2" runat="server" clientidmode="Static" class="texto txtOcultar"></span>Información Medicina
+			<span id="spMedData2" runat="server" clientidmode="Static" class="texto txtOcultar"></span>Información Medicina
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow">
-            <div id="MedData" class="collapse" runat="server" clientidmode="Static">
-			    <div class="titulo">
-				    Información Medicina
-			    </div>
-			    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlPair controlRow">
-				    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 controlHousing controlSide">
-					    Estado Medicina
-				    </div>
-				    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 controlHousing">
-					    <asp:RadioButtonList ID="rblEstado" runat="server" RepeatDirection="Horizontal" CssClass="rblDisabled">
-						    <asp:ListItem Text="Normal" class="chbxNormal" Value="0"></asp:ListItem>
-						    <asp:ListItem Text="Anormal" class="chbxAnormal" Value="1"></asp:ListItem>
-					    </asp:RadioButtonList>
-				    </div>
-			    </div>
-			    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlPair controlRow">
-				    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 controlHousing controlSide">
-					    Comentarios
-				    </div>
-				    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 controlHousing">
-					    <telerik:RadTextBox ID="rtxtCommentMedGen" runat="server" TextMode="MultiLine" Rows="3"
-						    Width="99%" />
-				    </div>
-			    </div>
-            </div>
+			<div id="MedData" class="collapse" runat="server" clientidmode="Static">
+				<div class="titulo">
+					Información Medicina
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlPair controlRow">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 controlHousing controlSide">
+						Estado Medicina
+					</div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 controlHousing">
+						<asp:RadioButtonList ID="rblEstado" runat="server" RepeatDirection="Horizontal" CssClass="rblDisabled">
+							<asp:ListItem Text="Normal" class="chbxNormal" Value="0"></asp:ListItem>
+							<asp:ListItem Text="Anormal" class="chbxAnormal" Value="1"></asp:ListItem>
+						</asp:RadioButtonList>
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlPair controlRow">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 controlHousing controlSide">
+						Comentarios
+					</div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 controlHousing">
+						<telerik:RadTextBox ID="rtxtCommentMedGen" runat="server" TextMode="MultiLine" Rows="3"
+							Width="99%" />
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)" id="btnLabData">
 			<span id="spLabData1" runat="server" clientidmode="Static" class="glyphicon glyphicon-chevron-down"></span>
-            <span id="spLabData2" runat="server" clientidmode="Static" class="texto txtMostrar"></span>información de laboratorio
+			<span id="spLabData2" runat="server" clientidmode="Static" class="texto txtMostrar"></span>información de laboratorio
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div id="LabData" runat="server" clientidmode="Static" class="collapse">
@@ -371,28 +381,28 @@
 									<ItemStyle Width="15%" />
 									<HeaderStyle Width="15%" />
 								</telerik:GridBoundColumn>
-							
-                            	<telerik:GridBoundColumn HeaderText="Estado" DataField="ESTADO_TEXT" UniqueName="Estado" DataType="System.String">
+
+								<telerik:GridBoundColumn HeaderText="Estado" DataField="ESTADO_TEXT" UniqueName="Estado" DataType="System.String">
 									<ItemStyle Width="10%" />
 									<HeaderStyle Width="10%" />
 								</telerik:GridBoundColumn>
-							
-                            	<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Resultado" DataType="System.String">
+
+								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Resultado" DataType="System.String">
 									<ItemStyle Width="15%" />
 									<HeaderStyle Width="15%" />
 								</telerik:GridBoundColumn>
-							
-                            	<telerik:GridBoundColumn HeaderText="Valor" DataField="VALOR" UniqueName="Valor" DataType="System.String">
+
+								<telerik:GridBoundColumn HeaderText="Valor" DataField="VALOR" UniqueName="Valor" DataType="System.String">
 									<ItemStyle Width="10%" />
 									<HeaderStyle Width="10%" />
 								</telerik:GridBoundColumn>
-							
-                            	<telerik:GridBoundColumn HeaderText="Fecha Toma Muestra" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.String">
+
+								<telerik:GridBoundColumn HeaderText="Fecha Toma Muestra" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.String">
 									<ItemStyle Width="10%" />
 									<HeaderStyle Width="10%" />
 								</telerik:GridBoundColumn>
-							
-                            	<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Observaciones" DataType="System.String">
+
+								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Observaciones" DataType="System.String">
 									<ItemStyle Width="40%" />
 									<HeaderStyle Width="40%" />
 								</telerik:GridBoundColumn>
@@ -405,7 +415,7 @@
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)" id="btnRadiologyData">
 			<span id="spRadiologyData1" runat="server" clientidmode="Static" class="glyphicon glyphicon-chevron-down"></span>
-            <span id="spRadiologyData2" runat="server" clientidmode="Static" class="texto txtMostrar"></span>información de radiología
+			<span id="spRadiologyData2" runat="server" clientidmode="Static" class="texto txtMostrar"></span>información de radiología
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="collapse" id="RadiologyData" runat="server" clientidmode="Static">
@@ -418,7 +428,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing">
 						<asp:RadioButtonList ID="rblEstadoRad" runat="server" RepeatDirection="Horizontal" CssClass="rblDisabled">
-							
+
 							<asp:ListItem Text="Normal" class="chbxNormal" Value="0"></asp:ListItem>
 							<asp:ListItem Text="Anormal" class="chbxAnormal" Value="1"></asp:ListItem>
 						</asp:RadioButtonList>
@@ -426,15 +436,15 @@
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow controlPair">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlSide">
-						<asp:CheckBox ID="chkRadTomada" Text="Radiografia Tomada" runat="server" style="z-index:-10" CssClass="chBx" />
+						<asp:CheckBox ID="chkRadTomada" Text="Radiografia Tomada" runat="server" Style="z-index: -10" CssClass="chBx" />
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlSide">
-						<asp:CheckBox ID="chkCargEMedical" runat="server" Text="Radiografia cargada Emedical" style="z-index:-10" CssClass="chBx" />
+						<asp:CheckBox ID="chkCargEMedical" runat="server" Text="Radiografia cargada Emedical" Style="z-index: -10" CssClass="chBx" />
 					</div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
 						<asp:CheckBox ID="ChkRequiereNotificacion" runat="server" Text="Requiere Notificación" CssClass="chBx" />
 					</div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
 						<asp:CheckBox ID="ChkNotificado" runat="server" Text="Ya fue Notificado" CssClass="chBx" />
 					</div>
 				</div>
@@ -468,8 +478,7 @@
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)" id="btnattachmentData">
-			<span class="glyphicon glyphicon-chevron-down"></span><span class="texto txtMostrar">
-			</span>Documentos anexos
+			<span class="glyphicon glyphicon-chevron-down"></span><span class="texto txtMostrar"></span>Documentos anexos
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="collapse" id="attachmentData">
@@ -508,8 +517,7 @@
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showHideButton" onclick="ShowHideInfo(this)"
 			id="btnexternalTestsData">
-			<span class="glyphicon glyphicon-chevron-down"></span><span class="texto txtMostrar">
-			</span>Ordenes de examen externo
+			<span class="glyphicon glyphicon-chevron-down"></span><span class="texto txtMostrar"></span>Ordenes de examen externo
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="collapse" id="externalTestsData">

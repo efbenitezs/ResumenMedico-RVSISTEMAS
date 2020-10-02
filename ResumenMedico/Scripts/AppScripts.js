@@ -1,7 +1,4 @@
-﻿/*function responseEnd( sender, eventArgs )
-{
-alert( 'Response end initiated by: ' + eventArgs.get_eventTarget() );
-}*/
+﻿var appRoot;
 
 function htmlEscape(str)
 {
@@ -472,7 +469,7 @@ function checksPreview()
 	if (document.getElementById("checkBxCH") != undefined) { checks.chkCuadroHematico = document.getElementById("checkBxCH").checked }
 	if (document.getElementById("checkBxCre") != undefined) { checks.chkCreatinina = document.getElementById("checkBxCre").checked }
 	if (document.getElementById("checkBxHmGl") != undefined) { checks.chkHemGlicosilada = document.getElementById("checkBxHmGl").checked }
-	if (document.getElementById("checkBxOtr") != undefined) { checks.chkOtrosExamenes = document.getElementById("checkBxBxOtr").checked }
+	if (document.getElementById("checkBxOEx") != undefined) { checks.chkOtrosExamenes = document.getElementById("checkBxOEx").checked }
 
 	return checks;
 }
@@ -549,7 +546,7 @@ function imprSelec()
 
 	var ficha;
 
-	if (!$("#checkLang").checked)
+	if (!$("#checkLang")[0].checked)
 	{
 		ficha = document.getElementById("printable").cloneNode(true);
 		$(ficha).removeClass("collapse");
@@ -562,30 +559,38 @@ function imprSelec()
 		nombre = ficha.getElementsByTagName("span")["spNombreEng"].innerHTML;
 	}
 
-
-	var estilo = document.getElementById("printStyles").cloneNode(true);
-	var escript = document.createElement('script');
-	var link = document.createElement("LINK");
+	var jquery = document.createElement('script');
+	var pageload = document.createElement('script');
+	var bootstrap = document.createElement("LINK");
+	var site = document.createElement("LINK");
 	var head = document.createElement("HEAD");
 	var body = document.createElement("BODY");
 	var title = document.createElement("title");
 
 	title.innerHTML = nombre;
 
-	escript.type = 'text/javascript';
-	escript.innerText = "var counter = 0; window.onfocus=function(){if(counter == 0 ){window.print();counter = counter + 1} else {window.close()}}"; /**/
+	jquery.type = 'text/javascript';
+	jquery.src = "http://" + host + appRoot + "Scripts/jquery-3.5.1.min.js";
 
-	link.rel = 'stylesheet';
-	link.type = 'text/css';
-	link.href = "http://" + host + "/ResumenMedicoPublicado/Styles/bootstrap.css";
+	pageload.type = 'text/javascript';
+	pageload.innerText = "$(document).ready(function(){window.print()});"; /**/
+
+	bootstrap.rel = 'stylesheet';
+	bootstrap.type = 'text/css';
+	bootstrap.href = "http://" + host + appRoot + "Content/bootstrap.css";
+
+	site.rel = 'stylesheet';
+	site.type = 'text/css';
+	site.href = "http://" + host + appRoot + "Content/site.css";
 
 
 	head.appendChild(title);
-	head.appendChild(link);
-	head.appendChild(estilo);
+	head.appendChild(bootstrap);
+	head.appendChild(site);
 
 	body.appendChild(ficha);
-	body.appendChild(escript);
+	body.appendChild(jquery);
+	body.appendChild(pageload);
 	var entireText = head.outerHTML + body.outerHTML;
 
 	var doc = window.open('', 'Ventana de impresión');

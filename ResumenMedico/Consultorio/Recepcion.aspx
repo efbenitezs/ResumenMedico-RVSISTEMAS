@@ -92,11 +92,11 @@
 
 			<div class="col-md-10">
 				<div class="col-md-12">
-					<div class="col-md-6 form-group">
-						<div class="label">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 							Tipo Identificación
 						</div>
-						<div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
 							<telerik:RadComboBox ID="rcbxTipoDoc" runat="server" Width="100%" Filter="Contains"
 								OnClientSelectedIndexChanging="rcbTipDoc_SelIndChang" />
 							<asp:RequiredFieldValidator ID="rfvTipDoc" runat="server" ControlToValidate="rcbxTipoDoc"
@@ -104,16 +104,26 @@
 								Display="None" />
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
-						<div class="label">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 							Número Identificación
 						</div>
-						<div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
 							<telerik:RadTextBox ID="rtxtNumDoc" runat="server" MaxLength="50" Width="100%" EmptyMessage="[Número Documento]" Font-Names="Verdana">
 								<ClientEvents OnBlur="validarPaciente" OnKeyPress="controlPress" />
 							</telerik:RadTextBox>
 							<asp:RequiredFieldValidator ID="rfvNumDoc" runat="server" ControlToValidate="rtxtNumDoc" ValidationGroup="Paciente" ErrorMessage="Debe especificar el numero de Identificacion"
 								Display="None" />
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+							Número Pasaporte
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+							<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="100%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana">
+								<ClientEvents OnKeyPress="controlPress" />
+							</telerik:RadTextBox>
 						</div>
 					</div>
 				</div>
@@ -154,11 +164,6 @@
 								<asp:ListItem Text="Masculino" Value="1"></asp:ListItem>
 								<asp:ListItem Text="Femenino" Value="0"></asp:ListItem>
 							</asp:RadioButtonList>
-							<%--
-                        <asp:RequiredFieldValidator ID="rfvGenero" runat="server" ControlToValidate="rblGenero"
-                            ErrorMessage="Debe indicar el genero del paciente" ValidationGroup="Paciente"
-                            Display="None" />
-							--%>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
@@ -200,11 +205,6 @@
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
 							<telerik:RadComboBox ID="rcbxTipoVisa" runat="server" Width="100%" Filter="Contains" />
-							<%--
-                        <asp:RequiredFieldValidator ID="rfvTipoVisa" runat="server" ControlToValidate="rcbxTipoVisa"
-                            InitialValue="[Seleccione]" ValidationGroup="Paciente" ErrorMessage="Debe especificar el tipo de código"
-                            Display="None" />
-							--%>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
@@ -215,10 +215,6 @@
 							<telerik:RadTextBox ID="rtxtNumVisa" runat="server" MaxLength="50" Width="100%">
 								<ClientEvents OnKeyPress="controlPress" />
 							</telerik:RadTextBox>
-							<%--
-                        <asp:RequiredFieldValidator ID="rfvNumVisa" runat="server" ControlToValidate="rtxtNumVisa" ValidationGroup="Paciente" ErrorMessage="Debe especificar el código del paciente"
-                            Display="None" />
-							--%>
 						</div>
 					</div>
 				</div>
@@ -281,10 +277,6 @@
 							<telerik:RadTextBox ID="rtxtAcudiente" runat="server" Width="100%">
 								<ClientEvents OnKeyPress="controlPress" />
 							</telerik:RadTextBox>
-							<%--
-                        <asp:RequiredFieldValidator ID="rfvAcudiente" runat="server" ControlToValidate="rtxtAcudiente"
-                            ValidationGroup="Paciente" Enabled="false" Display="None" ErrorMessage="para los pacientes menores de edad debe indicar el nombre del acudiente" />
-							--%>
 						</div>
 					</div>
 				</div>

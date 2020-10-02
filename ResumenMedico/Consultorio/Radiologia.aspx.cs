@@ -57,7 +57,7 @@ namespace ResumenMedico.Consultorio
                         }
                     }
                     LinkButton lbRegList = (LinkButton)Master.FindControl("lbRegList");
-                    lbRegList.PostBackUrl = "../Pendientes.aspx?T=2";
+                    lbRegList.PostBackUrl = ResolveUrl("../Pendientes.aspx") + "?T=2";
                 }
                 else
                 {
@@ -84,6 +84,8 @@ namespace ResumenMedico.Consultorio
             HistoriaMedica objEntHm = objHMBll.Load(idHistoria);
             PacienteBll objPBll = new PacienteBll();
             Paciente objEntPac = objPBll.Load(objEntHm.IdPaciente);
+            Utilidades.LlenarRC(this.rcbxTipoDoc, new TipoDocumentoBll().GetList(string.Empty, true, false), "ID", "NOMBRE", true);
+            Utilidades.PosicionarRC(this.rcbxTipoDoc, objEntPac.IdTipoDocumento.ToString());
 
 
             this.hfIdHist.Value = idHistoria.ToString();
@@ -95,7 +97,8 @@ namespace ResumenMedico.Consultorio
 
             this.rtxtNombres.Text = objEntPac.Nombres + " " + objEntPac.Apellidos;
             this.rtxtCorreo.Text = objEntPac.Correo;
-
+            this.rtxtNumDoc.Text = objEntPac.NumeroDocumento;
+            this.rtxtPasaporte.Text = objEntPac.NumeroPasaporte;
             this.rntPeso.Value = Convert.ToDouble(objEntHm.Peso);
             this.rntEstatura.Value = Convert.ToDouble(objEntHm.Estatura * 100M);
             try

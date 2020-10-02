@@ -2,7 +2,7 @@
 	CodeBehind="Pendientes.aspx.cs" Inherits="ResumenMedico.Pendientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-	<%--<meta http-equiv="refresh" content="45" />--%>
+	<meta http-equiv="refresh" content="45" />
 	<style type="text/css">
 		.linkPnl
 		{
@@ -16,71 +16,6 @@
 			width: 33% !important;
 		}
 	</style>
-	<script type="text/javascript">
-		function Redirect(idHist, idTipRev)
-		{
-
-			switch (idTipRev)
-			{
-				case 1:
-					window.location.href = "<%=ResolveUrl("~/")%>Consultorio/Laboratorio.aspx?IdHist=" + idHist;
-					break;
-				case 2:
-					window.location.href = "<%=ResolveUrl("~/")%>/Consultorio/Radiologia.aspx?IdHist=" + idHist;
-					break;
-
-				case 3:
-					window.location.href = "<%=ResolveUrl("~/")%>/Consultorio/Medicina.aspx?IdHist=" + idHist;
-					break;
-			}
-
-		}
-	</script>
-	<script type="text/javascript">
-		function MostrarCamposFiltro(sender, e)
-		{
-			var oWnd = $find("<%=rwModalSolMuEx.ClientID%>");
-			oWnd.show();
-			e.set_cancel(true);
-		}
-	</script>
-	<script type="text/javascript">
-		function ShowHideInfo(sender)
-		{
-			var idButton = sender.id;
-
-			var spGi = sender.getElementsByClassName('glyphicon')[0];
-			var spOp = sender.getElementsByClassName('texto')[0];
-
-			if (spGi.classList.contains("glyphicon-chevron-down"))
-			{
-				spGi.classList.add("glyphicon-chevron-up")
-				spGi.classList.remove("glyphicon-chevron-down");
-			}
-			else
-			{
-				spGi.classList.remove("glyphicon-chevron-up")
-				spGi.classList.add("glyphicon-chevron-down");
-			}
-
-			if (spOp.classList.contains("txtMostrar"))
-			{
-				spOp.classList.add("txtOcultar");
-				spOp.classList.remove("txtMostrar")
-			}
-			else
-			{
-				spOp.classList.remove("txtOcultar");
-				spOp.classList.add("txtMostrar")
-			}
-
-			var divName = sender.id.replace('btn', '#');
-
-			$(divName).toggleClass('in');
-
-		}
-
-	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block" DefaultLoadingPanelID="ralpImage">
@@ -110,7 +45,7 @@
 	</telerik:RadAjaxManager>
 
 	<telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" IsSticky="true" Style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;"></telerik:RadAjaxLoadingPanel>
-	<div class="row controlPair controlRow">
+	<div class="controlPair controlRow">
 		<telerik:RadTabStrip ID="rtsPest" runat="server" Align="Justify" MultiPageID="rmpInformes">
 			<Tabs>
 				<telerik:RadTab Text="Pacientes de hoy" Selected="true" PageViewID="rmpPendDia" Value="1" />
@@ -123,7 +58,7 @@
 				<div class="row">
 					<asp:Repeater ID="rptPacientes" runat="server" OnItemDataBound="rptPacientes_ItemDataBound">
 						<HeaderTemplate>
-							<div class="row">
+							<div class="col-md-12">
 						</HeaderTemplate>
 						<ItemTemplate>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 repeaterItem">
@@ -183,8 +118,8 @@
 											<span><%# Convert.ToDateTime(Eval("FECHA_NACIMIENTO")).ToString("yyyy-MM-dd")%></span>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="col-md-6" style="margin: 0 auto;">
+									<div class="col-md-12 col-no-gutters">
+										<div class="col-md-6 col-no-gutters" style="margin: 0 auto;">
 											<div class="button" onclick='Redirect(<%# Eval("ID")%>, <%# Eval("TIPO_REV")%>);'>
 												Ver información paciente
 											</div>
@@ -209,7 +144,7 @@
 			<telerik:RadPageView ID="rpvAlerta" runat="server" Width="100%">
 				<asp:Repeater ID="rptAlertas" runat="server" OnItemDataBound="rptAlertas_ItemDataBound">
 					<HeaderTemplate>
-						<div class="row">
+						<div class="col-md-12">
 					</HeaderTemplate>
 					<ItemTemplate>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 repeaterItem">
@@ -241,7 +176,7 @@
 										<span class="controlSide">Edad: </span>
 										<%# Eval("Edad")%><span> años</span>
 									</div>
-									<div class="">
+									<div >
 										<span class="controlSide">Fecha Ingreso: </span>
 										<%# Convert.ToDateTime(Eval("FECHA_INGRESO")).ToString("yyyy-MM-dd")%>
 									</div>
@@ -268,8 +203,8 @@
 										<span><%# Convert.ToDateTime(Eval("FECHA_NACIMIENTO")).ToString("yyyy-MM-dd")%></span>
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="col-md-6" style="margin: 0 auto;">
+								<div class="col-md-12 col-no-gutters">
+									<div class="col-md-6 col-no-gutters" style="margin: 0 auto;">
 										<div class="button" onclick='Redirect(<%# Eval("ID")%>, <%# Eval("TIPO_REV")%>);'>
 											Ver información paciente
 										</div>
@@ -281,7 +216,8 @@
 									<div class="col-md-3" style="margin: 0 auto;">
 										<img src='Resources/<%# Eval("FLAG_USER")%>' class="img-responsive img-rounded" style="border: 0 none; width: 99px; height: 50px" alt='<%# Eval("Embajada") %>' />
 									</div>
-								</div>							</div>
+								</div>
+							</div>
 						</div>
 					</ItemTemplate>
 					<FooterTemplate>
@@ -293,7 +229,7 @@
 				<div class="row">
 					<asp:Repeater ID="rptRetornos" runat="server" OnItemDataBound="rptRetornos_ItemDataBound">
 						<HeaderTemplate>
-							<div class="row">
+							<div class="col-md-12">
 						</HeaderTemplate>
 						<ItemTemplate>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 repeaterItem">
@@ -356,8 +292,8 @@
 											<span><%# Convert.ToDateTime(Eval("FECHA_NACIMIENTO")).ToString("yyyy-MM-dd")%></span>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="col-md-6" style="margin: 0 auto;">
+									<div class="col-md-12 col-no-gutters">
+										<div class="col-md-6 col-no-gutters" style="margin: 0 auto;">
 											<div class="button" onclick='Redirect(<%# Eval("ID")%>, <%# Eval("TIPO_REV")%>);'>
 												Ver información paciente
 											</div>
@@ -369,7 +305,8 @@
 										<div class="col-md-3" style="margin: 0 auto;">
 											<img src='Resources/<%# Eval("FLAG_USER")%>' class="img-responsive img-rounded" style="border: 0 none; width: 99px; height: 50px" alt='<%# Eval("Embajada") %>' />
 										</div>
-									</div>								</div>
+									</div>
+								</div>
 							</div>
 						</ItemTemplate>
 						<FooterTemplate>
@@ -385,4 +322,68 @@
 		<ContentTemplate>
 		</ContentTemplate>
 	</telerik:RadWindow>
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PageScriptsHolder">
+	<script type="text/javascript">
+		function Redirect(idHist, idTipRev)
+		{
+
+			switch (idTipRev)
+			{
+				case 1:
+					window.location.href = "Consultorio/Laboratorio.aspx?IdHist=" + idHist;
+					break;
+				case 2:
+					window.location.href = "Consultorio/Radiologia.aspx?IdHist=" + idHist;
+					break;
+				case 3:
+					window.location.href = "Consultorio/Medicina.aspx?IdHist=" + idHist;
+					break;
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function MostrarCamposFiltro(sender, e)
+		{
+			var oWnd = $find("<%=rwModalSolMuEx.ClientID%>");
+			oWnd.show();
+			e.set_cancel(true);
+		}
+	</script>
+	<script type="text/javascript">
+		function ShowHideInfo(sender)
+		{
+			var idButton = sender.id;
+
+			var spGi = sender.getElementsByClassName('glyphicon')[0];
+			var spOp = sender.getElementsByClassName('texto')[0];
+
+			if (spGi.classList.contains("glyphicon-chevron-down"))
+			{
+				spGi.classList.add("glyphicon-chevron-up")
+				spGi.classList.remove("glyphicon-chevron-down");
+			}
+			else
+			{
+				spGi.classList.remove("glyphicon-chevron-up")
+				spGi.classList.add("glyphicon-chevron-down");
+			}
+
+			if (spOp.classList.contains("txtMostrar"))
+			{
+				spOp.classList.add("txtOcultar");
+				spOp.classList.remove("txtMostrar")
+			}
+			else
+			{
+				spOp.classList.remove("txtOcultar");
+				spOp.classList.add("txtMostrar")
+			}
+
+			var divName = sender.id.replace('btn', '#');
+
+			$(divName).toggleClass('in');
+		}
+
+	</script>
 </asp:Content>

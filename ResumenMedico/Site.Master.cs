@@ -16,7 +16,7 @@ namespace ResumenMedico
             {
                 Response.Redirect(ResolveUrl("~/Login.aspx"), true);
             }
-
+            lblVersion.Text = Global.GetCurrentVersion();
             this.imgFlag.ImageUrl = this.FlagToShow;
         }
 

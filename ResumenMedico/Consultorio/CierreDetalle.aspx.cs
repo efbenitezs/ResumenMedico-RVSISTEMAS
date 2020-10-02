@@ -110,7 +110,7 @@ namespace ResumenMedico.Consultorio
             this.rtxtNombres.Text = objEntPac.Nombres;
             this.rtxtApellidos.Text = objEntPac.Apellidos;
             this.rtxtNumDoc.Text = objEntPac.NumeroDocumento;
-
+            this.rtxtPasaporte.Text = objEntPac.NumeroPasaporte;
             this.rtxtCommentMedGen.Text = objEntHm.ComentarioMed;
 
             TipoVisaBll objTvBll = new TipoVisaBll();

@@ -367,7 +367,7 @@ namespace RMDAL
 				finally
 				{
 					if (parentTransaction == null)
-						dbConnection.Close();
+						if (dbConnection != null) dbConnection.Close();
 				}
 			}
 			catch (Exception ex)
@@ -471,7 +471,7 @@ namespace RMDAL
 				finally
 				{
 					if (parentTrans == null)
-						dbConnection.Close();
+						if (dbConnection != null) dbConnection.Close();
 				}
 			}
 			catch (Exception ex)
@@ -514,7 +514,7 @@ namespace RMDAL
 				finally
 				{
 					if (parentTrans == null)
-						dbConnection.Close();
+						if (dbConnection != null) dbConnection.Close();
 				}
 			}
 			catch (Exception ex)
@@ -590,7 +590,7 @@ namespace RMDAL
 				}
 				finally
 				{
-					dbConnection.Close();
+					if (dbConnection != null) dbConnection.Close();
 				}
 			}
 			catch (Exception ex)

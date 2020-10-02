@@ -2,150 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<style type="text/css" id="printStyles">
-		@font-face
-		{
-			font-family: 'Avenir';
-			src: url('/ResumenMedicoPublicado/Resources/fonts/Avenir-Roman.eot');
-			src: url('/ResumenMedicoPublicado/Resources/fonts/Avenir-Roman.eot?#iefix') format('embedded-opentype'), url('/ResumenMedicoPublicado/Resources/fonts/Avenir-Roman.woff2') format('woff2'), url('/ResumenMedicoPublicado/Resources/fonts/Avenir-Roman.woff') format('woff'), url('/ResumenMedicoPublicado/Resources/fonts/Avenir-Roman.ttf') format('truetype'), url('/ResumenMedicoPulblicado/Resources/fonts/Avenir-Roman.svg#Avenir-Roman') format('svg');
-			font-weight: normal;
-			font-style: normal;
-		}
-
-		#printable, #printableEng
-		{
-			margin: 0px auto;
-			background-color: white;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			padding-left: 20px;
-			padding-right: 20px;
-			width: 770px;
-			font-size: 12px;
-			background-image: url("/ResumenMedicoPublicado/Resources/Logos/fondo-final1.jpg");
-			background-position: center top;
-			background-attachment: scroll;
-			background-repeat: no-repeat;
-			font-family: 'Avenir'
-		}
-
-		div > p
-		{
-			margin: 0;
-		}
-
-		.impresion,
-		.impresionEng
-		{
-			background: #F4E7BA
-		}
-
-		#serumEval
-		{
-			border: 1px solid black;
-		}
-
-		.bandera
-		{
-			width: 160px; /*height: 39px;*/
-		}
-
-		.paciente
-		{
-			width: 95px;
-			height: 113px;
-		}
-
-		#FooterTable
-		{
-			border: none;
-		}
-
-
-		/*Inicio del control de idioma*/
-
-		.switch-container
-		{
-			padding-left: 50px;
-			display: inline-block;
-		}
-
-		.span-language
-		{
-			margin-left: 20px;
-			margin-right: 20px;
-			font-size:14px;
-		}
-
-		.switch
-		{
-			position: relative;
-			display: inline-block;
-			width: 84px;
-			height: 34px;
-		}
-
-			.switch input
-			{
-				opacity: 0;
-				width: 0;
-				height: 0;
-			}
-
-		.slider
-		{
-			position: absolute;
-			cursor: pointer;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgb(153, 102, 0);
-			-webkit-transition: .4s;
-			transition: .4s;
-		}
-
-			.slider:before
-			{
-				position: absolute;
-				content: "";
-				height: 20px;
-				width: 20px;
-				left: 7px;
-				bottom: 7px;
-				background-color: white;
-				-webkit-transition: .4s;
-				transition: .4s;
-			}
-
-		input:checked + .slider
-		{
-			background-color: rgb(153, 102, 0);
-		}
-
-		input:focus + .slider
-		{
-			box-shadow: 0 0 1px #2196F3;
-		}
-
-		input:checked + .slider:before
-		{
-			-webkit-transform: translateX(51px);
-			-ms-transform: translateX(51px);
-			transform: translateX(51px);
-		}
-
-		/* Rounded sliders */
-		.slider.round
-		{
-			border-radius: 34px;
-		}
-
-			.slider.round:before
-			{
-				border-radius: 50%;
-			}
-		/*Fin del control de seleccion de idioma*/
-	</style>
+			</style>
 </asp:Content>
 <asp:Content ID="cBody" ContentPlaceHolderID="MainContent" runat="server">
 	<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Inline" DefaultLoadingPanelID="ralpImage">
@@ -373,6 +230,36 @@
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 						<asp:Label ID="lblNombreMedico" runat="server"></asp:Label>
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 controlRow">
+					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+							Tipo Identificación
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+							<telerik:RadComboBox ID="rcbxTipoDoc" runat="server" Width="90%" Filter="Contains" Enabled="false" />
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+							Número Identificación
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+
+							<telerik:RadTextBox ID="rtxtNumDoc" runat="server" MaxLength="50" Width="90%" EmptyMessage="[Número Documento]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
+
+							<asp:RequiredFieldValidator ID="rfvNumDoc" runat="server" ControlToValidate="rtxtNumDoc" ValidationGroup="Paciente" ErrorMessage="Debe especificar el numero de Identificacion"
+								Display="None" />
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+							Número Pasaporte
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+							<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="90%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow controlPair">
@@ -2039,7 +1926,11 @@
 					</p>
 
 				</div>
-				<div class="col-lg-4 col-lg-offset-4 text-right">
+				<div class="col-lg-4 text-center">
+					<img src="../Resources/Logos/imgImpresion.jpg" class="logo-central" alt="Logo labratorio" />
+				</div>
+
+				<div class="col-lg-4 text-right">
 					<div id="imgContainer" class="imgCont"></div>
 				</div>
 			</div>
@@ -2352,7 +2243,10 @@
 					</p>
 
 				</div>
-				<div class="col-lg-4 col-lg-offset-4 text-right">
+				<div class="col-lg-4 text-center">
+					<img src="../Resources/Logos/imgImpresion.jpg" class="logo-central" alt="Logo labratorio" />
+				</div>
+				<div class="col-lg-4 text-right">
 					<div id="imgContainerEng" class="imgCont"></div>
 				</div>
 			</div>
@@ -2819,7 +2713,7 @@
 
 			//se agregan las referencias a bootstrap
 			//<link href="Styles/bootstrap.css?1" type="text/css" rel="Stylesheet" />
-			link.setAttribute("href", "../Styles/bootstrap.css");
+			link.setAttribute("href", "../Content/bootstrap.css");
 			link.setAttribute("rel", "Stylesheet");
 			link.setAttribute("type", "text/css");
 
@@ -2878,6 +2772,10 @@
 			{
 				removeChildren("impresion");
 			}
+			if (document.getElementById("printableEng") != undefined)
+			{
+				removeChildren("impresionEng");
+			}
 
 			var checks =
 			{
@@ -2899,7 +2797,7 @@
 			checks.HpC = returnppty("checkBxHepC", "checked");
 			checks.CHm = returnppty("checkBxCH", "checked");
 			checks.Crt = returnppty("checkBxCre", "checked");
-			checks.OEx = returnppty("checkBxOtr", "checked");
+			checks.OEx = returnppty("checkBxOEx", "checked");
 			checks.HmG = returnppty("checkBxHmGl", "checked");
 
 			var message = "";
@@ -2965,11 +2863,13 @@
 			var foto = document.getElementById("<%=this.imgPrePhoto.ClientID%>").cloneNode(true);
 			foto.className = "paciente";
 			$(foto).removeAttr("style");
+			$("#imgContainer").empty();
 			document.getElementById('imgContainer').appendChild(foto);
 
 			var fotoEng = document.getElementById("<%=this.imgPrePhoto.ClientID%>").cloneNode(true);
 			fotoEng.className = "paciente";
 			$(fotoEng).removeAttr("style");
+			$("#imgContainerEng").empty();
 			document.getElementById('imgContainerEng').appendChild(fotoEng);
 
 			//verificacion uroanalisis
@@ -3338,11 +3238,19 @@
 			subModal.className = "impresion";
 
 			var copyLayout = document.getElementById("examsLayout").cloneNode(true);
+			
 			copyLayout.className = 'collapse';
 			copyLayout.id = "printable";
 			subModal.appendChild(copyLayout);
 
 			var copyLayoutEng = document.getElementById("examsLayoutEng").cloneNode(true);
+			copyLayoutEng.innerHTML = copyLayoutEng.innerHTML
+				.replace(/NEGATIVO/g, 'NEGATIVE')
+				.replace(/POSITIVO/g, 'POSITIVE')
+				.replace(/REACTIVO/g, 'REACTIVE')
+				.replace(/NO REACTIVO/g, 'NON REACTIVE')
+				.replace(/anormal/g, 'abnormal')
+
 			copyLayoutEng.className = 'collapse';
 			copyLayoutEng.id = "printableEng";
 			subModal.appendChild(copyLayoutEng);
@@ -3418,5 +3326,13 @@
 			mostrarCreat(item.get_value());
 		}
 
+		$(document).ready(
+			function ()
+			{
+				var host = location.hostname;
+				appRoot = "<%=ResolveUrl("~/")%>";
+				$(".logo-central").attr("src", "http://" + host + appRoot + "Resources/Logos/imgImpresion.jpg")
+			}
+		);
 	</script>
 </asp:Content>

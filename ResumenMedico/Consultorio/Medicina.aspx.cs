@@ -75,7 +75,7 @@ namespace ResumenMedico.Consultorio
                         }
                     }
                     LinkButton lbRegList = (LinkButton)Master.FindControl("lbRegList");
-                    lbRegList.PostBackUrl = "../Pendientes.aspx?T=3";
+                    lbRegList.PostBackUrl = ResolveUrl("~/Pendientes.aspx") + "?T=3";
                 }
                 else
                 {
@@ -434,6 +434,7 @@ namespace ResumenMedico.Consultorio
             this.rtxtNombres.Text = objEntPac.Nombres;
             this.rtxtApellidos.Text = objEntPac.Apellidos;
             this.rtxtNumDoc.Text = objEntPac.NumeroDocumento;
+            this.rtxtPasaporte.Text = objEntPac.NumeroPasaporte;
 
             this.rtxtCommentMedGen.Text = objEntHm.ComentarioMed;
 

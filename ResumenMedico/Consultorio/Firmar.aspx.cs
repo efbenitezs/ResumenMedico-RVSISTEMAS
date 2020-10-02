@@ -22,7 +22,7 @@ namespace ResumenMedico.Consultorio
         {
             get
             {
-                return Server.MapPath("../Resources/Files/");
+                return Server.MapPath("~/Resources/Files/");
             }
         }
         #endregion PathTemplateFilesDecl

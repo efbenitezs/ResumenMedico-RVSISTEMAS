@@ -5,7 +5,7 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 	<title>Firma Paciente para consentimiento</title>
-	<link href="../Styles/global.css" rel="Stylesheet" type="text/css" />
+	<link href="../Content/Site.css" rel="Stylesheet" type="text/css" />
 	<telerik:RadStyleSheetManager ID="rssmAdmin" runat="server" EnableStyleSheetCombine="true">
 	</telerik:RadStyleSheetManager>
 	<script src="/Scripts/AppScripts.js" type="text/javascript"></script>

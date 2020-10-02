@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master"
 	AutoEventWireup="true" CodeBehind="Radiologia.aspx.cs" Inherits="ResumenMedico.Consultorio.Radiologia" %>
+
 <asp:Content ID="cBody" ContentPlaceHolderID="MainContent" runat="server">
 	<telerik:RadAjaxManager ID="ram" runat="server" UpdatePanelsRenderMode="Block">
 		<AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="btnSaveInfo">
-                
-            </telerik:AjaxSetting>
+			<telerik:AjaxSetting AjaxControlID="btnSaveInfo">
+			</telerik:AjaxSetting>
 		</AjaxSettings>
 	</telerik:RadAjaxManager>
 
-	<telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" IsSticky="true" Style="position: absolute; top:0; left: 0; height:100%; width:100%;"></telerik:RadAjaxLoadingPanel>
+	<telerik:RadAjaxLoadingPanel ID="ralpImage" runat="server" IsSticky="true" Style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;"></telerik:RadAjaxLoadingPanel>
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -45,7 +45,37 @@
 							</div>
 						</div>
 					</div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow">
+					<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 controlRow">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+								Tipo Identificación
+							</div>
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+								<telerik:RadComboBox ID="rcbxTipoDoc" runat="server" Width="90%" Filter="Contains" Enabled="false" />
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+								Número Identificación
+							</div>
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+
+								<telerik:RadTextBox ID="rtxtNumDoc" runat="server" MaxLength="50" Width="90%" EmptyMessage="[Número Documento]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
+
+								<asp:RequiredFieldValidator ID="rfvNumDoc" runat="server" ControlToValidate="rtxtNumDoc" ValidationGroup="Paciente" ErrorMessage="Debe especificar el numero de Identificacion"
+									Display="None" />
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 controlPair">
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
+								Número Pasaporte
+							</div>
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
+								<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="90%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
 							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlSide controlHousing">
 								Fecha de Nacimiento
@@ -131,10 +161,10 @@
 							<asp:CheckBox ID="chkCargadaEmedical" runat="server" Text="Cargada a emedical" Enabled="false" CssClass="chBx" />
 						</div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
 							<asp:CheckBox ID="ChkRequiereNotificacion" runat="server" Text="Requiere Notificación" CssClass="chBx" />
 						</div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 controlPair">
 							<asp:CheckBox ID="ChkNotificado" runat="server" Text="Ya fue Notificado" CssClass="chBx" />
 						</div>
 					</div>
@@ -144,14 +174,14 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlHousing controlSide">
 					Información Medico General
 				</div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-                        Nombre Medico Asignado
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <asp:Label ID="lblNombreMedico" runat="server"></asp:Label>
-                    </div>
-                </div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+						Nombre Medico Asignado
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+						<asp:Label ID="lblNombreMedico" runat="server"></asp:Label>
+					</div>
+				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlPair">
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 controlHousing controlSide">
 						Estado
@@ -169,8 +199,8 @@
 						Comentarios Medico General
 					</div>
 					<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 controlHousing">
-						<telerik:RadTextBox ID="rtxtCommentRadGen" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana" Font-Size="11px" 
-                            Enabled="false">
+						<telerik:RadTextBox ID="rtxtCommentRadGen" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana" Font-Size="11px"
+							Enabled="false">
 						</telerik:RadTextBox>
 					</div>
 				</div>
@@ -213,9 +243,9 @@
 				</div>
 			</div>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-			    <telerik:RadGrid ID="rgFilesAttached" runat="server" AutoGenerateColumns="false" PageSize="10" OnNeedDataSource="rgFilesAttached_NeedDataSource" Width="100%">
+				<telerik:RadGrid ID="rgFilesAttached" runat="server" AutoGenerateColumns="false" PageSize="10" OnNeedDataSource="rgFilesAttached_NeedDataSource" Width="100%">
 
 					<PagerStyle AlwaysVisible="true" />
 
@@ -223,8 +253,8 @@
 
 						<Columns>
 
-							<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:AbrirArchivo({0});" Text="Abrir archivo"></telerik:GridHyperLinkColumn>                                					
-								
+							<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:AbrirArchivo({0});" Text="Abrir archivo"></telerik:GridHyperLinkColumn>
+
 							<telerik:GridBoundColumn HeaderText="Nombre Adjunto" DataField="NOMBRE_ADJUNTO" UniqueName="Adjunto" DataType="System.String"></telerik:GridBoundColumn>
 
 							<telerik:GridBoundColumn HeaderText="Fecha Carga" DataField="FECHA_CREACION" UniqueName="Valor" DataType="System.DateTime"></telerik:GridBoundColumn>
@@ -266,11 +296,11 @@
 			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
 			openFileupload(idh);
 			e.set_cancel(true);
-        }
+		}
 
-        function AbrirArchivo(idFil) 
-        {
-            window.open("../Controls/DwldFil.aspx?idFil=" + idFil, "", "height=400,width=500,resizable=no,scrollbars=yes");
-        }
+		function AbrirArchivo(idFil) 
+		{
+			window.open("../Controls/DwldFil.aspx?idFil=" + idFil, "", "height=400,width=500,resizable=no,scrollbars=yes");
+		}
 	</script>
 </asp:Content>

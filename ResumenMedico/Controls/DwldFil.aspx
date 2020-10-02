@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>Descarga Archivo</title>
-        <link href="../Styles/global.css" type="text/css" rel="Stylesheet" />
+        <link href="../Content/Site.css" type="text/css" rel="Stylesheet" />
         <script type="text/jscript" id="manejocierrre">
             function CerrarVentana() 
             {

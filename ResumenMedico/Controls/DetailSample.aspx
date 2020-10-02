@@ -5,18 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>Detalle de muestra de laboratorio</title>
-        <link href="../Styles/global.css" type="text/css" rel="Stylesheet" />
-        <link href="../Styles/bootstrap.css?1" type="text/css" rel="Stylesheet" />
-	    <script src="../Scripts/AppScripts.js" type="text/javascript"></script>
-	    <script src="../Scripts/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
-	    <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
-	    <script src="../Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            function ReloadParent() {
-                window.opener.location.reload(false);
-                window.close();
-            }
-        </script>
+        <link href="../Content/Site.css" type="text/css" rel="Stylesheet" />
+        <link href="../Content/bootstrap.css?1" type="text/css" rel="Stylesheet" />
     </head>
     <body>
         <form id="form1" runat="server">
@@ -307,5 +297,16 @@
                 </telerik:RadGrid>
             </div>
         </form>
-    </body>
+
+		<script src="../Scripts/jquery-3.5.1.min" type="text/javascript"></script>
+		<script src="../Scripts/AppScripts.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function ReloadParent()
+			{
+				window.opener.location.reload(false);
+				window.close();
+			}
+		</script>
+
+	</body>
 </html>

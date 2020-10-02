@@ -1,5 +1,11 @@
 ﻿/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
+*
+{
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+    color-adjust: exact !important; /*Firefox*/
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -9,7 +15,7 @@
 
 body
 {
-    background: url("/ResumenMedicoPublicado/Resources/fondo.jpg") no-repeat center center fixed;
+    background: url("../Resources/fondo.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -137,6 +143,8 @@ body
     margin-bottom: 15px;
     border: none;
     display: flex;
+    align-items: center;
+    height: 6em;
 }
 
 .botonLink
@@ -566,6 +574,7 @@ div span.RadButton_Bootstrap.rbSkinnedButton
     border-radius: 10px;
     background-color: rgba(0,0,0, 0.25);
     padding: 3px;
+    min-height:350px;
 }
 
 .repeaterItemCloseHistory
@@ -730,4 +739,295 @@ div.RadTabStrip_Bootstrap .rtsLevel1 .rtsSelected,
     border-color: #ddd;
     border-style: outset;
     border-width: 3px;
+}
+
+
+@font-face
+{
+    font-family: 'Avenir';
+    src: url('fonts/Avenir-Roman.eot');
+    src: url('fonts/Avenir-Roman.eot?#iefix') format('embedded-opentype'), url('fonts/Avenir-Roman.woff2') format('woff2'), url('fonts/Avenir-Roman.woff') format('woff'), url('fonts/Avenir-Roman.ttf') format('truetype'), url('fonts/Avenir-Roman.svg#Avenir-Roman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#printable, #printableEng
+{
+    margin: 0px auto;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 770px;
+    font-size: 12px;
+    background-position: center top;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    font-family: 'Avenir'
+}
+
+.logo-impresion
+{
+    position:relative;
+    top:10px;
+    left:310px;
+}
+
+div > p
+{
+    margin: 0;
+}
+
+.impresion,
+.impresionEng
+{
+    background: #F4E7BA
+}
+
+#serumEval
+{
+    border: 1px solid black;
+}
+
+.bandera
+{
+    width: 160px; /*height: 39px;*/
+}
+
+.paciente
+{
+    width: 95px;
+    height: 113px;
+}
+
+#FooterTable
+{
+    border: none;
+}
+
+
+/*Inicio del control de idioma*/
+
+.switch-container
+{
+    padding-left: 50px;
+    display: inline-block;
+}
+
+.span-language
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.switch
+{
+    position: relative;
+    display: inline-block;
+    width: 84px;
+    height: 34px;
+}
+
+    .switch input
+    {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider
+{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(153, 102, 0);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before
+    {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 7px;
+        bottom: 7px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider
+{
+    background-color: rgb(153, 102, 0);
+}
+
+input:focus + .slider
+{
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before
+{
+    -webkit-transform: translateX(51px);
+    -ms-transform: translateX(51px);
+    transform: translateX(51px);
+}
+
+/* Rounded sliders */
+.slider.round
+{
+    border-radius: 34px;
+}
+
+    .slider.round:before
+    {
+        border-radius: 50%;
+    }
+/*Fin del control de seleccion de idioma*/
+
+@media print
+{
+    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12
+    {
+        float: left;
+    }
+
+    .col-lg-12
+    {
+        width: 100%;
+    }
+
+    .col-lg-11
+    {
+        width: 91.66666667%;
+    }
+
+    .col-lg-10
+    {
+        width: 83.33333333%;
+    }
+
+    .col-lg-9
+    {
+        width: 75%;
+    }
+
+    .col-lg-8
+    {
+        width: 66.66666667%;
+    }
+
+    .col-lg-7
+    {
+        width: 58.33333333%;
+    }
+
+    .col-lg-6
+    {
+        width: 50%;
+    }
+
+    .col-lg-5
+    {
+        width: 41.66666667%;
+    }
+
+    .col-lg-4
+    {
+        width: 33.33333333%;
+    }
+
+    .col-lg-3
+    {
+        width: 25%;
+    }
+
+    .col-lg-2
+    {
+        width: 16.66666667%;
+    }
+
+    .col-lg-1
+    {
+        width: 8.33333333%;
+    }
+
+    .col-lg-offset-12
+    {
+        margin-left: 100%;
+    }
+
+    .col-lg-offset-11
+    {
+        margin-left: 91.66666667%;
+    }
+
+    .col-lg-offset-10
+    {
+        margin-left: 83.33333333%;
+    }
+
+    .col-lg-offset-9
+    {
+        margin-left: 75%;
+    }
+
+    .col-lg-offset-8
+    {
+        margin-left: 66.66666667%;
+    }
+
+    .col-lg-offset-7
+    {
+        margin-left: 58.33333333%;
+    }
+
+    .col-lg-offset-6
+    {
+        margin-left: 50%;
+    }
+
+    .col-lg-offset-5
+    {
+        margin-left: 41.66666667%;
+    }
+
+    .col-lg-offset-4
+    {
+        margin-left: 33.33333333%;
+    }
+
+    .col-lg-offset-3
+    {
+        margin-left: 25%;
+    }
+
+    .col-lg-offset-2
+    {
+        margin-left: 16.66666667%;
+    }
+
+    .col-lg-offset-1
+    {
+        margin-left: 8.33333333%;
+    }
+
+    .col-lg-offset-0
+    {
+        margin-left: 0;
+    }
+
+
+}
+.col-no-gutters
+{
+    padding-right:0;
+    padding-left:0;
 }

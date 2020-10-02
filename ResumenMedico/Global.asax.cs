@@ -6,22 +6,29 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Configuration;
 using System.Reflection;
-using System.Web.Optimization;
 using System.Web.Routing;
+using System.Globalization;
 
 namespace ResumenMedico
 {
     public class Global : System.Web.HttpApplication
     {
 
-        void Application_Start(object sender, EventArgs e)
+		private static string _Version;
+        private static string _LastTimeModified;
+
+        public static string GetCurrentVersion() { return "Version Actual: " + _Version + "<br/>" + _LastTimeModified; }
+
+		void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
-            
-            BundleTable.EnableOptimizations = true;
+            //Versionado
+            Assembly myAssembly = typeof(Global).Assembly;//   Assembly.GetExecutingAssembly();
+            AssemblyName myAssemblyName = myAssembly.GetName();
+            System.IO.FileInfo fileInfo = new System.IO.FileInfo(myAssembly.Location);
+            DateTime lastModified = fileInfo.LastWriteTime;
+
+            _Version = myAssemblyName.Version.Major.ToString() + "." + myAssemblyName.Version.Minor.ToString();
+            _LastTimeModified = fileInfo.LastWriteTime.ToString("dd-MM-yyyy", CultureInfo.CurrentUICulture);
 
         }
 
@@ -52,16 +59,6 @@ namespace ResumenMedico
             Session.Add("txtPdf", string.Empty);
             Session.Add("ShowMenu", false);
             Session.Add("ShowConsultorio", false);
-
-            //Versionado
-            Assembly myAssembly = Assembly.GetExecutingAssembly();
-            AssemblyName myAssemblyName = myAssembly.GetName();
-
-            System.IO.FileInfo fileInfo = new System.IO.FileInfo(myAssembly.Location);
-            DateTime lastModified = fileInfo.LastWriteTime;
-
-            string version = myAssemblyName.Version.Major.ToString() + "." + myAssemblyName.Version.Minor.ToString();
-            Session.Add("CurrentVersion", "Version Actual: " + version + "<br/>" + lastModified.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture));
         }
 
         void Session_End(object sender, EventArgs e)

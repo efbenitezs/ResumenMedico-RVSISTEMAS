@@ -36,7 +36,7 @@ namespace ResumenMedico.Admin
             {
                 //byte[] bytesContent = Convert.FromBase64String(this.sigImageData.Value.Trim());
                 byte[] bytesContent = Convert.FromBase64String("");
-                FileStream image = new FileStream(Server.MapPath("../Resources/") + "imgFirmaBacteriologo.png", FileMode.Create);
+                FileStream image = new FileStream(Server.MapPath("~/Resources/") + "imgFirmaBacteriologo.png", FileMode.Create);
                 image.Write(bytesContent, 0, bytesContent.Length);
                 image.Flush();
                 image.Close();

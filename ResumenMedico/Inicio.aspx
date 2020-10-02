@@ -24,7 +24,7 @@
 		</div>
 		<div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<div class="img" style="display: flex; align-items: center;">
-				<img src="/ResumenMedicoPublicado/Resources/caduceu-símbolo-da-medicina-u7735.png" class="img-responsive"
+				<img src="<%=ResolveUrl("~/")%>Resources/caduceu-símbolo-da-medicina-u7735.png" class="img-responsive"
 					alt="" style="margin: auto auto;" />
 			</div>
 		</div>
@@ -50,39 +50,36 @@
 	<script type="text/javascript">
 		function menu(par)
 		{
-			var appRoot = "<%=ResolveUrl("~/")%>";
+			
 
 			switch (par)
 			{
 				case 1:
-					window.location = appRoot + "/Consultorio/Recepcion.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Consultorio/Recepcion.aspx";
 					break;
 				case 2:
-					window.location = appRoot + "/Admin/Usuarios.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Admin/Usuarios.aspx";
 					break;
 				case 3: // Pendientes Laboratorio
-					window.location = appRoot + "/Pendientes.aspx?T=1";
-					//window.location = "Reportes/ListaPacientesPendLab.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Pendientes.aspx?T=1";
 					break;
 				case 4: //Pendientes Radiologia
-					window.location = appRoot + "/Pendientes.aspx?T=2";
-					//window.location = "Reportes/ListaPacientesPendRad.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Pendientes.aspx?T=2";
 					break;
 				case 5: //pendientes Medicina
-					window.location = "/Pendientes.aspx?T=3";
-					//window.location = "Reportes/ListaPacientesPendMed.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Pendientes.aspx?T=3";
 					break;
 				case 6:
-					window.location = appRoot + "/Consultorio/Cierre.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Consultorio/Cierre.aspx";
 					break;
 				case 7:
-					window.location = appRoot + "/Reportes/ReporteExamenesXFechas.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Reportes/ReporteExamenesXFechas.aspx";
 					break;
 				case 8:
-					window.location = appRoot + "/Reportes/ListaHistorias.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Reportes/ListaHistorias.aspx";
 					break;
 				case 9:
-					window.location = appRoot + "/Consultorio/RetornoEmb.aspx";
+					window.location = "<%=ResolveUrl("~/")%>Consultorio/RetornoEmb.aspx";
 					break;
 			}
 		}
