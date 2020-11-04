@@ -7,7 +7,10 @@ using System.Net.Configuration;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 using ResumenMedico.Controls;
 using RMBLL;
 using RMEntity;
@@ -153,7 +156,7 @@ namespace ResumenMedico.Consultorio
 			HistoriaMedicaBll objHmBll = new HistoriaMedicaBll();
 			HistoriaMedica objHmEnt = objHmBll.Load(this.IdHist);
 
-			UpdateBacteriologo(ref objHmEnt);
+
 
 			objHmEnt.ComentarioLab = this.rtxtComentarioLab.Text.Trim();
 			objHmEnt.IdUltimaModificacion = this.IdUserCurrent;
@@ -169,13 +172,7 @@ namespace ResumenMedico.Consultorio
 			}
 		}
 
-		private void UpdateBacteriologo(ref HistoriaMedica objHmEnt)
-		{
-			if (objHmEnt.Bacteriologo is null)
-			{
-				objHmEnt.Bacteriologo = (new UsuarioBll()).Load(this.IdUserCurrent);
-			}
-		}
+
 
 		#endregion rbtnGuardarInfo_Click
 
@@ -1350,6 +1347,8 @@ namespace ResumenMedico.Consultorio
 		{
 			bool isCreacion = !(objEntML.Id != int.MinValue);
 			MuestraLaboratorioBll objBllML = new MuestraLaboratorioBll();
+			objEntML.FechaUltimaModificacion = DateTime.Now;
+			objEntML.IdUltimaModificacion = this.IdUserCurrent;
 			if (objEntML.Estado == Constants.EstadosMuestraLaboratorio.SinAplicar)
 			{
 				RadScriptManager.RegisterClientScriptBlock(this, this.GetType(), "errValState", "alert('No se ha asignado el estado de la muestra');", true);
@@ -1363,10 +1362,80 @@ namespace ResumenMedico.Consultorio
 			{
 				if (!(examen == Constants.ExamenLab.Baciloscopia || examen == Constants.ExamenLab.Cultivo))
 				{
+					Usuario bacteriologo = new UsuarioBll().Load(objEntML.IdUltimaModificacion);
+
+					switch (examen)
+					{
+						case Constants.ExamenLab.Uroanalisis:
+							this.bsUrologia.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsUrologia.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsUrologia.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsUrologia.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsUrologia.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.Vih:
+							this.bsVIH.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsVIH.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsVIH.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsVIH.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsVIH.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.SerologiaVdrl:
+							this.bsSerologia.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsSerologia.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsSerologia.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsSerologia.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsSerologia.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.HbsAg:
+							this.bsHepatitisB.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsHepatitisB.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsHepatitisB.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsHepatitisB.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsHepatitisB.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.HepatitisC:
+							this.bsHepatitisC.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsHepatitisC.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsHepatitisC.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsHepatitisC.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsHepatitisC.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.CuadroHematico:
+							this.bsCuadroHematico.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsCuadroHematico.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsCuadroHematico.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsCuadroHematico.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsCuadroHematico.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.Creatinina:
+							this.bsCreatinina.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsCreatinina.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsCreatinina.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsCreatinina.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsCreatinina.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.HemoglobinaGlicosilada:
+							this.bsHemGli.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsHemGli.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsHemGli.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsHemGli.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsHemGli.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+						case Constants.ExamenLab.Otro:
+							this.bsOtros.NombreBacteriologo = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+							this.bsOtros.Universidad = bacteriologo.FirmaProfesional.Universidad;
+							this.bsOtros.CorreoElectBacteriologo = bacteriologo.FirmaProfesional.CorreoElectronico;
+							this.bsOtros.RegistroProfesional = bacteriologo.FirmaProfesional.RegistroProfesional;
+							this.bsOtros.FirmaBase64 = bacteriologo.FirmaProfesional.FirmaBase64;
+							break;
+					}
+
 					RadScriptManager.RegisterClientScriptBlock(this, this.GetType(), "okSavMue", "alert('La informacion de la muestra se ha almacenado correctamente');", true);
 				}
 				if (isCreacion)
 				{
+
 					switch (examen)
 					{
 						case Constants.ExamenLab.Uroanalisis:
@@ -1442,7 +1511,7 @@ namespace ResumenMedico.Consultorio
 				}
 				HistoriaMedicaBll objhbll = new HistoriaMedicaBll();
 				HistoriaMedica historia = objhbll.Load(objEntML.IdHistoria);
-				UpdateBacteriologo(ref historia);
+
 				objhbll.Save(historia, null);
 			}
 		}
@@ -1466,20 +1535,7 @@ namespace ResumenMedico.Consultorio
 			Utilidades.LlenarRC(this.rcbxTipoDoc, new TipoDocumentoBll().GetList(string.Empty, true, false), "ID", "NOMBRE", true);
 			Utilidades.PosicionarRC(this.rcbxTipoDoc, objEntPac.IdTipoDocumento.ToString());
 
-			#region Profesional_laboratorio
 
-			if (objEntHm.Bacteriologo != null && objEntHm.Bacteriologo.FirmaProfesional != null)
-			{
-				this.nombreBacteriologo.Value = string.Format("{0} {1}",
-					objEntHm.Bacteriologo.Nombres,
-					objEntHm.Bacteriologo.Apellidos);
-				this.universidad.Value = objEntHm.Bacteriologo.FirmaProfesional.Universidad;
-				this.correoElectBacteriologo.Value = objEntHm.Bacteriologo.FirmaProfesional.CorreoElectronico;
-				this.registroProfesional.Value = objEntHm.Bacteriologo.FirmaProfesional.RegistroProfesional;
-				this.firmaBase64.Value = objEntHm.Bacteriologo.FirmaProfesional.FirmaBase64;
-			}
-
-			#endregion Profesional_laboratorio
 
 			this.hfIdHist.Value = idHistoria.ToString();
 			this.rdpFecha.SelectedDate = objEntHm.FechaIngreso;
@@ -1520,6 +1576,8 @@ namespace ResumenMedico.Consultorio
 		private void LoadMuestras(int idHistoria)
 		{
 			MuestraLaboratorioBll objBll = new MuestraLaboratorioBll();
+
+			//Retrieve Urology samples
 			List<MuestraLaboratorio> objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.Uroanalisis, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1565,6 +1623,15 @@ namespace ResumenMedico.Consultorio
 					this.rtxtCristales.Text = objList[0].Cristales;
 					this.rtxtLevaduras.Text = objList[0].Levaduras;
 					this.rtxtOtros.Text = objList[0].Otros;
+
+
+					#region Profesional_laboratorio
+					this.bsUrologia.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsUrologia.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsUrologia.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsUrologia.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsUrologia.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
 				}
 			}
 			else
@@ -1581,6 +1648,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtCommentUrol.Text = "";
 			}
 
+			//Retrieve VIH samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.Vih, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1600,6 +1668,15 @@ namespace ResumenMedico.Consultorio
 				{
 					this.rcbxVIHResult.SelectedValue = objList[0].Resultado;
 					this.rbtnLoadFileVih.Visible = true;
+
+					#region Profesional_laboratorio
+					this.bsVIH.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsVIH.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsVIH.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsVIH.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsVIH.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
+
 				}
 			}
 			else
@@ -1617,6 +1694,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtComentVIH.Text = "";
 			}
 
+			//Retrieve Serology samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.SerologiaVdrl, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1640,6 +1718,14 @@ namespace ResumenMedico.Consultorio
 					{
 						this.rntValorSero.Value = Convert.ToDouble(objList[0].Valor);
 					}
+					#region Profesional_laboratorio
+					this.bsSerologia.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsSerologia.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsSerologia.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsSerologia.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsSerologia.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
+
 				}
 			}
 			else
@@ -1657,6 +1743,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtComentarioSerol.Text = "";
 			}
 
+			//Retrieve Hepatitis B samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.HbsAg, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1675,6 +1762,13 @@ namespace ResumenMedico.Consultorio
 				if (objList[0].Estado != Constants.EstadosMuestraLaboratorio.SinAplicar)
 				{
 					this.rcbxHepB.SelectedValue = objList[0].Resultado;
+					#region Profesional_laboratorio
+					this.bsHepatitisB.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsHepatitisB.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsHepatitisB.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsHepatitisB.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsHepatitisB.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
 				}
 			}
 			else
@@ -1692,6 +1786,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtCommentHepB.Text = "";
 			}
 
+			//Retrieve Hepatitis C samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.HepatitisC, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1710,6 +1805,14 @@ namespace ResumenMedico.Consultorio
 				if (objList[0].Estado != Constants.EstadosMuestraLaboratorio.SinAplicar)
 				{
 					this.rcbxHepC.SelectedValue = objList[0].Resultado;
+					#region Profesional_laboratorio
+					this.bsHepatitisC.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsHepatitisC.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsHepatitisC.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsHepatitisC.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsHepatitisC.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
+
 				}
 			}
 			else
@@ -1727,6 +1830,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtCommentHepC.Text = "";
 			}
 
+			//Retrieve HemoChart samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.CuadroHematico, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1745,6 +1849,14 @@ namespace ResumenMedico.Consultorio
 				if (objList[0].Estado != Constants.EstadosMuestraLaboratorio.SinAplicar)
 				{
 					this.rcbxCuadroHematico.SelectedValue = objList[0].Resultado;
+					#region Profesional_laboratorio
+					this.bsCuadroHematico.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsCuadroHematico.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsCuadroHematico.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsCuadroHematico.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsCuadroHematico.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
+
 				}
 			}
 			else
@@ -1762,6 +1874,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtComentarioCH.Text = "";
 			}
 
+			//Retrieve Creatinine samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.Creatinina, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1785,6 +1898,13 @@ namespace ResumenMedico.Consultorio
 					{
 						this.rntValorCrea.Value = Convert.ToDouble(objList[0].Valor);
 					}
+					#region Profesional_laboratorio
+					this.bsCreatinina.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsCreatinina.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsCreatinina.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsCreatinina.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsCreatinina.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
 				}
 				else
 				{
@@ -1808,6 +1928,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtComentarioHemGli.Text = "";
 			}
 
+			//Retrieve Glycosylated Hemoglobin samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.HemoglobinaGlicosilada, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1829,6 +1950,13 @@ namespace ResumenMedico.Consultorio
 					{
 						this.rntValorHemGli.Value = Convert.ToDouble(objList[0].Valor);
 					}
+					#region Profesional_laboratorio
+					this.bsHemGli.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsHemGli.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsHemGli.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsHemGli.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsHemGli.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
 				}
 			}
 			else
@@ -1846,6 +1974,7 @@ namespace ResumenMedico.Consultorio
 				this.rtxtComentarioHemGli.Text = "";
 			}
 
+			//Retrieve Other samples
 			objList = objBll.GetMuestraLaboratorios(idHistoria, Constants.ExamenLab.Otro, false, string.Empty, DateTime.MinValue, short.MinValue);
 			if (objList.Count > 0)
 			{
@@ -1864,10 +1993,16 @@ namespace ResumenMedico.Consultorio
 				if (objList[0].Estado != Constants.EstadosMuestraLaboratorio.SinAplicar)
 				{
 					this.rtxtOtroDesc.Text = objList[0].Descripcion;
-
 					this.rtxtOtroComentario.Text = objList[0].Observaciones;
-
 					this.rtxtOtroResultado.Text = objList[0].Resultado;
+
+					#region Profesional_laboratorio
+					this.bsOtros.NombreBacteriologo = string.Format("{0} {1}", objList[0].Bacteriologo.Nombres, objList[0].Bacteriologo.Apellidos);
+					this.bsOtros.Universidad = objList[0].Bacteriologo.FirmaProfesional.Universidad;
+					this.bsOtros.CorreoElectBacteriologo = objList[0].Bacteriologo.FirmaProfesional.CorreoElectronico;
+					this.bsOtros.RegistroProfesional = objList[0].Bacteriologo.FirmaProfesional.RegistroProfesional;
+					this.bsOtros.FirmaBase64 = objList[0].Bacteriologo.FirmaProfesional.FirmaBase64;
+					#endregion Profesional_laboratorio
 				}
 			}
 			else
@@ -2004,6 +2139,17 @@ namespace ResumenMedico.Consultorio
 		}
 
 		#endregion EliminarMuestra
+
+
+		[WebMethod]
+		[ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+		public static string LoadInfo(int idMuestra)
+		{
+			MuestraLaboratorioBll objBll = new MuestraLaboratorioBll();
+			MuestraLaboratorio objEnt = objBll.Load(idMuestra);
+			return JsonConvert.SerializeObject(objEnt);
+		}
+
 
 		protected void rbtnSendMail_Click(object sender, EventArgs e)
 		{

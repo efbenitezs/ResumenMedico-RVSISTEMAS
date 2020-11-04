@@ -294,6 +294,15 @@ namespace ResumenMedico.Consultorio
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraUrol;
 
 		/// <summary>
+		/// bsUrologia control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsUrologia;
+
+		/// <summary>
 		/// rblEstadoUro control.
 		/// </summary>
 		/// <remarks>
@@ -582,6 +591,15 @@ namespace ResumenMedico.Consultorio
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraVIH;
 
 		/// <summary>
+		/// bsVIH control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsVIH;
+
+		/// <summary>
 		/// rblEstadoVih control.
 		/// </summary>
 		/// <remarks>
@@ -679,6 +697,15 @@ namespace ResumenMedico.Consultorio
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraSero;
+
+		/// <summary>
+		/// bsSerologia control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsSerologia;
 
 		/// <summary>
 		/// rblEstadoSero control.
@@ -807,6 +834,15 @@ namespace ResumenMedico.Consultorio
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraHepB;
 
 		/// <summary>
+		/// bsHepatitisB control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsHepatitisB;
+
+		/// <summary>
 		/// rblEstadoHepaB control.
 		/// </summary>
 		/// <remarks>
@@ -904,6 +940,15 @@ namespace ResumenMedico.Consultorio
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraHepC;
+
+		/// <summary>
+		/// bsHepatitisC control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsHepatitisC;
 
 		/// <summary>
 		/// rblEstadoHepaC control.
@@ -1005,6 +1050,15 @@ namespace ResumenMedico.Consultorio
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraCH;
 
 		/// <summary>
+		/// bsCuadroHematico control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsCuadroHematico;
+
+		/// <summary>
 		/// rblEstadoCH control.
 		/// </summary>
 		/// <remarks>
@@ -1102,6 +1156,15 @@ namespace ResumenMedico.Consultorio
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraCreatinina;
+
+		/// <summary>
+		/// bsCreatinina control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsCreatinina;
 
 		/// <summary>
 		/// rblEstadoCreat control.
@@ -1230,6 +1293,15 @@ namespace ResumenMedico.Consultorio
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraHemGli;
 
 		/// <summary>
+		/// bsHemGli control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsHemGli;
+
+		/// <summary>
 		/// rblEstadoHemGli control.
 		/// </summary>
 		/// <remarks>
@@ -1336,6 +1408,15 @@ namespace ResumenMedico.Consultorio
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HiddenField hfIdMuestraOtro;
+
+		/// <summary>
+		/// bsOtros control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::ResumenMedico.Controls.BacteriologySignature bsOtros;
 
 		/// <summary>
 		/// rblEstadoOtro control.
@@ -1572,33 +1653,6 @@ namespace ResumenMedico.Consultorio
 		protected global::System.Web.UI.WebControls.HiddenField nombreLaboratorio;
 
 		/// <summary>
-		/// nombreBacteriologo control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HiddenField nombreBacteriologo;
-
-		/// <summary>
-		/// universidad control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HiddenField universidad;
-
-		/// <summary>
-		/// firmaBase64 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HiddenField firmaBase64;
-
-		/// <summary>
 		/// direccionLaboratorio control.
 		/// </summary>
 		/// <remarks>
@@ -1633,15 +1687,6 @@ namespace ResumenMedico.Consultorio
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HiddenField faxLaboratorio;
-
-		/// <summary>
-		/// correoElectBacteriologo control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HiddenField correoElectBacteriologo;
 
 		/// <summary>
 		/// registroProfesional control.

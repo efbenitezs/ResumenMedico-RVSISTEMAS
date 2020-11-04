@@ -580,10 +580,7 @@ namespace RMDAL
 					if (dataTable.Rows.Count > 0)
 					{
 						this.LoadFromDataRow(ref objToLoad, dataTable.Rows[0]);
-						if (objToLoad.TieneRevisonLab && objToLoad.EstadoRevisionLab != Constants.EstadoRevision.SinAplicar)
-						{
-							objToLoad.Bacteriologo = (new UsuarioDao()).Load(dataTable.Rows[0].Field<int>("ID_USUARIO_LABORATORIO"));
-						}
+						
 					}
 				}
 				catch (Exception ex)

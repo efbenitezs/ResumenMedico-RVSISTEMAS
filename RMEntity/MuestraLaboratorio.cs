@@ -42,6 +42,7 @@ namespace RMEntity
 		private string cristales = string.Empty;
 		private string levaduras = string.Empty;
 		private string otros = string.Empty;
+		private Usuario _bacteriologo;
 
 		public int IdHistoria
 		{
@@ -233,6 +234,12 @@ namespace RMEntity
 		{
 			get => this.otros;
 			set => this.otros = value;
+		}
+
+		public Usuario Bacteriologo
+		{
+			get => _bacteriologo;
+			set => _bacteriologo = value;
 		}
 	}
 }

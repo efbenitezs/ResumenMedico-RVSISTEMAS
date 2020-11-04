@@ -76,6 +76,11 @@ namespace RMDAL
 		  DbTransaction parentTrans)
 		{
 			DataTable dtEstructure = MuestraLaboratorioDao.DtEstructure;
+			dtEstructure.Columns.Add("NombreBacteriologo");
+			dtEstructure.Columns.Add("FirmaCorreoElectronico");
+			dtEstructure.Columns.Add("FirmaRegistroProfesional");
+			dtEstructure.Columns.Add("FirmaUniversidad");
+			dtEstructure.Columns.Add("FirmaBase64String");
 			try
 			{
 				DbConnection dbConnection = (DbConnection)null;
@@ -116,6 +121,15 @@ namespace RMDAL
 					DbDataAdapter dataAdapter = this.instance.GetDataAdapter();
 					dataAdapter.SelectCommand = storedProcCommand;
 					dataAdapter.Fill(dtEstructure);
+					foreach (DataRow fila in dtEstructure.Rows)
+					{
+						Usuario bacteriologo = new UsuarioDao().Load((int)fila["ID_ULTIMA_MODIFICACION"]);
+						fila["NombreBacteriologo"] = string.Format("{0} {1}", bacteriologo.Nombres, bacteriologo.Apellidos);
+						fila["FirmaCorreoElectronico"] = bacteriologo.FirmaProfesional.CorreoElectronico;
+						fila["FirmaRegistroProfesional"] = bacteriologo.FirmaProfesional.RegistroProfesional;
+						fila["FirmaUniversidad"] = bacteriologo.FirmaProfesional.Universidad;
+						fila["FirmaBase64String"] = bacteriologo.FirmaProfesional.FirmaBase64;
+					}
 				}
 				catch (Exception ex)
 				{
@@ -178,10 +192,11 @@ namespace RMDAL
 			List<MuestraLaboratorio> muestraLaboratorioList = new List<MuestraLaboratorio>();
 			try
 			{
-				foreach (DataRow row in (InternalDataCollectionBase)this.GetList(idHistoria, idTipoExamen, showAllTipoExamen, resultado, fechaTomaMuestra, numeroMuestra, parentTrans).Rows)
+				foreach (DataRow row in GetList(idHistoria, idTipoExamen, showAllTipoExamen, resultado, fechaTomaMuestra, numeroMuestra, parentTrans).Rows)
 				{
 					MuestraLaboratorio objToLoad = new MuestraLaboratorio();
 					this.LoadFromDataRow(ref objToLoad, row);
+
 					muestraLaboratorioList.Add(objToLoad);
 				}
 			}
@@ -668,6 +683,7 @@ namespace RMDAL
 				objToLoad.FechaCreacion = Convert.ToDateTime(drData["FECHA_CREACION"]);
 				objToLoad.IdUltimaModificacion = Convert.ToInt32(drData["ID_ULTIMA_MODIFICACION"]);
 				objToLoad.FechaUltimaModificacion = Convert.ToDateTime(drData["FECHA_ULTIMA_MODIFICACION"]);
+				objToLoad.Bacteriologo = (new UsuarioDao()).Load(drData.Field<int>("ID_ULTIMA_MODIFICACION"));
 			}
 			catch (Exception ex)
 			{

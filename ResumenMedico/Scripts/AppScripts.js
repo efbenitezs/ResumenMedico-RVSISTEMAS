@@ -195,26 +195,32 @@ function DisplaySticker()
 	window.scrollTo(0, 0);
 }
 
-//deploy Form with exame abstract
+//Show Form with exam abstract
 function ViewExamsAbstract()
 {
 	var examsAbstractHeader = document.createElement('div');
 	examsAbstractHeader.id = "printControler";
 
-	var listadoExamenes = divSelExamenes();
-	listadoExamenes.id = "examenesListado";
-	listadoExamenes.className = "listExamenes"
-	examsAbstractHeader.appendChild(listadoExamenes);
+	if (!PrevTest)
+	{
+		var listadoExamenes = divSelExamenes();
+		listadoExamenes.id = "examenesListado";
+		listadoExamenes.className = "listExamenes"
+		examsAbstractHeader.appendChild(listadoExamenes);
+	}
 
 	var btnContainner = document.createElement("div");
 	btnContainner.className = "btnStrip";
 
-	var btnVistaPrevia = document.createElement('div');
-	btnVistaPrevia.innerHTML = "Vista Previa";
-	btnVistaPrevia.id = "btnVP";
-	btnVistaPrevia.className = "botonesVPE";
-	btnVistaPrevia.addEventListener("click", updateLayout);
-	btnContainner.appendChild(btnVistaPrevia);
+	if (!PrevTest)
+	{
+		var btnVistaPrevia = document.createElement('div');
+		btnVistaPrevia.innerHTML = "Vista Previa";
+		btnVistaPrevia.id = "btnVP";
+		btnVistaPrevia.className = "botonesVPE";
+		btnVistaPrevia.addEventListener("click", updateLayout);
+		btnContainner.appendChild(btnVistaPrevia);
+	}
 
 	$(btnContainner).append('<div class="switch-container"><span class="span-language">Español </span><label class="switch"><input id="checkLang" type="checkbox"><span class="slider round"></span></label><span class="span-language"> Ingles</span></div>')
 	$("#checkLang").on("click", ToogleView);
@@ -580,32 +586,16 @@ function imprSelec()
 function UpdateInfoLab(obj)
 {
 	//Español
-	document.getElementById("spNomLaboratorio").innerHTML = obj.nomLab;
-	document.getElementById("spNomBacteriologo1").innerHTML = obj.nomBact;
-	document.getElementById("spUniversidad1").innerHTML = obj.univ;
 	document.getElementById("spDireccionLaboratorio").innerHTML = obj.dirLab;
 	document.getElementById("spCiudad").innerHTML = obj.ciudad;
 	document.getElementById("spTelefonoLaboratorio").innerHTML = obj.telLab;
 	document.getElementById("spFaxLaboratorio").innerHTML = obj.faxLab;
-	document.getElementById("spCorreoElectBacteriologo").innerHTML = obj.corrElBact;
-	document.getElementById("spNomBacteriologo2").innerHTML = obj.nomBact;
-	document.getElementById("spUniversidad1").innerHTML = obj.univ;
-	document.getElementById("spRegistroProfesional").innerHTML = obj.regPro;
-	document.getElementById("imgFirmaBacteriologo").src = obj.firmaBase64;
 
 	//English
-	document.getElementById("spNomLaboratorioEng").innerHTML = obj.nomLab;
-	document.getElementById("spNomBacteriologo1Eng").innerHTML = obj.nomBact;
-	document.getElementById("spUniversidad1Eng").innerHTML = obj.univ;
 	document.getElementById("spDireccionLaboratorioEng").innerHTML = obj.dirLab;
 	document.getElementById("spCiudadEng").innerHTML = obj.ciudad;
 	document.getElementById("spTelefonoLaboratorioEng").innerHTML = obj.telLab;
 	document.getElementById("spFaxLaboratorioEng").innerHTML = obj.faxLab;
-	document.getElementById("spCorreoElectBacteriologoEng").innerHTML = obj.corrElBact;
-	document.getElementById("spNomBacteriologo2Eng").innerHTML = obj.nomBact;
-	document.getElementById("spUniversidad1Eng").innerHTML = obj.univ;
-	document.getElementById("spRegistroProfesionalEng").innerHTML = obj.regPro;
-	document.getElementById("imgFirmaBacteriologoEng").src = obj.firmaBase64;
 }
 
 function RemoveChildById(IdObj)

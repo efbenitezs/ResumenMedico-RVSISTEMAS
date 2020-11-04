@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="Laboratorio.aspx.cs" Inherits="ResumenMedico.Consultorio.Laboratorio" %>
 
+<%@ Register Src="~/Controls/BacteriologySignature.ascx" TagPrefix="bs" TagName="BacteriologySignature" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<style type="text/css" id="printStyles">
 			</style>
@@ -192,7 +194,7 @@
 
 	<div class="row">
 
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-12">
 			<div class="titulo">
 				Información Paciente
 			</div>
@@ -203,42 +205,44 @@
 				</div>
 			</div>
 			<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
+				<div class="col-md-12 controlRow">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlPair">
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 							Nombre
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-							<telerik:RadTextBox ID="rtxtNombres" runat="server" ReadOnly="true" Width="90%" />
+							<telerik:RadTextBox ID="rtxtNombres" runat="server" ReadOnly="true" Width="100%" />
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 controlPair">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlPair">
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 							Fecha
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
-							<telerik:RadDatePicker ID="rdpFecha" runat="server" MinDate="1900-01-01" Width="90%">
+							<telerik:RadDatePicker ID="rdpFecha" runat="server" MinDate="1900-01-01" Width="100%">
 								<Calendar ID="cFecha" runat="server" FirstDayOfWeek="Sunday" />
 								<DateInput ID="diFecha" runat="server" DisplayDateFormat="yyyy/MM/dd" ReadOnly="true" />
 							</telerik:RadDatePicker>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-						Nombre Medico Asignado
-					</div>
-					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-						<asp:Label ID="lblNombreMedico" runat="server"></asp:Label>
+				<div class="col-md-12 ">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlPair">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+							Médico Asignado
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<asp:Label ID="lblNombreMedico" runat="server"></asp:Label>
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 controlRow">
+				<div class="col-md-12 controlRow">
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 controlHousing controlSide">
 							Tipo Identificación
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
-							<telerik:RadComboBox ID="rcbxTipoDoc" runat="server" Width="90%" Filter="Contains" Enabled="false" />
+							<telerik:RadComboBox ID="rcbxTipoDoc" runat="server" Width="100%" Filter="Contains" Enabled="false" />
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 controlPair">
@@ -247,7 +251,7 @@
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
 
-							<telerik:RadTextBox ID="rtxtNumDoc" runat="server" MaxLength="50" Width="90%" EmptyMessage="[Número Documento]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
+							<telerik:RadTextBox ID="rtxtNumDoc" runat="server" MaxLength="50" Width="100%" EmptyMessage="[Número Documento]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
 
 							<asp:RequiredFieldValidator ID="rfvNumDoc" runat="server" ControlToValidate="rtxtNumDoc" ValidationGroup="Paciente" ErrorMessage="Debe especificar el numero de Identificacion"
 								Display="None" />
@@ -258,27 +262,27 @@
 							Número Pasaporte
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 controlHousing">
-							<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="90%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
+							<telerik:RadTextBox ID="rtxtPasaporte" runat="server" MaxLength="20" Width="100%" EmptyMessage="[Número Pasaporte]" Font-Names="Verdana" ReadOnly="true"></telerik:RadTextBox>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow controlPair">
-					<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+				<div class="col-md-12 controlRow controlPair" style="padding-left: 35px; padding-right: 35px;">
+					<div class="controlSide">
 						Comentarios
 					</div>
-					<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-						<telerik:RadTextBox ID="rtxtComentarioLab" runat="server" MaxLength="8000" TextMode="MultiLine" Rows="3" Width="90%" />
+					<div class="controlHousing">
+						<telerik:RadTextBox ID="rtxtComentarioLab" runat="server" MaxLength="8000" TextMode="MultiLine" Rows="3" Width="100%" />
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+			<div class="col-md-12 text-center">
 				<telerik:RadButton ID="rbtnGuardarInfo" runat="server" Text="Almacenar estado y comentarios" OnClick="rbtnGuardarInfo_Click" />
 				<telerik:RadButton ID="btnShowAbstract" AutoPostBack="false" runat="server" Text="Mostrar resumen de examenes" OnClientClicked="ViewExamsAbstract" />
 				<asp:HiddenField ID="hfCodigo" runat="server" />
 				<asp:HiddenField ID="hfEdad" runat="server" />
 			</div>
 
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controlRow controlPair">
+			<div class="col-md-12 controlRow controlPair">
 				<asp:CheckBox ID="chkUro" runat="server" AutoPostBack="true" CausesValidation="false" Text="Uroanálisis" OnCheckedChanged="chkUro_CheckedChanged" CssClass="chBx" />
 
 				<asp:CheckBox ID="chkVih" runat="server" AutoPostBack="true" CausesValidation="false" Text="VIH" OnCheckedChanged="chkVih_CheckedChanged" CssClass="chBx" />
@@ -304,7 +308,7 @@
 		</div>
 	</div>
 
-	<telerik:RadTabStrip ID="rtsPanelesExamenes" runat="server" MultiPageID="rmpContenidoExamnes" SelectedIndex="0" Align="Center" Skin="Default" Width="100%">
+	<telerik:RadTabStrip ID="rtsPanelesExamenes" runat="server" MultiPageID="rmpContenidoExamnes" SelectedIndex="0" Align="Center" Width="100%">
 		<Tabs>
 			<telerik:RadTab Text="Uroanálisis" Width="200" Visible="false" Value="1" Font-Bold="true"></telerik:RadTab>
 			<telerik:RadTab Text="VIH" Width="200" Visible="false" Value="2" Font-Bold="true"></telerik:RadTab>
@@ -322,15 +326,16 @@
 	<telerik:RadMultiPage ID="rmpContenidoExamnes" runat="server" SelectedIndex="0" Width="100%">
 		<telerik:RadPageView runat="server" ID="rpvUrologia" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraUrol" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsUrologia" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="linia_arriba"></div>
 					<div class="titulo">Uroanálisis</div>
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 linia_estilo"></div>
+					<div class="col-md-12 linia_estilo"></div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 						Estado
 					</div>
@@ -344,7 +349,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
 						Exámen Físico
 					</div>
@@ -355,7 +360,7 @@
 						Exámen Microscópico
 					</div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							Olor:
@@ -540,7 +545,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnUrologia" runat="server" Text="Guardar información" OnClick="rbtnUrologia_Click" Font-Bold="True" Font-Names="Verdana"
 						UseSubmitBehavior="False">
 					</telerik:RadButton>
@@ -551,22 +556,22 @@
 						UseSubmitBehavior="False" Text="Eliminar Muestra" OnClientClicking="ValidarEliminacion" OnClick="rbtnEliminarUro_Click">
 					</telerik:RadButton>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<b>Comentarios</b>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadTextBox ID="rtxtCommentUrol" runat="server" TextMode="MultiLine" Rows="5" Width="90%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgUrol" runat="server" OnNeedDataSource="rgUrol_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -589,53 +594,61 @@
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgUroAnt" runat="server" OnNeedDataSource="rgUroAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="40%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
 			</div>
 
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
+			<div class="col-md-12"></div>
 		</telerik:RadPageView>
 
 		<telerik:RadPageView runat="server" ID="rpvHIV" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraVIH" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsVIH" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<h1 class="titulo">VIH</h1>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -648,7 +661,7 @@
 						<asp:ListItem Text="Anormal" class="chbxAnormal" Value="1"></asp:ListItem>
 					</asp:RadioButtonList>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					(HIV 1 & 2)
                     <br />
 					Técnica Inmunocromatográfica (rápida)
@@ -670,10 +683,10 @@
 						InitialValue="[Seleccione]" ValidationGroup="VIH">
 					</asp:RequiredFieldValidator>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					Prueba presuntiva sujeta a confirmación
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnGuardarVIH" runat="server" CausesValidation="true" ValidationGroup="VIH" Text="Guardar información"
 						OnClick="rbtnGuardarVIH_Click">
 					</telerik:RadButton>
@@ -684,21 +697,21 @@
 						OnClick="rbtnEliminarVih_Click">
 					</telerik:RadButton>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<b>Comentarios</b>
 				</div>
 				<div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
 					<telerik:RadTextBox ID="rtxtComentVIH" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<telerik:RadGrid ID="rgVih" runat="server" OnNeedDataSource="rgVih_NeedDataSource" AutoGenerateColumns="false">
+				<div class="col-md-12">
+					<telerik:RadGrid Culture="es-CO" ID="rgVih" runat="server" OnNeedDataSource="rgVih_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 							<Columns>
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:AbrirArchivo({0});" Text="Abrir archivo">
 									<ItemStyle Width="10%" />
@@ -720,38 +733,46 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
-					<telerik:RadGrid ID="rgVihAnt" runat="server" OnNeedDataSource="rgVihAnt_NeedDataSource" AutoGenerateColumns="false">
+					<telerik:RadGrid Culture="es-CO" ID="rgVihAnt" runat="server" OnNeedDataSource="rgVihAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="40%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
+
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -761,10 +782,11 @@
 
 		<telerik:RadPageView runat="server" ID="rpvVDRL" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraSero" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsSerologia" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
+				<div class="col-md-12"></div>
 
 				<div class="titulo">Serología VDRL</div>
 
@@ -798,13 +820,13 @@
 					<asp:Label ID="lblValSer" runat="server" Visible="True" CssClass="fuente">Valor: </asp:Label>
 				</div>
 				<div id="contnumSer" class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-					<telerik:RadNumericTextBox ID="rntValorSero" runat="server" MinValue="0" MaxLength="5" MaxValue="500" Visible="True" Width="195px" Font-Names="Verdana">
+					<telerik:RadNumericTextBox ID="rntValorSero" runat="server" Style="display: inline" MinValue="0" MaxLength="5" MaxValue="500" Visible="True" Width="195px" Font-Names="Verdana">
 						<NumberFormat DecimalDigits="2" AllowRounding="false" />
 					</telerik:RadNumericTextBox>
-					<asp:Label ID="lblUnitValSer" runat="server" Visible="True" CssClass="fuente">dils</asp:Label>
+					<asp:Label ID="lblUnitValSer" runat="server" Style="display: inline" Visible="True" CssClass="fuente">dils</asp:Label>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnGuardarSerologia" runat="server" CausesValidation="true" ValidationGroup="Serologia" Text="Guardar información"
 						OnClick="rbtnGuardarSerologia_Click">
 					</telerik:RadButton>
@@ -817,21 +839,21 @@
 						UseSubmitBehavior="False" Text="Eliminar Muestra" OnClientClicking="ValidarEliminacion" OnClick="rbtnEliminarSerologia_Click">
 					</telerik:RadButton>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					Observaciones:
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadTextBox ID="rtxtComentarioSerol" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgSero" runat="server" OnNeedDataSource="rgSero_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -854,42 +876,49 @@
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgSeroAnt" runat="server" OnNeedDataSource="rgSeroAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Valor" DataField="VALOR" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="30%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -899,10 +928,11 @@
 
 		<telerik:RadPageView runat="server" ID="rpvHepatitisB" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraHepB" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsHepatitisB" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Hepatitis B</div>
 				</div>
 
@@ -915,7 +945,7 @@
 						<asp:ListItem Text="Anormal" class="chbxAnormal" Value="1"></asp:ListItem>
 					</asp:RadioButtonList>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					HBS ag
                     <br />
 					Técnica Inmunocromatográfica (rápida)
@@ -935,10 +965,10 @@
 						InitialValue="[Seleccione]" ValidationGroup="HepB">
 					</asp:RequiredFieldValidator>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					Prueba presuntiva sujeta a confirmación
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnHepB" runat="server" Text="Guardar información" CausesValidation="true" ValidationGroup="HepB" OnClick="rbtnHepB_Click">
 					</telerik:RadButton>
 					<telerik:RadButton ID="rbtnLoadFileHepaB" runat="server" CausesValidation="false" UseSubmitBehavior="false" OnClientClicking="CargarFileHepaB"
@@ -949,19 +979,19 @@
 					</telerik:RadButton>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<b>Comentarios</b>
 				</div>
 				<div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
 					<telerik:RadTextBox ID="rtxtCommentHepB" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgHepB" runat="server" OnNeedDataSource="rgHepB_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -985,38 +1015,45 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgHepBAnt" runat="server" OnNeedDataSource="rgHepBAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="40%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1026,10 +1063,11 @@
 
 		<telerik:RadPageView runat="server" ID="rpvHepC" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraHepC" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsHepatitisC" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Hepatitis C</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -1042,7 +1080,7 @@
 						<asp:ListItem Text="Anormal" class="chbxAnormal" Value="1"></asp:ListItem>
 					</asp:RadioButtonList>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					Técnica Inmunocromatográfica (rápida)
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -1059,11 +1097,11 @@
 					<asp:RequiredFieldValidator ID="rfvHepC" runat="server" ControlToValidate="rcbxHepC" Text="Debe indicar un resultado para el análisis"
 						InitialValue="[Seleccione]" ValidationGroup="HepC"></asp:RequiredFieldValidator>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					Prueba presuntiva sujeta a<br />
 					confirmación
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnHepC" runat="server" Text="Guardar información" CausesValidation="true" ValidationGroup="HepC" OnClick="rbtnHepC_Click">
 					</telerik:RadButton>
 					<telerik:RadButton ID="rbtnLoadFileHepaC" runat="server" CausesValidation="false" UseSubmitBehavior="false" OnClientClicking="CargarFileHepaC"
@@ -1074,21 +1112,21 @@
 					</telerik:RadButton>
 					<div class="spacio"></div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<b>Comentarios</b>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadTextBox ID="rtxtCommentHepC" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgHepC" runat="server" OnNeedDataSource="rgHepC_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1112,38 +1150,45 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgHepCAnt" runat="server" OnNeedDataSource="rgHepCAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="40%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1151,12 +1196,13 @@
 			</div>
 		</telerik:RadPageView>
 
-		<telerik:RadPageView runat="server" ID="rpvCuadroHematico" Width="1200px" Visible="false">
+		<telerik:RadPageView runat="server" ID="rpvCuadroHematico" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraCH" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsCuadroHematico" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Cuadro Hemático</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -1188,7 +1234,7 @@
 					</asp:RequiredFieldValidator>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnCuadroHematico" runat="server" CausesValidation="true"
 						ValidationGroup="PruEmb" Text="Guardar información" OnClick="rbtnCuadroHematico_Click">
 					</telerik:RadButton>
@@ -1204,22 +1250,22 @@
 					<div class="spacio"></div>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<b>Comentarios</b>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadTextBox ID="rtxtComentarioCH" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana">
 					</telerik:RadTextBox>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgCH" runat="server" OnNeedDataSource="rgCH_NeedDataSource" AutoGenerateColumns="false" Culture="es-CO">
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1243,38 +1289,45 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgCHAnt" runat="server" OnNeedDataSource="rgCHAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="40%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1282,20 +1335,14 @@
 			</div>
 		</telerik:RadPageView>
 
-		<telerik:RadPageView runat="server" ID="rpvCreatinina" Width="1200px" Visible="false">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<asp:HiddenField ID="hfIdMuestraCreatinina" runat="server" />
-					</div>
+		<telerik:RadPageView runat="server" ID="rpvCreatinina" Width="100%" Visible="false">
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<asp:HiddenField ID="hfIdMuestraCreatinina" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsCreatinina" />
+					<div class="titulo">Creatinina</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="titulo">Creatinina</div>
-					</div>
-				</div>
-				<div class="row">
+				<div class="col-md-12 form-group">
 					<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 						Estado
 					</div>
@@ -1307,9 +1354,8 @@
 						</asp:RadioButtonList>
 					</div>
 				</div>
-				<div class="row">
-				</div>
-				<div class="row">
+
+				<div class="col-md-12 form-group">
 					<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 						Resultado
 					</div>
@@ -1327,9 +1373,8 @@
 						</asp:RequiredFieldValidator>
 					</div>
 				</div>
-				<div class="row">
-				</div>
-				<div class="row" id="divLblValCrea">
+
+				<div class="col-md-12 form-group">
 					<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 						<asp:Label ID="lblValCrea" runat="server">Valor</asp:Label>
 					</div>
@@ -1340,52 +1385,41 @@
 						<asp:Label ID="lblUnitValCrea" runat="server">mg/dl</asp:Label>
 					</div>
 				</div>
-				<div class="row">
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<telerik:RadButton ID="rbtnCreatinina" runat="server" CausesValidation="true" ValidationGroup="Creatinina"
-							Text="Guardar información" OnClick="rbtnCreatinina_Click" Font-Bold="True" Font-Names="Verdana">
-						</telerik:RadButton>
+				<div class="col-md-12 form-group text-center">
+					<telerik:RadButton ID="rbtnCreatinina" runat="server" CausesValidation="true" ValidationGroup="Creatinina"
+						Text="Guardar información" OnClick="rbtnCreatinina_Click" Font-Bold="True" Font-Names="Verdana">
+					</telerik:RadButton>
 
-						<telerik:RadButton ID="rbtnLoadFileCre" runat="server" CausesValidation="false" UseSubmitBehavior="false"
-							OnClientClicking="CargarFileCre" Text="Cargar Archivo" Font-Bold="True" Font-Names="Verdana"
-							Visible="false">
-						</telerik:RadButton>
+					<telerik:RadButton ID="rbtnLoadFileCre" runat="server" CausesValidation="false" UseSubmitBehavior="false"
+						OnClientClicking="CargarFileCre" Text="Cargar Archivo" Font-Bold="True" Font-Names="Verdana"
+						Visible="false">
+					</telerik:RadButton>
 
-						<telerik:RadButton ID="rbtnEliminarCreatinina" runat="server" CausesValidation="false"
-							UseSubmitBehavior="False" Text="Eliminar Muestra" OnClientClicking="ValidarEliminacion" OnClick="rbtnEliminarCreatinina_Click">
-						</telerik:RadButton>
-						<div class="spacio">
-						</div>
-					</div>
+					<telerik:RadButton ID="rbtnEliminarCreatinina" runat="server" CausesValidation="false"
+						UseSubmitBehavior="False" Text="Eliminar Muestra" OnClientClicking="ValidarEliminacion" OnClick="rbtnEliminarCreatinina_Click">
+					</telerik:RadButton>
 				</div>
-				<div class="row">
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+				<div class="col-md-12 form-group">
+					<div class="col-md-12">
 						<b>Comentarios</b>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="col-md-12">
 						<telerik:RadTextBox ID="rtxtComentarioCrea" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana"></telerik:RadTextBox>
 					</div>
 				</div>
-				<div class="row">
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+				<div class="col-md-12 form-group">
+					<div class="col-md-12">
 						<h4><b>Archivos Adjuntos</b></h4>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<div class="col-md-12">
 						<telerik:RadGrid ID="rgCrea" runat="server" OnNeedDataSource="rgCrea_NeedDataSource" AutoGenerateColumns="false">
 
 							<PagerStyle AlwaysVisible="true" />
 
-							<MasterTableView DataKeyNames="ID">
+							<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 								<Columns>
 
@@ -1409,43 +1443,48 @@
 						</telerik:RadGrid>
 					</div>
 				</div>
-				<div class="row">
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+				<div class="col-md-12 form-group">
+					<div class="col-md-12 text-center">
 						<h4><b>Muestras Anteriores</b></h4>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<div class="col-md-12">
 
 						<telerik:RadGrid ID="rgCreaAnt" runat="server" OnNeedDataSource="rgCreaAnt_NeedDataSource" AutoGenerateColumns="false">
 
 							<PagerStyle AlwaysVisible="true" />
 
-							<MasterTableView DataKeyNames="ID">
+							<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 								<Columns>
 
 									<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-										<ItemStyle Width="10%" />
+										<ItemStyle Width="7em" />
 									</telerik:GridHyperLinkColumn>
 
 									<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-										<ItemStyle Width="20%" />
+										<ItemStyle Width="12em" />
 									</telerik:GridBoundColumn>
 
 									<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-										<ItemStyle Width="40%" />
 									</telerik:GridBoundColumn>
 
 									<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-										<ItemStyle Width="15%" />
+										<ItemStyle Width="14em" />
 									</telerik:GridBoundColumn>
 
 									<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-										<ItemStyle Width="15%" />
+										<ItemStyle Width="12em" />
 									</telerik:GridBoundColumn>
+									<telerik:GridTemplateColumn>
+										<ItemStyle Width="15em" />
+										<ItemTemplate>
+											<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+												Vista previa de impresión
+											</button>
+										</ItemTemplate>
+									</telerik:GridTemplateColumn>
 								</Columns>
 							</MasterTableView>
 						</telerik:RadGrid>
@@ -1456,10 +1495,11 @@
 
 		<telerik:RadPageView runat="server" ID="rpvHemoGli" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraHemGli" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsHemGli" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Hemoglobina Glicosilada</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -1482,7 +1522,7 @@
 					</telerik:RadNumericTextBox>
 					<asp:Label ID="lblUnitValHemGli" runat="server">%</asp:Label>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnHemGli" runat="server" CausesValidation="true" ValidationGroup="HemoglobinaGlicosilada"
 						Text="Guardar información" OnClick="rbtnHemGli_Click" Font-Bold="True" Font-Names="Verdana">
 					</telerik:RadButton>
@@ -1497,22 +1537,22 @@
 					</telerik:RadButton>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<b>Comentarios</b>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadTextBox ID="rtxtComentarioHemGli" runat="server" TextMode="MultiLine" Rows="5" Width="99%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgHemGli" runat="server" OnNeedDataSource="rgHemGli_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1536,38 +1576,45 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgHemGliAnt" runat="server" OnNeedDataSource="rgHemGliAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Valor" DataField="VALOR" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="40%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1575,12 +1622,13 @@
 			</div>
 		</telerik:RadPageView>
 
-		<telerik:RadPageView runat="server" ID="rpvOtro" Width="1200px" Visible="false">
+		<telerik:RadPageView runat="server" ID="rpvOtro" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraOtro" runat="server" />
+					<bs:BacteriologySignature runat="server" ID="bsOtros" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Exámenes Complementarios</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -1618,7 +1666,7 @@
 					<telerik:RadTextBox ID="rtxtOtroComentario" runat="server" MaxLength="8000" TextMode="MultiLine" Rows="5" Columns="150" Width="95%" Font-Names="Verdana"></telerik:RadTextBox>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnOtroGuardar" runat="server" CausesValidation="true" ValidationGroup="Otro" Text="Guardar Información" OnClick="rbtnOtroGuardar_Click" Font-Bold="True" Font-Names="Verdana">
 					</telerik:RadButton>
 
@@ -1631,15 +1679,15 @@
 					</telerik:RadButton>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgOtro" runat="server" OnNeedDataSource="rgOtro_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1658,47 +1706,61 @@
 								<telerik:GridBoundColumn HeaderText="Usuario que adjunto" DataField="CREACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="15%" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgOtroAnt" runat="server" OnNeedDataSource="rgOtroAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
 								<telerik:GridHyperLinkColumn DataNavigateUrlFields="ID" DataNavigateUrlFormatString="javascript:VerMuestraAnt({0});" Text="Ver Detalle">
-									<ItemStyle Width="10%" />
+									<ItemStyle Width="7em" />
 								</telerik:GridHyperLinkColumn>
 
 								<telerik:GridBoundColumn HeaderText="Descripcion" DataField="DESCRIPCION" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Resultado" DataField="RESULTADO" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Observaciones" DataField="OBSERVACIONES" UniqueName="Adjunto" DataType="System.String">
-									<ItemStyle Width="20%" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Fecha Toma" DataField="FECHA_TOMA_MUESTRA" UniqueName="Valor" DataType="System.DateTime">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="14em" />
 								</telerik:GridBoundColumn>
 
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
-									<ItemStyle Width="15%" />
+									<ItemStyle Width="12em" />
 								</telerik:GridBoundColumn>
+								<telerik:GridTemplateColumn>
+									<ItemStyle Width="15em" />
+									<ItemTemplate>
+										<button type="button" class="button" onclick='<%# "buttonClick(this,"+Container.ItemIndex+")" %>'>
+											Vista previa de impresión
+										</button>
+									</ItemTemplate>
+								</telerik:GridTemplateColumn>
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1706,16 +1768,16 @@
 			</div>
 		</telerik:RadPageView>
 
-		<telerik:RadPageView ID="rpvCultivo" runat="server" Width="1200px" Visible="false">
+		<telerik:RadPageView ID="rpvCultivo" runat="server" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraCultivo" runat="server" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Cultivos</div>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnAddCultivo" runat="server" Text="Agregar nueva informacion" CausesValidation="false" UseSubmitBehavior="false" OnClick="rbtnAddCultivo_Click"></telerik:RadButton>
 
 					<telerik:RadButton ID="rbtnAddFileCult" runat="server" Text="Agregar informacion" CausesValidation="false" UseSubmitBehavior="false" Visible="false" OnClientClicking="CargarFileCultivo"></telerik:RadButton>
@@ -1725,15 +1787,15 @@
 					</telerik:RadButton>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgCultivos" runat="server" OnNeedDataSource="rgCultivos_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1757,16 +1819,16 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgCultivosAnt" runat="server" OnNeedDataSource="rgCultivosAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1788,16 +1850,16 @@
 			</div>
 		</telerik:RadPageView>
 
-		<telerik:RadPageView ID="rpvBaciloscopia" runat="server" Width="1200px" Visible="false">
+		<telerik:RadPageView ID="rpvBaciloscopia" runat="server" Width="100%" Visible="false">
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<asp:HiddenField ID="hfIdMuestraBaciloscopia" runat="server" />
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<div class="titulo">Baciloscopias</div>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<telerik:RadButton ID="rbtnAddBaciloscopia" runat="server" Text="Agregar nueva informacion" CausesValidation="false" UseSubmitBehavior="false" OnClick="rbtnAddBaciloscopia_Click"></telerik:RadButton>
 
 					<telerik:RadButton ID="rbtnAddFileBacilo" runat="server" Text="Agregar informacion" CausesValidation="false" UseSubmitBehavior="false" Visible="false" OnClientClicking="CargarFileBaciloscopia"></telerik:RadButton>
@@ -1807,15 +1869,15 @@
 					</telerik:RadButton>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Archivos Adjuntos</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 					<telerik:RadGrid ID="rgBacilo" runat="server" OnNeedDataSource="rgBacilo_NeedDataSource" AutoGenerateColumns="false" Culture="es-co">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1839,16 +1901,16 @@
 					</telerik:RadGrid>
 				</div>
 
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h4><b>Muestras Anteriores</b></h4>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12">
 
 					<telerik:RadGrid ID="rgBaciloAnt" runat="server" OnNeedDataSource="rgBaciloAnt_NeedDataSource" AutoGenerateColumns="false">
 
 						<PagerStyle AlwaysVisible="true" />
 
-						<MasterTableView DataKeyNames="ID">
+						<MasterTableView DataKeyNames="ID" ClientDataKeyNames="ID">
 
 							<Columns>
 
@@ -1863,6 +1925,7 @@
 								<telerik:GridBoundColumn HeaderText="Usuario toma" DataField="ULTIMA_MODIFICACION" UniqueName="Usuario" DataType="System.String">
 									<ItemStyle Width="30%" />
 								</telerik:GridBoundColumn>
+
 							</Columns>
 						</MasterTableView>
 					</telerik:RadGrid>
@@ -1871,28 +1934,26 @@
 		</telerik:RadPageView>
 	</telerik:RadMultiPage>
 	<asp:HiddenField ID="nombreLaboratorio" runat="server" />
-	<asp:HiddenField ID="nombreBacteriologo" runat="server" />
-	<asp:HiddenField ID="universidad" runat="server" />
-	<asp:HiddenField ID="firmaBase64" runat="server" />
+
 	<asp:HiddenField ID="direccionLaboratorio" runat="server" />
 	<asp:HiddenField ID="ciudad" runat="server" />
 	<asp:HiddenField ID="telefonoLaboratorio" runat="server" />
 	<asp:HiddenField ID="faxLaboratorio" runat="server" />
-	<asp:HiddenField ID="correoElectBacteriologo" runat="server" />
+
 	<asp:HiddenField ID="registroProfesional" runat="server" />
 	<!--Inicio de la tabla resumen en español-->
 	<div id="examsLayout" hasbeenprinted="notANumber" style="margin: 0 auto;">
 		<div id="HeaderTable" style="margin-top: 10px; margin-bottom: 10px;">
 			<div class="row">
 				<div class="col-lg-4">
-					<p>
-						<span id="spNomLaboratorio" style="font-family: 'Avenir'; font-size: 14px; font-weight: 700">Laboratorio Clínico</span>
+					<p style="font-family: 'Avenir'; font-size: 14px; font-weight: 700">
+						Laboratorio Clínico
 					</p>
-					<p>
-						<span id="spNomBacteriologo1" style="font-family: 'Avenir'; font-size: 12px; font-weight: 600">Doctora Yadira Isabel Granda Vanegas</span>
+					<p style="font-family: 'Avenir'; font-size: 12px; font-weight: 600">
+						Doctora Yadira Isabel Granda Vanegas
 					</p>
 					<p style="font-family: 'Avenir'; font-size: 10px; font-weight: 500">
-						Bacterióloga <span id="spUniversidad1">Bacteriologo Colegio Mayor de Cundinamarca</span>
+						Bacterióloga Colegio Mayor de Cundinamarca
 					</p>
 				</div>
 				<div class="col-lg-4 text-center">
@@ -1916,7 +1977,7 @@
 						<strong>Nombre: </strong><span id="spNombre"></span>
 					</p>
 					<p>
-						<strong>ID: </strong><span id="spID"></span>
+						<strong>Pasaporte: </strong><span id="spID"></span>
 					</p>
 					<p>
 						<strong>Edad: </strong><span id="spEdad"></span>
@@ -1948,84 +2009,102 @@
 				<div class="col-lg-12" style="padding: 5px;">
 					<div class="col-lg-4">
 						<p>
-							Olor: <span id="spOlor"></span>
+							OLOR: <span id="spOlor"></span>
 						</p>
 						<p>
-							Color: <span id="spColor"></span>
+							COLOR: <span id="spColor"></span>
 						</p>
 						<p>
-							Aspecto: <span id="spAspecto"></span>
+							ASPECTO: <span id="spAspecto"></span>
 						</p>
 					</div>
 					<div class="col-lg-4">
 						<p>
-							GLU: <span id="spGLU"></span>
+							GLUCOSA: <span id="spGLU"></span>
 						</p>
 						<p>
-							BIL: <span id="spBIL"></span>
+							BILIRRUBINA: <span id="spBIL"></span>
 						</p>
 						<p>
-							CET: <span id="spCET"></span>
+							CETONA: <span id="spCET"></span>
 						</p>
 						<p>
-							DEN: <span id="spDEN"></span>
+							DENSIDAD: <span id="spDEN"></span>
 						</p>
 						<p>
 							PH: <span id="spPH"></span>
 						</p>
 						<p>
-							PRO: <span id="spPRO"></span>
+							PROTEINA: <span id="spPRO"></span>
 						</p>
 						<p>
-							URO: <span id="spURO"></span>
+							UROBILINOGENOS: <span id="spURO"></span>
 						</p>
 						<p>
-							NIT: <span id="spNIT"></span>
+							NITRITOS: <span id="spNIT"></span>
 						</p>
 						<p>
-							SAN: <span id="spSAN"></span>
+							SANGRE: <span id="spSAN"></span>
 						</p>
 						<p>
-							LEU: <span id="spLEU"></span>
+							LEUCOCITOS: <span id="spLEU"></span>
 						</p>
 					</div>
 					<div class="col-lg-4">
 						<p>
-							Leucocitos por campo: <span id="spLeucoCampo"></span>
+							LEUCOCITOS POR CAMPO: <span id="spLeucoCampo"></span>
 						</p>
 						<p>
-							Hematíes por campo: <span id="spHematieCampo"></span>
+							HEMATÍES POR CAMPO: <span id="spHematieCampo"></span>
 						</p>
 						<p>
-							Células altas por campo: <span id="spCelAltaCampo"></span>
+							CÉLULAS ALTAS POR CAMPO: <span id="spCelAltaCampo"></span>
 						</p>
 						<p>
-							Células bajas por campo: <span id="spCelBajaCampo"></span>
+							CÉLULAS BAJAS POR CAMPO: <span id="spCelBajaCampo"></span>
 						</p>
 						<p>
-							Moco: <span id="spMoco"></span>
+							MOCO: <span id="spMoco"></span>
 						</p>
 						<p>
-							Bacterias: <span id="spBacterias"></span>
+							BACTERIAS: <span id="spBacterias"></span>
 						</p>
 						<p>
-							Cilíndros: <span id="spCilindros"></span>
+							CILÍNDROS: <span id="spCilindros"></span>
 						</p>
 						<p>
-							Cristales: <span id="spCristales"></span>
+							CRISTALES: <span id="spCristales"></span>
 						</p>
 						<p>
-							Levaduras: <span id="spLevaduras"></span>
+							LEVADURAS: <span id="spLevaduras"></span>
 						</p>
 						<p>
-							Otros: <span id="spOtros"></span>
+							OTROS: <span id="spOtros"></span>
 						</p>
 					</div>
 					<div class="col-lg-12" style="min-height: 35px">
 						<strong>Observaciones: </strong><span id="spCommentUrol"></span>
 					</div>
 				</div>
+				<div class="col-lg-5 col-lg-offset-7 firmaUrologia">
+					<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+					<div>
+						<strong>Dr. <span class="spNomBacteriologo"></span>
+						</strong>
+					</div>
+					<div>
+						Registro profesional: <span class="spRegistroProfesional"></span>
+					</div>
+					<div>
+						Universidad: <span class="spUniversidad"></span>
+					</div>
+					<div>
+						E-mail: <span class="spCorreoElectronico"></span>
+					</div>
+				</div>
+
 			</div>
+
 		</div>
 		<div id="SerumTable" class="sueroanalisis row" style="margin-top: 10px; margin-bottom: 10px;">
 			<div class="row">
@@ -2051,6 +2130,23 @@
 							<span id="spVIHResult"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaVIH">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="serologia col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2066,6 +2162,23 @@
 							<span id="spValorSerol"></span>dils
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaSerologia">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="hepatitisB col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2084,6 +2197,23 @@
 							<span id="spHepB"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaHepatitisB">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="hepatitisC col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2102,6 +2232,23 @@
 							<span id="spHepC"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaHepatitisC">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="cuadroHematico col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2120,6 +2267,23 @@
 							<span id="spCuadroHematico"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaCuadroHematico">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="creatinina col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2129,9 +2293,31 @@
 					</div>
 					<div class="col-lg-6">
 						<p>
+							<span id="spCrea"></span>
+						</p>
+					</div>
+					<div class="col-lg-6 col-lg-offset-6 valor-creatinina">
+						<p>
 							<span id="spValorCrea"></span>mg/dl
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaCreatinina">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="hemGlic col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2144,6 +2330,23 @@
 							<span id="spValorHemGli"></span>%
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaHemGli">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="otrExam col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-12">
@@ -2165,24 +2368,28 @@
 						<p id="pComentarioOtrosExamenes">
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaOtros">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Registro profesional: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							Universidad: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
 		<div class="row" style="padding-top: 20px;">
 			<div id="FooterTable" class="tableELD">
-				<div class="row" style="margin-top: 10px; margin-bottom: 10px;">
-					<div class="col-lg-4 col-lg-offset-8">
-						<img id="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
-						<div>
-							<strong>
-								<span id="spNomBacteriologo2"></span>
-							</strong>
-						</div>
-						<div>
-							Bacteriologa Registro: <span id="spRegistroProfesional"></span>
-						</div>
-					</div>
-				</div>
 				<div class="row" style="margin-top: 10px; margin-bottom: 10px; font-family: 'Avenir'; font-weight: 400; text-align: center">
 					<p>
 						<span id="spDireccionLaboratorio">Carrera 11 N 94 a 25 - of 401</span>&#8226
@@ -2201,14 +2408,14 @@
 		<div id="HeaderTableEng" style="margin-top: 10px; margin-bottom: 10px;">
 			<div class="row">
 				<div class="col-lg-4">
-					<p>
-						<span id="spNomLaboratorioEng" style="font-family: 'Avenir'; font-size: 14px; font-weight: 700">CLINICAL LABORATORY</span>
+					<p style="font-family: 'Avenir'; font-size: 14px; font-weight: 700">
+						Clinical Laboratory
 					</p>
-					<p>
-						Doctor: <span id="spNomBacteriologo1Eng" style="font-family: 'Avenir'; font-size: 12px; font-weight: 600">Yadira Isabel Granda Vanegas</span>
+					<p style="font-family: 'Avenir'; font-size: 12px; font-weight: 600">
+						Doctor Yadira Isabel Granda Vanegas
 					</p>
 					<p style="font-family: 'Avenir'; font-size: 10px; font-weight: 500">
-						Bacteriologist <span id="spUniversidad1Eng"></span>
+						Colegio Mayor de Cundinamarca Bacteriologist
 					</p>
 				</div>
 				<div class="col-lg-4 text-center">
@@ -2231,7 +2438,7 @@
 						<strong>Name: </strong><span id="spNombreEng"></span>
 					</p>
 					<p>
-						<strong>ID: </strong><span id="spIDEng"></span>
+						<strong>Passport: </strong><span id="spIDEng"></span>
 					</p>
 					<p>
 						<strong>Age: </strong><span id="spEdadEng"></span>
@@ -2263,83 +2470,100 @@
 				<div class="col-lg-12" style="padding: 5px;">
 					<div class="col-lg-4">
 						<p>
-							Odor: <span id="spOlorEng"></span>
+							ODOR: <span id="spOlorEng"></span>
 						</p>
 						<p>
-							Colour: <span id="spColorEng"></span>
+							COLOUR: <span id="spColorEng"></span>
 						</p>
 						<p>
-							Appearance: <span id="spAspectoEng"></span>
-						</p>
-					</div>
-					<div class="col-lg-4">
-						<p>
-							Glucose: <span id="spGLUEng"></span>
-						</p>
-						<p>
-							Bilirrubin: <span id="spBILEng"></span>
-						</p>
-						<p>
-							Ketone: <span id="spCETEng"></span>
-						</p>
-						<p>
-							Specific gravity: <span id="spDENEng"></span>
-						</p>
-						<p>
-							Ph: <span id="spPHEng"></span>
-						</p>
-						<p>
-							Protein: <span id="spPROEng"></span>
-						</p>
-						<p>
-							Urobilinogen: <span id="spUROEng"></span>
-						</p>
-						<p>
-							Nitrite: <span id="spNITEng"></span>
-						</p>
-						<p>
-							Blood: <span id="spSANEng"></span>
-						</p>
-						<p>
-							Leukocytes: <span id="spLEUEng"></span>
+							APPEARANCE: <span id="spAspectoEng"></span>
 						</p>
 					</div>
 					<div class="col-lg-4">
 						<p>
-							Leukocites by field: <span id="spLeucoCampoEng"></span>
+							GLUCOSE: <span id="spGLUEng"></span>
 						</p>
 						<p>
-							Red blood cells by field: <span id="spHematieCampoEng"></span>
+							BILIRRUBIN: <span id="spBILEng"></span>
 						</p>
 						<p>
-							High cells by field: <span id="spCelAltaCampoEng"></span>
+							KETONE: <span id="spCETEng"></span>
 						</p>
 						<p>
-							Low cells by fields: <span id="spCelBajaCampoEng"></span>
+							SPECIFIC GRAVITY: <span id="spDENEng"></span>
 						</p>
 						<p>
-							Mucus: <span id="spMocoEng"></span>
+							PH: <span id="spPHEng"></span>
 						</p>
 						<p>
-							Bacteria: <span id="spBacteriasEng"></span>
+							PROTEIN: <span id="spPROEng"></span>
 						</p>
 						<p>
-							Cylinders: <span id="spCilindrosEng"></span>
+							UROBILINOGEN: <span id="spUROEng"></span>
 						</p>
 						<p>
-							Crystals: <span id="spCristalesEng"></span>
+							NITRITE: <span id="spNITEng"></span>
 						</p>
 						<p>
-							Yeast: <span id="spLevadurasEng"></span>
+							BLOOD: <span id="spSANEng"></span>
 						</p>
 						<p>
-							Others: <span id="spOtrosEng"></span>
+							LEUKOCYTES: <span id="spLEUEng"></span>
+						</p>
+					</div>
+					<div class="col-lg-4">
+						<p>
+							LEUKOCITES BY FIELD: <span id="spLeucoCampoEng"></span>
+						</p>
+						<p>
+							RED BLOOD CELLS BY FIELD: <span id="spHematieCampoEng"></span>
+						</p>
+						<p>
+							HIGH CELLS BY FIELD: <span id="spCelAltaCampoEng"></span>
+						</p>
+						<p>
+							LOW CELLS BY FIELDS: <span id="spCelBajaCampoEng"></span>
+						</p>
+						<p>
+							MUCUS: <span id="spMocoEng"></span>
+						</p>
+						<p>
+							BACTERIA: <span id="spBacteriasEng"></span>
+						</p>
+						<p>
+							CYLINDERS: <span id="spCilindrosEng"></span>
+						</p>
+						<p>
+							CRYSTALS: <span id="spCristalesEng"></span>
+						</p>
+						<p>
+							YEAST: <span id="spLevadurasEng"></span>
+						</p>
+						<p>
+							OTHERS: <span id="spOtrosEng"></span>
 						</p>
 					</div>
 					<div class="col-lg-12" style="min-height: 35px">
 						<strong>Observations: </strong><span id="spCommentUrolEng"></span>
 					</div>
 				</div>
+				<div class="col-lg-5 col-lg-offset-7 firmaUrologia">
+					<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+					<div>
+						<strong>Dr. <span class="spNomBacteriologo"></span>
+						</strong>
+					</div>
+					<div>
+						Bacteriology record: <span class="spRegistroProfesional"></span>
+					</div>
+					<div>
+						University: <span class="spUniversidad"></span>
+					</div>
+					<div>
+						E-mail: <span class="spCorreoElectronico"></span>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<div id="SerumTableEng" class="sueroanalisis row" style="margin-top: 10px; margin-bottom: 10px;">
@@ -2366,6 +2590,23 @@
 							<span id="spVIHResultEng"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaVIH">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="serologia col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2381,6 +2622,23 @@
 							<span id="spValorSerolEng"></span>dils
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaSerologia">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="hepatitisB col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2399,6 +2657,23 @@
 							<span id="spHepBEng"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaHepatitisB">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="hepatitisC col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2417,6 +2692,23 @@
 							<span id="spHepCEng"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaHepatitisC">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="cuadroHematico col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2435,6 +2727,23 @@
 							<span id="spCuadroHematicoEng"></span>
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaCuadroHematico">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="creatinina col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2444,9 +2753,31 @@
 					</div>
 					<div class="col-lg-6">
 						<p>
+							<span id="spCreaEng"></span>
+						</p>
+					</div>
+					<div class="col-lg-6  col-lg-offset-6 valor-creatinina">
+						<p>
 							<span id="spValorCreaEng"></span>mg/dl
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaCreatinina">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+					</div>
+
 				</div>
 				<div class="hemGlic col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-6">
@@ -2459,6 +2790,24 @@
 							<span id="spValorHemGliEng"></span>%
 						</p>
 					</div>
+					<div class="col-lg-5 col-lg-offset-7 firmaHemGli">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+						<div>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
+							</strong>
+						</div>
+						<div>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
+						</div>
+
+					</div>
+
 				</div>
 				<div class="otrExam col-lg-12" style="margin-bottom: 20px">
 					<div class="col-lg-12">
@@ -2480,30 +2829,36 @@
 						<p id="pComentarioOtrosExamenesEng">
 						</p>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row" style="padding-top: 20px;">
-			<div id="FooterTableEng" class="tableELD">
-				<div class="row" style="margin-top: 10px; margin-bottom: 10px;">
-					<div class="col-lg-4 col-lg-offset-8">
-						<img id="imgFirmaBacteriologoEng" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
+					<div class="col-lg-5 col-lg-offset-7 firmaOtros">
+						<img class="imgFirmaBacteriologo" width="215px" alt="Firma bacteriologo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" /><br />
 						<div>
-							<strong>Dr. <span id="spNomBacteriologo2Eng"></span>
+							<strong>Dr. <span class="spNomBacteriologo"></span>
 							</strong>
 						</div>
 						<div>
-							Bacteriology record: <span id="spRegistroProfesionalEng"></span>
+							Bacteriology record: <span class="spRegistroProfesional"></span>
+						</div>
+						<div>
+							University: <span class="spUniversidad"></span>
+						</div>
+						<div>
+							E-mail: <span class="spCorreoElectronico"></span>
 						</div>
 					</div>
+
 				</div>
+			</div>
+
+		</div>
+		<div class="row" style="padding-top: 20px;">
+			<div id="FooterTableEng" class="tableELD">
 				<div class="row" style="margin-top: 10px; margin-bottom: 10px; font-family: 'Avenir'; font-weight: 400; text-align: center">
 					<p>
 						<span id="spDireccionLaboratorioEng">Carrera 11 N 94 a 25 - of 401</span>&#8226
                         <span id="spCiudadEng">Bogotá D.C. - Colombia</span>&#8226
                         <span id="spTelefonoLaboratorioEng">Tel: 6356312, 3656379, 6356402</span>&#8226
                         <span id="spFaxLaboratorioEng">Fax:</span>&#8226
-                        <span id="spCorreoElectBacteriologoEng">consultoriopicu@gmail.com</span>
+                        <span id="CorreoElectBacteriologoEng">consultoriopicu@gmail.com</span>
 					</p>
 				</div>
 			</div>
@@ -2552,88 +2907,88 @@
 
 		function CargarFileUro(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraUrol.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraUrol.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileVih(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraVIH.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraVIH.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileSero(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraSero.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraSero.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileHepaB(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraHepB.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraHepB.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileHepaC(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraHepC.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraHepC.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileCH(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraCH.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraCH.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileCre(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraCreatinina.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraCreatinina.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileHemGli(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraHemGli.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraHemGli.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileOtro(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraOtro.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraOtro.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileCultivo(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraCultivo.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraCultivo.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
 
 		function CargarFileBaciloscopia(sender, e)
 		{
-			var idh = document.getElementById("<%=this.hfIdHist.ClientID%>").value;
-			var idMu = document.getElementById('<%=this.hfIdMuestraBaciloscopia.ClientID%>').value;
+			var idh = $("#<%=this.hfIdHist.ClientID%>").val();
+			var idMu = $('#<%=this.hfIdMuestraBaciloscopia.ClientID%>').val();
 			openFileupload(idh, idMu);
 			e.set_cancel(true);
 		}
@@ -2663,15 +3018,15 @@
 
 			//alert("Entro al manejador de eventos");
 			console.log("Entro al manejador de eventos");
-			var btnShow = document.getElementById("<%=this.rbtnAbrirDialogo.ClientID%>");
+			var btnShow = $("#<%=this.rbtnAbrirDialogo.ClientID%>");
 			btnShow.click();
 
-			var hf = document.getElementById("<%=this.hfResumeToPdf.ClientID%>");
-			var btn = document.getElementById("<%=this.rbtnSendMail.ClientID%>");
+			var hf = $("#<%=this.hfResumeToPdf.ClientID%>");
+			var btn = $("#<%=this.rbtnSendMail.ClientID%>");
 
-			var ficha = document.getElementById("printable").cloneNode(true);
+			var ficha = $("#printable").cloneNode(true);
 
-			var estilo = document.getElementById("printStyles").cloneNode(true);
+			var estilo = $("#printStyles").cloneNode(true);
 			//var escript = document.createElement('script');
 			var link = document.createElement("LINK");
 			var head = document.createElement("HEAD");
@@ -2693,7 +3048,7 @@
 			body.appendChild(ficha);
 			var entireText = head.outerHTML + body.outerHTML;
 
-			hf.value = entireText.replace(/</g, "___|").replace( />/g, "|___");
+			hf.value = entireText.replace(/</g, "___|").replace(/>/g, "|___");
 			console.log("El resultado");
 			console.log(hf.value);
 			btn.click();
@@ -2701,6 +3056,41 @@
 	</script>
 
 	<script type="text/javascript" id="printBuilder">
+		var PrevTest = null;
+		//Put your JavaScript code here.
+		function buttonClick(sender, index)
+		{
+			var tableID = $(sender).closest("table.rgMasterTable").attr("id")
+
+			var masterTable = $find(tableID);
+			var item = masterTable.get_dataItems()[index];
+			var obj = { "idMuestra": item.getDataKeyValue("ID") }
+
+			$.ajax({
+				type: "GET",
+				url: "Laboratorio.aspx/LoadInfo",
+				data: obj,
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: PreparePrintPreview,
+				error: function (status, error, xhr)
+				{
+					console.log(xhr.response);
+				}
+			});
+		}
+
+		function PreparePrintPreview(response)
+		{
+			PrevTest = JSON.parse(response.d);
+			if (PrevTest.Resultado == "SIN APLICAR")
+			{
+				alert("La prueba que desea visualizar no te tomó");
+				return;
+			}
+			ViewExamsAbstract();
+			updateLayout(null, PrevTest);
+		}
 
 		function divSelExamenes()
 		{
@@ -2717,31 +3107,34 @@
 				chkHemGlicosilada: false,
 				chkOtrosExamenes: false
 			}
-			checks.chkUrologia = document.getElementById("<%=this.chkUro.ClientID%>").checked;
-			checks.chkVIH = document.getElementById("<%=this.chkVih.ClientID%>").checked;
-			checks.chkSerologia = document.getElementById("<%=this.chkSero.ClientID%>").checked;
-			checks.chkHepatitisB = document.getElementById("<%=this.chkHepB.ClientID%>").checked;
-			checks.chkHepatitisC = document.getElementById("<%=this.chkHepC.ClientID%>").checked;
-			checks.chkCuadroHematico = document.getElementById("<%=this.chkCH.ClientID%>").checked;
-			checks.chkCreatinina = document.getElementById("<%=this.chkCrea.ClientID%>").checked;
-			checks.chkHemGlicosilada = document.getElementById("<%=this.chkHemGli.ClientID%>").checked;
-			checks.chkOtrosExamenes = document.getElementById("<%=this.chkOtro.ClientID%>").checked;
+			checks.chkUrologia = $("#<%=this.chkUro.ClientID%>").prop("checked");
+			checks.chkVIH = $("#<%=this.chkVih.ClientID%>").prop("checked");
+			checks.chkSerologia = $("#<%=this.chkSero.ClientID%>").prop("checked");
+			checks.chkHepatitisB = $("#<%=this.chkHepB.ClientID%>").prop("checked");
+			checks.chkHepatitisC = $("#<%=this.chkHepC.ClientID%>").prop("checked");
+			checks.chkCuadroHematico = $("#<%=this.chkCH.ClientID%>").prop("checked");
+			checks.chkCreatinina = $("#<%=this.chkCrea.ClientID%>").prop("checked");
+			checks.chkHemGlicosilada = $("#<%=this.chkHemGli.ClientID%>").prop("checked");
+			checks.chkOtrosExamenes = $("#<%=this.chkOtro.ClientID%>").prop("checked");
 
 			var objReturn = divSelExamenesObj(checks);
 			return objReturn;
 		}
 
-		function updateLayout(sender, e)
+		function updateLayout(sender, obj)
 		{
 
-			if (document.getElementById("printable") != undefined)
+
+			if ($("#printable").length)
 			{
 				removeChildren("impresion");
 			}
-			if (document.getElementById("printableEng") != undefined)
+			if ($("#printableEng").length)
 			{
 				removeChildren("impresionEng");
 			}
+
+			var message = "";
 
 			var checks =
 			{
@@ -2756,17 +3149,61 @@
 				OEx: false
 			}
 
-			checks.Uro = returnppty("checkBxUro", "checked");
-			checks.VIH = returnppty("checkBxVIH", "checked");
-			checks.Ser = returnppty("checkBxSero", "checked");
-			checks.HpB = returnppty("checkBxHepB", "checked");
-			checks.HpC = returnppty("checkBxHepC", "checked");
-			checks.CHm = returnppty("checkBxCH", "checked");
-			checks.Crt = returnppty("checkBxCre", "checked");
-			checks.OEx = returnppty("checkBxOEx", "checked");
-			checks.HmG = returnppty("checkBxHmGl", "checked");
-
-			var message = "";
+			if (sender != null)
+			{
+				checks.Uro = returnppty("checkBxUro", "checked");
+				checks.VIH = returnppty("checkBxVIH", "checked");
+				checks.Ser = returnppty("checkBxSero", "checked");
+				checks.HpB = returnppty("checkBxHepB", "checked");
+				checks.HpC = returnppty("checkBxHepC", "checked");
+				checks.CHm = returnppty("checkBxCH", "checked");
+				checks.Crt = returnppty("checkBxCre", "checked");
+				checks.OEx = returnppty("checkBxOEx", "checked");
+				checks.HmG = returnppty("checkBxHmGl", "checked");
+			}
+			else
+			{
+				switch (obj.IdTipoExamen)
+				{
+					//Uroanalisis = 1,
+					case 1:
+						checks.Uro = true;
+						break;
+					//Vih = 2,
+					case 2:
+						checks.VIH = true;
+						break;
+					//SerologiaVdrl = 3,
+					case 3:
+						checks.Ser = true;
+						break;
+					//HbsAg = 4,
+					case 4:
+						checks.HpB = true;
+						break;
+					//HepatitisC = 5,
+					case 5:
+						checks.HpC = true;
+						break;
+					//CuadroHematico = 6,
+					case 6:
+						checks.CHm = true;
+						break;
+					//Creatinina = 7,
+					case 7:
+						checks.Crt = true;
+						break;
+					//HemoglobinaGlicosilada = 8,
+					case 8:
+						checks.HmG = true;
+						break;
+					//Otro = 9,
+					case 9:
+						checks.OEx = true;
+						break;
+					//Cultivo = 10, // 0x0000000A
+				}
+			}
 
 			if ((checks.Uro == false || checks.Uro == null) &&
 				(checks.VIH == false || checks.VIH == null) &&
@@ -2785,132 +3222,121 @@
 
 			var chExamenes = checksPreview();
 
-			var parentNodeBackup = document.getElementById("examsLayout").parentNode;
-			var copybackup = document.getElementById("examsLayout").cloneNode(true);
-			var copybackupEng = document.getElementById("examsLayoutEng").cloneNode(true);
+			var parentNodeBackup = $("#examsLayout").parent();
+			var copybackup = $("#examsLayout").clone(true);
+			var copybackupEng = $("#examsLayoutEng").clone(true);
 
 			var datosLab = {
-				nomLab: "",
-				nomBact: "",
-				univ: "",
-				dirLab: "",
-				ciudad: "",
-				telLab: "",
-				faxLab: "",
-				corrElBact: "",
-				regPro: "",
-				firmaBase64: ""
+				nomLab: $("#<%=this.nombreLaboratorio.ClientID %>").val(),
+				dirLab: $("#<%=this.direccionLaboratorio.ClientID %>").val(),
+				ciudad: $("#<%=this.ciudad.ClientID %>").val(),
+				telLab: $("#<%=this.telefonoLaboratorio.ClientID %>").val(),
+				faxLab: $("#<%=this.faxLaboratorio.ClientID %>").val(),
 			};
-
-			datosLab.nomLab = document.getElementById("<%=this.nombreLaboratorio.ClientID %>").value;
-			datosLab.nomBact = document.getElementById("<%=this.nombreBacteriologo.ClientID %>").value;
-			datosLab.univ = document.getElementById("<%=this.universidad.ClientID %>").value;
-			datosLab.dirLab = document.getElementById("<%=this.direccionLaboratorio.ClientID %>").value;
-			datosLab.ciudad = document.getElementById("<%=this.ciudad.ClientID %>").value;
-			datosLab.telLab = document.getElementById("<%=this.telefonoLaboratorio.ClientID %>").value;
-			datosLab.faxLab = document.getElementById("<%=this.faxLaboratorio.ClientID %>").value;
-			datosLab.corrElBact = document.getElementById("<%=this.correoElectBacteriologo.ClientID %>").value;
-			datosLab.regPro = document.getElementById("<%=this.registroProfesional.ClientID %>").value;
-			datosLab.firmaBase64 = document.getElementById("<%=this.firmaBase64.ClientID %>").value;
 
 			UpdateInfoLab(datosLab);
 
 			//Español
-			document.getElementById('spNombre').innerHTML = document.getElementById("<%=this.rtxtNombres.ClientID%>").value;
-			document.getElementById('spFecha').innerHTML = document.getElementById("<%=this.rdpFecha.ClientID%>").value;
-			document.getElementById('spID').innerHTML = document.getElementById("<%=this.hfCodigo.ClientID%>").value;
-			document.getElementById('spEdad').innerHTML = calcularEdad(document.getElementById("<%=this.hfEdad.ClientID%>").value);
+			$('#spNombre').html($("#<%=this.rtxtNombres.ClientID%>").val());
+			$('#spFecha').html($("#<%=this.rdpFecha.ClientID%>").val());
+			$('#spID').html($find("<%=this.rtxtPasaporte.ClientID%>").get_value());
+			$('#spEdad').html(calcularEdad($("#<%=this.hfEdad.ClientID%>").val()));
 			//English
-			document.getElementById('spNombreEng').innerHTML = document.getElementById("<%=this.rtxtNombres.ClientID%>").value;
-			document.getElementById('spFechaEng').innerHTML = document.getElementById("<%=this.rdpFecha.ClientID%>").value;
-			document.getElementById('spIDEng').innerHTML = document.getElementById("<%=this.hfCodigo.ClientID%>").value;
-			document.getElementById('spEdadEng').innerHTML = calcularEdad(document.getElementById("<%=this.hfEdad.ClientID%>").value);
+			$('#spNombreEng').html($("#<%=this.rtxtNombres.ClientID%>").val());
+			$('#spFechaEng').html($("#<%=this.rdpFecha.ClientID%>").val());
+			$('#spIDEng').html($find("<%=this.rtxtPasaporte.ClientID%>").get_value());
+			$('#spEdadEng').html(calcularEdad($("#<%=this.hfEdad.ClientID%>").val()));
 
-			var foto = document.getElementById("<%=this.imgPrePhoto.ClientID%>").cloneNode(true);
-			foto.className = "paciente";
-			$(foto).removeAttr("style");
+			var fotoSrc = $("#<%=this.imgPrePhoto.ClientID%>").attr("src");
+			var foto = $("<img class='paciente'/>")
+			foto.attr("src", fotoSrc);
+
 			$("#imgContainer").empty();
-			document.getElementById('imgContainer').appendChild(foto);
+			$('#imgContainer').append(foto.clone());
 
-			var fotoEng = document.getElementById("<%=this.imgPrePhoto.ClientID%>").cloneNode(true);
-			fotoEng.className = "paciente";
-			$(fotoEng).removeAttr("style");
 			$("#imgContainerEng").empty();
-			document.getElementById('imgContainerEng').appendChild(fotoEng);
+			$('#imgContainerEng').append(foto.clone());
 
 			//verificacion uroanalisis
-			if (document.getElementById("<%=this.rblEstadoUro.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoUro.ClientID %>").length && checks.Uro)
 			{
-				if (checks.Uro == true)
+				//Se obtiene el valor de radio Sin Aplicar
+				var check = sender == null ? false : $("#<%=this.rblEstadoUro.ClientID %>_0").prop("checked");
+
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoUro.ClientID %>").id;
-					check = check + '_0';
 
-					bit = document.getElementById(check).checked;
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsUrologia.ClientID%>']");
+					var firmasDocumento = $(".firmaUrologia");
 
-					if (bit == false)
-					{
-						//Español
-						document.getElementById('spOlor').innerHTML = document.getElementById("<%=this.rtxtOlor.ClientID%>").value;
-						document.getElementById('spColor').innerHTML = document.getElementById("<%=this.rtxtColor.ClientID%>").value;
-						document.getElementById('spAspecto').innerHTML = document.getElementById("<%=this.rtxtAspecto.ClientID%>").value;
-						document.getElementById('spGLU').innerHTML = document.getElementById("<%=this.rtxtGLU.ClientID%>").value;
-						document.getElementById('spBIL').innerHTML = document.getElementById("<%=this.rtxtBIL.ClientID%>").value;
-						document.getElementById('spCET').innerHTML = document.getElementById("<%=this.rtxtCET.ClientID%>").value;
-						document.getElementById('spDEN').innerHTML = document.getElementById("<%=this.rtxtDEN.ClientID%>").value;
-						document.getElementById('spPH').innerHTML = document.getElementById("<%=this.rtxtPH.ClientID%>").value;
-						document.getElementById('spPRO').innerHTML = document.getElementById("<%=this.rtxtPRO.ClientID%>").value;
-						document.getElementById('spURO').innerHTML = document.getElementById("<%=this.rtxtUro.ClientID%>").value;
-						document.getElementById('spNIT').innerHTML = document.getElementById("<%=this.rtxtNIT.ClientID%>").value;
-						document.getElementById('spSAN').innerHTML = document.getElementById("<%=this.rtxtSAN.ClientID%>").value;
-						document.getElementById('spLEU').innerHTML = document.getElementById("<%=this.rtxtLEU.ClientID%>").value;
-						document.getElementById('spLeucoCampo').innerHTML = document.getElementById("<%=this.rtxtLeucoCampo.ClientID%>").value;
-						document.getElementById('spHematieCampo').innerHTML = document.getElementById("<%=this.rtxtHematiesCampo.ClientID%>").value;
-						document.getElementById('spCelAltaCampo').innerHTML = document.getElementById("<%=this.rtxtCelAltasCampo.ClientID%>").value;
-						document.getElementById('spCelBajaCampo').innerHTML = document.getElementById("<%=this.rtxtCelBajasCampo.ClientID%>").value;
-						document.getElementById('spMoco').innerHTML = document.getElementById("<%=this.rtxtMoco.ClientID%>").value;
-						document.getElementById('spBacterias').innerHTML = document.getElementById("<%=this.rtxtBacterias.ClientID%>").value;
-						document.getElementById('spCilindros').innerHTML = document.getElementById("<%=this.rtxtCilindros.ClientID%>").value;
-						document.getElementById('spCristales').innerHTML = document.getElementById("<%=this.rtxtCristales.ClientID%>").value;
-						document.getElementById('spLevaduras').innerHTML = document.getElementById("<%=this.rtxtLevaduras.ClientID%>").value;
-						document.getElementById('spOtros').innerHTML = document.getElementById("<%=this.rtxtOtros.ClientID%>").value;
-						document.getElementById('spCommentUrol').innerHTML = document.getElementById("<%=this.rtxtCommentUrol.ClientID%>").value;
+					var FirmaNombre = firmaContainner != null ? $(firmaContainner).get(0).value : obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos;
+					var FirmaUniversidad = firmaContainner != null ? $(firmaContainner).get(1).value : obj.Bacteriologo.FirmaProfesional.Universidad;
+					var FirmaRegistroProfesional = firmaContainner != null ? $(firmaContainner).get(2).value : obj.Bacteriologo.FirmaProfesional.RegistroProfesional;
+					var FirmaFirmaBase64 = firmaContainner != null ? $(firmaContainner).get(3).value : obj.Bacteriologo.FirmaProfesional.FirmaBase64;
+					var FirmaCorreoElectronico = firmaContainner != null ? $(firmaContainner).get(4).value : obj.Bacteriologo.FirmaProfesional.CorreoElectronico;
 
-						//English
-						document.getElementById('spOlorEng').innerHTML = document.getElementById("<%=this.rtxtOlor.ClientID%>").value;
-						document.getElementById('spColorEng').innerHTML = document.getElementById("<%=this.rtxtColor.ClientID%>").value;
-						document.getElementById('spAspectoEng').innerHTML = document.getElementById("<%=this.rtxtAspecto.ClientID%>").value;
-						document.getElementById('spGLUEng').innerHTML = document.getElementById("<%=this.rtxtGLU.ClientID%>").value;
-						document.getElementById('spBILEng').innerHTML = document.getElementById("<%=this.rtxtBIL.ClientID%>").value;
-						document.getElementById('spCETEng').innerHTML = document.getElementById("<%=this.rtxtCET.ClientID%>").value;
-						document.getElementById('spDENEng').innerHTML = document.getElementById("<%=this.rtxtDEN.ClientID%>").value;
-						document.getElementById('spPHEng').innerHTML = document.getElementById("<%=this.rtxtPH.ClientID%>").value;
-						document.getElementById('spPROEng').innerHTML = document.getElementById("<%=this.rtxtPRO.ClientID%>").value;
-						document.getElementById('spUROEng').innerHTML = document.getElementById("<%=this.rtxtUro.ClientID%>").value;
-						document.getElementById('spNITEng').innerHTML = document.getElementById("<%=this.rtxtNIT.ClientID%>").value;
-						document.getElementById('spSANEng').innerHTML = document.getElementById("<%=this.rtxtSAN.ClientID%>").value;
-						document.getElementById('spLEUEng').innerHTML = document.getElementById("<%=this.rtxtLEU.ClientID%>").value;
-						document.getElementById('spLeucoCampoEng').innerHTML = document.getElementById("<%=this.rtxtLeucoCampo.ClientID%>").value;
-						document.getElementById('spHematieCampoEng').innerHTML = document.getElementById("<%=this.rtxtHematiesCampo.ClientID%>").value;
-						document.getElementById('spCelAltaCampoEng').innerHTML = document.getElementById("<%=this.rtxtCelAltasCampo.ClientID%>").value;
-						document.getElementById('spCelBajaCampoEng').innerHTML = document.getElementById("<%=this.rtxtCelBajasCampo.ClientID%>").value;
-						document.getElementById('spMocoEng').innerHTML = document.getElementById("<%=this.rtxtMoco.ClientID%>").value;
-						document.getElementById('spBacteriasEng').innerHTML = document.getElementById("<%=this.rtxtBacterias.ClientID%>").value;
-						document.getElementById('spCilindrosEng').innerHTML = document.getElementById("<%=this.rtxtCilindros.ClientID%>").value;
-						document.getElementById('spCristalesEng').innerHTML = document.getElementById("<%=this.rtxtCristales.ClientID%>").value;
-						document.getElementById('spLevadurasEng').innerHTML = document.getElementById("<%=this.rtxtLevaduras.ClientID%>").value;
-						document.getElementById('spOtrosEng').innerHTML = document.getElementById("<%=this.rtxtOtros.ClientID%>").value;
-						document.getElementById('spCommentUrolEng').innerHTML = document.getElementById("<%=this.rtxtCommentUrol.ClientID%>").value;
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
 
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado el uroanálisis'
-					}
+					//Español
+					$('#spOlor').html(sender == null ? obj.Olor : $("#<%=this.rtxtOlor.ClientID%>").val());
+					$('#spColor').html(sender == null ? obj.Color : $("#<%=this.rtxtColor.ClientID%>").val());
+					$('#spAspecto').html(sender == null ? obj.Aspecto : $("#<%=this.rtxtAspecto.ClientID%>").val());
+					$('#spGLU').html(sender == null ? obj.Glu : $("#<%=this.rtxtGLU.ClientID%>").val());
+					$('#spBIL').html(sender == null ? obj.Bil : $("#<%=this.rtxtBIL.ClientID%>").val());
+					$('#spCET').html(sender == null ? obj.Cet : $("#<%=this.rtxtCET.ClientID%>").val());
+					$('#spDEN').html(sender == null ? obj.Deh : $("#<%=this.rtxtDEN.ClientID%>").val());
+					$('#spPH').html(sender == null ? obj.Ph : $("#<%=this.rtxtPH.ClientID%>").val());
+					$('#spPRO').html(sender == null ? obj.Pro : $("#<%=this.rtxtPRO.ClientID%>").val());
+					$('#spURO').html(sender == null ? obj.Uro : $("#<%=this.rtxtUro.ClientID%>").val());
+					$('#spNIT').html(sender == null ? obj.Nit : $("#<%=this.rtxtNIT.ClientID%>").val());
+					$('#spSAN').html(sender == null ? obj.San : $("#<%=this.rtxtSAN.ClientID%>").val());
+					$('#spLEU').html(sender == null ? obj.Leu : $("#<%=this.rtxtLEU.ClientID%>").val());
+					$('#spLeucoCampo').html(sender == null ? obj.LeucocitosCampo : $("#<%=this.rtxtLeucoCampo.ClientID%>").val());
+					$('#spHematieCampo').html(sender == null ? obj.HematiesCampo : $("#<%=this.rtxtHematiesCampo.ClientID%>").val());
+					$('#spCelAltaCampo').html(sender == null ? obj.CelulasAltasCampo : $("#<%=this.rtxtCelAltasCampo.ClientID%>").val());
+					$('#spCelBajaCampo').html(sender == null ? obj.CelulasBajasCampo : $("#<%=this.rtxtCelBajasCampo.ClientID%>").val());
+					$('#spMoco').html(sender == null ? obj.Moco : $("#<%=this.rtxtMoco.ClientID%>").val());
+					$('#spBacterias').html(sender == null ? obj.Bacterias : $("#<%=this.rtxtBacterias.ClientID%>").val());
+					$('#spCilindros').html(sender == null ? obj.Cilindros : $("#<%=this.rtxtCilindros.ClientID%>").val());
+					$('#spCristales').html(sender == null ? obj.Cristales : $("#<%=this.rtxtCristales.ClientID%>").val());
+					$('#spLevaduras').html(sender == null ? obj.Levaduras : $("#<%=this.rtxtLevaduras.ClientID%>").val());
+					$('#spOtros').html(sender == null ? obj.Otros : $("#<%=this.rtxtOtros.ClientID%>").val());
+					$('#spCommentUrol').html(sender == null ? obj.Observaciones : $("#<%=this.rtxtCommentUrol.ClientID%>").val());
+
+					//English
+					$('#spOlorEng').html(sender == null ? obj.Olor : $("#<%=this.rtxtOlor.ClientID%>").val());
+					$('#spColorEng').html(sender == null ? obj.Color : $("#<%=this.rtxtColor.ClientID%>").val());
+					$('#spAspectoEng').html(sender == null ? obj.Aspecto : $("#<%=this.rtxtAspecto.ClientID%>").val());
+					$('#spGLUEng').html(sender == null ? obj.Glu : $("#<%=this.rtxtGLU.ClientID%>").val());
+					$('#spBILEng').html(sender == null ? obj.Bil : $("#<%=this.rtxtBIL.ClientID%>").val());
+					$('#spCETEng').html(sender == null ? obj.Cet : $("#<%=this.rtxtCET.ClientID%>").val());
+					$('#spDENEng').html(sender == null ? obj.Deh : $("#<%=this.rtxtDEN.ClientID%>").val());
+					$('#spPHEng').html(sender == null ? obj.Ph : $("#<%=this.rtxtPH.ClientID%>").val());
+					$('#spPROEng').html(sender == null ? obj.Pro : $("#<%=this.rtxtPRO.ClientID%>").val());
+					$('#spUROEng').html(sender == null ? obj.Uro : $("#<%=this.rtxtUro.ClientID%>").val());
+					$('#spNITEng').html(sender == null ? obj.Nit : $("#<%=this.rtxtNIT.ClientID%>").val());
+					$('#spSANEng').html(sender == null ? obj.San : $("#<%=this.rtxtSAN.ClientID%>").val());
+					$('#spLEUEng').html(sender == null ? obj.Leu : $("#<%=this.rtxtLEU.ClientID%>").val());
+					$('#spLeucoCampoEng').html(sender == null ? obj.LeucocitosCampo : $("#<%=this.rtxtLeucoCampo.ClientID%>").val());
+					$('#spHematieCampoEng').html(sender == null ? obj.HematiesCampo : $("#<%=this.rtxtHematiesCampo.ClientID%>").val());
+					$('#spCelAltaCampoEng').html(sender == null ? obj.CelulasAltasCampo : $("#<%=this.rtxtCelAltasCampo.ClientID%>").val());
+					$('#spCelBajaCampoEng').html(sender == null ? obj.CelulasBajasCampo : $("#<%=this.rtxtCelBajasCampo.ClientID%>").val());
+					$('#spMocoEng').html(sender == null ? obj.Moco : $("#<%=this.rtxtMoco.ClientID%>").val());
+					$('#spBacteriasEng').html(sender == null ? obj.Bacterias : $("#<%=this.rtxtBacterias.ClientID%>").val());
+					$('#spCilindrosEng').html(sender == null ? obj.Cilindros : $("#<%=this.rtxtCilindros.ClientID%>").val());
+					$('#spCristalesEng').html(sender == null ? obj.Cristales : $("#<%=this.rtxtCristales.ClientID%>").val());
+					$('#spLevadurasEng').html(sender == null ? obj.Levaduras : $("#<%=this.rtxtLevaduras.ClientID%>").val());
+					$('#spOtrosEng').html(sender == null ? obj.Otros : $("#<%=this.rtxtOtros.ClientID%>").val());
+					$('#spCommentUrolEng').html(sender == null ? obj.Observaciones : $("#<%=this.rtxtCommentUrol.ClientID%>").val());
+
 				}
 				else
 				{
-					removeChildren("uroanalisis");
+					message = message + '\n Aun no se ha tomado el uroanálisis'
 				}
 			}
 			else
@@ -2919,28 +3345,33 @@
 			}
 
 			//verificacion VIH
-			if (document.getElementById("<%=this.rblEstadoVih.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoVih.ClientID %>").length && checks.VIH)
 			{
-				if (checks.VIH == true)
+				//Se obtiene el valor de radio Sin Aplicar
+				var check = sender == null ? false : $("#<%=this.rblEstadoVih.ClientID %>_0").prop("checked");
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoVih.ClientID %>").id;
-					check = check + '_0';
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsVIH.ClientID%>']");
+					var firmasDocumento = $(".firmaVIH");
 
-					bit = document.getElementById(check).checked;
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
 
-					if (bit == false)
-					{
-						document.getElementById('spVIHResult').innerHTML = document.getElementById("<%=this.rcbxVIHResult.ClientID%>").value;
-						document.getElementById('spVIHResultEng').innerHTML = document.getElementById("<%=this.rcbxVIHResult.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra de VIH'
-					}
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+
+					$('#spVIHResult').html(sender == null ? obj.Resultado : $("#<%=this.rcbxVIHResult.ClientID%>").val());
+					$('#spVIHResultEng').html(sender == null ? obj.Resultado : $("#<%=this.rcbxVIHResult.ClientID%>").val());
 				}
 				else
 				{
-					removeChildren("VIH");
+					message = message + '\n Aun no se ha tomado la muestra de VIH'
 				}
 
 			}
@@ -2950,41 +3381,45 @@
 			}
 
 			//verificacion Serologia
-			if (document.getElementById("<%=this.rblEstadoSero.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoSero.ClientID %>").length && checks.Ser)
 			{
-				if (checks.Ser == true)
+				var check = sender == null ? false : $("#<%=this.rblEstadoSero.ClientID %>_0").prop("checked");
+
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoSero.ClientID %>").id;
-					check = check + '_0';
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsSerologia.ClientID%>']");
+					var firmasDocumento = $(".firmaSerologia");
 
-					bit = document.getElementById(check).checked;
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
 
-					if (bit == false)
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+
+					$('#spSerolResult').html(sender == null ? obj.Resultado.replace('_', ' ') : $find("<%=this.rcbxSero.ClientID%>").get_value().replace('_', ' '));
+
+					if ($('#spSerolResult').html() == "REACTIVO")
 					{
-						document.getElementById('spSerolResult').innerHTML = document.getElementById("<%=this.rcbxSero.ClientID%>").value;
-
-						if (document.getElementById('spSerolResult').innerHTML == "REACTIVO")
-						{
-							document.getElementById('spSerolResultEng').innerHTML = "REACTIVE";
-							document.getElementById('spValorSerol').innerHTML = document.getElementById("<%=this.rntValorSero.ClientID%>").value;
-							document.getElementById('spValorSerolEng').innerHTML = document.getElementById("<%=this.rntValorSero.ClientID%>").value;
-						}
-						else if (document.getElementById('spSerolResult').innerHTML == "NO REACTIVO")
-						{
-							document.getElementById('spSerolResultEng').innerHTML = " NON REACTIVE";
-							document.getElementById('spSerolResult').parentNode.innerHTML == document.getElementById('spSerolResult').parentNode.innerHTML.replace("dils", "");
-							document.getElementById('spSerolResultEng').parentNode.innerHTML == document.getElementById('spSerolResult').parentNode.innerHTML.replace("dils", "");
-
-						}
+						$('#spSerolResultEng').html("REACTIVE");
+						$('#spValorSerol').html(sender == null ? (obj.Valor <= 0 ? "" : obj.Valor) : $find("<%=this.rntValorSero.ClientID%>").get_value());
+						$('#spValorSerolEng').html(sender == null ? (obj.Valor <= 0 ? "" : obj.Valor) : $find("<%=this.rntValorSero.ClientID%>").get_value());
 					}
-					else
+					else if ($('#spSerolResult').html() == "NO REACTIVO")
 					{
-						message = message + '\n Aun no se ha tomado la muestra de Serología'
+						$('#spSerolResultEng').html(" NON REACTIVE");
+						$('#spSerolResult').closest("div").html($('#spSerolResult').parent().html().replace("dils", ""));
+						$('#spSerolResultEng').closest("div").html($('#spSerolResult').parent().html().replace("dils", ""));
 					}
 				}
 				else
 				{
-					removeChildren("serologia");
+					message = message + '\n Aun no se ha tomado la muestra de Serología'
 				}
 			}
 			else
@@ -2993,28 +3428,32 @@
 			}
 
 			//verificacion Hepatitis B
-			if (document.getElementById("<%=this.rblEstadoHepaB.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoHepaB.ClientID %>").length && checks.HpB)
 			{
-				if (checks.HpB == true)
+				var check = sender == null ? false : $("#<%=this.rblEstadoHepaB.ClientID %>_0").prop("checked");
+
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoHepaB.ClientID %>").id;
-					check = check + '_0';
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsHepatitisB.ClientID%>']");
+					var firmasDocumento = $(".firmaHepatitisB");
 
-					bit = document.getElementById(check).checked;
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
 
-					if (bit == false)
-					{
-						document.getElementById('spHepB').innerHTML = document.getElementById("<%=this.rcbxHepB.ClientID%>").value;
-						document.getElementById('spHepBEng').innerHTML = document.getElementById("<%=this.rcbxHepB.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra de Hepatitis B'
-					}
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+					$('#spHepB').html(sender == null ? obj.Resultado.replace('_', ' ') : $("#<%=this.rcbxHepB.ClientID%>").val());
+					$('#spHepBEng').html(sender == null ? obj.Resultado.replace('_', ' ') : $("#<%=this.rcbxHepB.ClientID%>").val());
 				}
 				else
 				{
-					removeChildren("hepatitisB");
+					message = message + '\n Aun no se ha tomado la muestra de Hepatitis B'
 				}
 			}
 			else
@@ -3023,29 +3462,33 @@
 			}
 
 			//verificacion Hepatitis C
-			if (document.getElementById("<%=this.rblEstadoHepaC.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoHepaC.ClientID %>").length && checks.HpC)
 			{
-				if (checks.HpC == true)
+				var check = sender == null ? false : $("#<%=this.rblEstadoHepaC.ClientID %>_0").prop("checked");
+
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoHepaC.ClientID %>").id;
-					check = check + '_0';
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsHepatitisC.ClientID%>']");
+					var firmasDocumento = $(".firmaHepatitisC");
 
-					bit = document.getElementById(check).checked;
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
 
-					if (bit == false)
-					{
-						document.getElementById('spHepC').innerHTML = document.getElementById("<%=this.rcbxHepC.ClientID%>").value;
-						document.getElementById('spHepCEng').innerHTML = document.getElementById("<%=this.rcbxHepC.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra de Hepatitis C'
-					}
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+
+					$('#spHepC').html(sender == null ? obj.Resultado.replace('_', ' ') : $("#<%=this.rcbxHepC.ClientID%>").val());
+					$('#spHepCEng').html(sender == null ? obj.Resultado.replace('_', ' ') : $("#<%=this.rcbxHepC.ClientID%>").val());
 				}
-
 				else
 				{
-					removeChildren("hepatitisC");
+					message = message + '\n Aun no se ha tomado la muestra de Hepatitis C'
 				}
 			}
 			else
@@ -3054,28 +3497,33 @@
 			}
 
 			//verificacion Cuadro hemático
-			if (document.getElementById("<%=this.rblEstadoCH.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoCH.ClientID %>").length && checks.CHm)
 			{
-				if (checks.CHm == true)
+				var check = sender == null ? false : $("#<%=this.rblEstadoCH.ClientID %>_0").prop("checked");
+
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoCH.ClientID %>").id;
-					check = check + '_0';
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsCuadroHematico.ClientID%>']");
+					var firmasDocumento = $(".firmaCuadroHematico");
 
-					bit = document.getElementById(check).checked;
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
 
-					if (bit == false)
-					{
-						document.getElementById('spCuadroHematico').innerHTML = document.getElementById("<%=this.rcbxCuadroHematico.ClientID%>").value;
-						document.getElementById('spCuadroHematicoEng').innerHTML = document.getElementById("<%=this.rcbxCuadroHematico.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra de Cuadro Hemático'
-					}
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+
+					$('#spCuadroHematico').html(sender == null ? obj.Resultado.replace('_', ' ') : $("#<%=this.rcbxCuadroHematico.ClientID%>").val());
+					$('#spCuadroHematicoEng').html(sender == null ? obj.Resultado.replace('_', ' ') : $("#<%=this.rcbxCuadroHematico.ClientID%>").val());
 				}
 				else
 				{
-					removeChildren("cuadroHematico");
+					message = message + '\n Aun no se ha tomado la muestra de Cuadro Hemático'
 				}
 			}
 
@@ -3085,57 +3533,78 @@
 			}
 
 			//verificacion Creatinina
-			if (document.getElementById("<%=this.rblEstadoCreat.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoCreat.ClientID %>").length && checks.Crt)
 			{
-				if (checks.Crt == true)
-				{
-					var check = document.getElementById("<%=this.rblEstadoCreat.ClientID %>").id;
-					check = check + '_0';
+				var check = sender == null ? false : $("#<%=this.rblEstadoCreat.ClientID %>_0").prop("checked");
 
-					bit = document.getElementById(check).checked;
-
-					if (bit == false)
-					{
-						document.getElementById('spValorCrea').innerHTML = document.getElementById("<%=this.rntValorCrea.ClientID%>").value;
-						document.getElementById('spValorCreaEng').innerHTML = document.getElementById("<%=this.rntValorCrea.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra de Creatinina'
-					}
-				} else
+				if (!check)
 				{
-					removeChildren("creatinina");
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsCreatinina.ClientID%>']");
+					var firmasDocumento = $(".firmaCreatinina");
+
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
+
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+
+					$('#spCrea').html(sender == null ? obj.Resultado.replace('_', ' ') : $find("<%=this.rcbxCreatinina.ClientID%>").get_value())
+					$('#spCreaEng').html(sender == null ? obj.Resultado.replace('_', ' ') : $find("<%=this.rcbxCreatinina.ClientID%>").get_value())
+
+					if ($find("<%=this.rcbxCreatinina.ClientID%>").get_value() == "ANORMAL")
+					{
+						$('#spValorCrea').html(sender == null ? (obj.Valor <= 0 ? "" : obj.Valor) : $("#<%=this.rntValorCrea.ClientID%>").val());
+						$('#spValorCreaEng').html(sender == null ? (obj.Valor <= 0 ? "" : obj.Valor) : $("#<%=this.rntValorCrea.ClientID%>").val());
+					}
+					else if ($find("<%=this.rcbxCreatinina.ClientID%>").get_value() == "NORMAL")
+					{
+						$(".valor-creatinina").remove()
+					}
+
+				}
+				else
+				{
+					message = message + '\n Aun no se ha tomado la muestra de Creatinina'
 				}
 			}
-
 			else
 			{
 				removeChildren("creatinina");
 			}
 
 			//verificacion Hemoglobina Glicosilada
-			if (document.getElementById("<%=this.rblEstadoHemGli.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoHemGli.ClientID %>").length && checks.HmG)
 			{
-				if (checks.HmG == true)
-				{
-					var check = document.getElementById("<%=this.rblEstadoHemGli.ClientID %>").id;
-					check = check + '_0';
+				var check = sender == null ? false : $("#<%=this.rblEstadoHemGli.ClientID %>_0").prop("checked");
 
-					bit = document.getElementById(check).checked;
-
-					if (bit == false)
-					{
-						document.getElementById('spValorHemGli').innerHTML = document.getElementById("<%=this.rntValorHemGli.ClientID%>").value;
-						document.getElementById('spValorHemGliEng').innerHTML = document.getElementById("<%=this.rntValorHemGli.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra de Hemoglobina Glicosilada'
-					}
-				} else
+				if (!check)
 				{
-					removeChildren("hemGlic");
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsHemGli.ClientID%>']");
+					var firmasDocumento = $(".firmaHemGli");
+
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
+
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+					$('#spValorHemGli').html(sender == null ? obj.Resultado : $("#<%=this.rntValorHemGli.ClientID%>").val());
+					$('#spValorHemGliEng').html(sender == null ? obj.Resultado : $("#<%=this.rntValorHemGli.ClientID%>").val());
+				}
+				else
+				{
+					message = message + '\n Aun no se ha tomado la muestra de Hemoglobina Glicosilada'
 				}
 			}
 			else
@@ -3143,32 +3612,38 @@
 				removeChildren("hemGlic");
 			}
 
-			if (document.getElementById("<%=this.rblEstadoOtro.ClientID %>") != undefined)
+			if ($("#<%=this.rblEstadoOtro.ClientID %>").length && checks.OEx)
 			{
-				if (checks.OEx == true)
+				var check = sender == null ? false : $("#<%=this.rblEstadoOtro.ClientID %>_0").prop("checked");
+
+				if (!check)
 				{
-					var check = document.getElementById("<%=this.rblEstadoOtro.ClientID %>").id;
-					check = check + '_0';
+					var firmaContainner = sender == null ? null : $("[id*='<%=bsOtros.ClientID%>']");
+					var firmasDocumento = $(".firmaOtros");
 
-					bit = document.getElementById(check).checked;
+					var FirmaNombre = sender == null ? obj.Bacteriologo.Nombres + " " + obj.Bacteriologo.Apellidos : $(firmaContainner).get(0).value;
+					var FirmaUniversidad = sender == null ? obj.Bacteriologo.FirmaProfesional.Universidad : $(firmaContainner).get(1).value;
+					var FirmaRegistroProfesional = sender == null ? obj.Bacteriologo.FirmaProfesional.RegistroProfesional : $(firmaContainner).get(2).value;
+					var FirmaFirmaBase64 = sender == null ? obj.Bacteriologo.FirmaProfesional.FirmaBase64 : $(firmaContainner).get(3).value;
+					var FirmaCorreoElectronico = sender == null ? obj.Bacteriologo.FirmaProfesional.CorreoElectronico : $(firmaContainner).get(4).value;
 
-					if (bit == false)
-					{
-						document.getElementById('pDescrOtro').innerHTML = document.getElementById("<%=this.rtxtOtroDesc.ClientID%>").value;
-						document.getElementById('spValorResultadoOtroExamen').innerHTML = document.getElementById("<%=this.rtxtOtroResultado.ClientID%>").value;
-						document.getElementById('pComentarioOtrosExamenes').innerHTML = document.getElementById("<%=this.rtxtOtroComentario.ClientID%>").value;
-						document.getElementById('pDescrOtroEng').innerHTML = document.getElementById("<%=this.rtxtOtroDesc.ClientID%>").value;
-						document.getElementById('spValorResultadoOtroExamenEng').innerHTML = document.getElementById("<%=this.rtxtOtroResultado.ClientID%>").value;
-						document.getElementById('pComentarioOtrosExamenesEng').innerHTML = document.getElementById("<%=this.rtxtOtroComentario.ClientID%>").value;
-					}
-					else
-					{
-						message = message + '\n Aun no se ha tomado la muestra programada de Otros Examenes'
-					}
+					firmasDocumento.find("img.imgFirmaBacteriologo").attr("src", FirmaFirmaBase64);
+					firmasDocumento.find("span.spNomBacteriologo").text(FirmaNombre);
+					firmasDocumento.find("span.spRegistroProfesional").text(FirmaRegistroProfesional);
+					firmasDocumento.find("span.spUniversidad").text(FirmaUniversidad);
+					firmasDocumento.find("span.spCorreoElectronico").text(FirmaCorreoElectronico);
+
+
+					$('#pDescrOtro').html(sender == null ? obj.Descripcion : $("#<%=this.rtxtOtroDesc.ClientID%>").val());
+					$('#spValorResultadoOtroExamen').html(sender == null ? obj.Resultado : $("#<%=this.rtxtOtroResultado.ClientID%>").val());
+					$('#pComentarioOtrosExamenes').html(sender == null ? obj.Observaciones : $("#<%=this.rtxtOtroComentario.ClientID%>").val());
+					$('#pDescrOtroEng').html($("#<%=this.rtxtOtroDesc.ClientID%>").val());
+					$('#spValorResultadoOtroExamenEng').html($("#<%=this.rtxtOtroResultado.ClientID%>").val());
+					$('#pComentarioOtrosExamenesEng').html($("#<%=this.rtxtOtroComentario.ClientID%>").val());
 				}
 				else
 				{
-					removeChildren("otrExam");
+					message = message + '\n Aun no se ha tomado la muestra programada de Otros Examenes'
 				}
 			}
 			else
@@ -3179,10 +3654,10 @@
 			if (message.length > 0)
 			{
 				alert(message);
-				parentNodeBackup.replaceChild(copybackup, document.getElementById("examsLayout"));
-				parentNodeBackup.replaceChild(copybackupEng, document.getElementById("examsLayoutEng"));
-
-				e._cancel = true;
+				parentNodeBackup.replaceChild(copybackup, $("#examsLayout"));
+				parentNodeBackup.replaceChild(copybackupEng, $("#examsLayoutEng"));
+				sender.preventDefault();
+				return;
 			}
 
 			//Verificacion de examenes de suero
@@ -3192,61 +3667,58 @@
 				RemoveChildById("SerumTableEng");
 			}
 
-			var subModal = document.createElement("div");
-			subModal.className = "impresion";
+			var subModal = $("<div></div>");
+			subModal.addClass("impresion");
 
-			var copyLayout = document.getElementById("examsLayout").cloneNode(true);
+			var copyLayout = $("#examsLayout").clone(true);
 
-			copyLayout.className = 'collapse';
-			copyLayout.id = "printable";
-			subModal.appendChild(copyLayout);
+			copyLayout.addClass('collapse');
+			copyLayout.attr("id", "printable");
+			subModal.append(copyLayout);
 
-			var copyLayoutEng = document.getElementById("examsLayoutEng").cloneNode(true);
-			copyLayoutEng.innerHTML = copyLayoutEng.innerHTML
+			var copyLayoutEng = $("#examsLayoutEng").clone(true);
+			copyLayoutEng.html(copyLayoutEng.html()
+				.replace(/NO REACTIVO/g, 'NON REACTIVE')
+				.replace(/REACTIVO/g, 'REACTIVE')
 				.replace(/NEGATIVO/g, 'NEGATIVE')
 				.replace(/POSITIVO/g, 'POSITIVE')
-				.replace(/REACTIVO/g, 'REACTIVE')
-				.replace(/NO REACTIVO/g, 'NON REACTIVE')
 				.replace(/anormal/g, 'abnormal')
+				.replace(/Anormal/g, 'Abnormal')
+				.replace(/ANORMAL/g, 'ABNORMAL'));
 
-			copyLayoutEng.className = 'collapse';
-			copyLayoutEng.id = "printableEng";
-			subModal.appendChild(copyLayoutEng);
+			copyLayoutEng.addClass('collapse');
+			copyLayoutEng.attr("id", "printableEng");
+			subModal.append(copyLayoutEng);
 
-			var contButton = document.createElement('div');
-			contButton.className = "btnStrip";
-			var editor = document.createElement('div');
-			editor.id = "editor";
+			var contButton = $("<div class='btnStrip'></div>");
+			var editor = $("<div id='editor'></div>");
 
-			var btnPrint = document.createElement('div');
-			btnPrint.innerHTML = "Imprimir";
-			btnPrint.addEventListener('click', imprSelec);
-			btnPrint.id = "btnPrintForm"
-			btnPrint.className = "botonesVPE";
 
-			var btnSendMail = document.createElement('div');
-			btnSendMail.innerHTML = "Enviar por correo";
-			btnSendMail.Id = "btnSenMa";
-			btnSendMail.className = "botonesVPE btnCerrarVP";
-			btnSendMail.addEventListener("click", MostrarEnvio);
+			var btnPrint = $("<div id='btnPrintForm' class='botonesVPE' onclick='imprSelec()'>Imprimir</div>");
 
-			contButton.appendChild(btnPrint);
-			contButton.appendChild(btnSendMail);
+			var btnSendMail = $("<div id='btnSenMa' class='botonesVPE btnCerrarVP' onclick='MostrarEnvio()'>Enviar por correo</div>");
 
-			subModal.appendChild(editor);
-			subModal.appendChild(contButton);
+			contButton.append(btnPrint);
+			contButton.append(btnSendMail);
 
-			modal.appendChild(subModal)
+			subModal.append(editor);
+			subModal.append(contButton);
 
-			parentNodeBackup.replaceChild(copybackup, parentNodeBackup.childNodes.item("examsLayout"));
-			parentNodeBackup.replaceChild(copybackupEng, parentNodeBackup.childNodes.item("examsLayoutEng"));
+			$(modal).append(subModal)
+
+			//se reemplaza el segundo parametro cn el primero
+			parentNodeBackup.find("#examsLayout").replaceWith(copybackup);
+			parentNodeBackup.find("#examsLayoutEng").replaceWith(copybackupEng);
 
 			$("#checkLang").on("click", ToogleView);
 			$("#checkLang").trigger("click");
 			$("#checkLang").trigger("click");
 
+			scroll(0, 0);
+			PrevTest = null;
 			return false;
 		}
+
 	</script>
 
 	<script type="text/javascript">
@@ -3260,7 +3732,7 @@
 
 		function mostrarCreat(val)
 		{
-			var div1 = document.getElementById("divLblValCrea");
+			var div1 = $("#divLblValCrea");
 			div1.style.display = "inline";
 
 			//alert(val);

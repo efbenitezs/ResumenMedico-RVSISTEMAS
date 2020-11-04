@@ -40,7 +40,7 @@ namespace RMEntity
 		private int idMedico = int.MinValue;
 		private bool eliminado;
 		private bool liberado;
-		private Usuario _bacteriologo;
+		
 
 		public int IdPaciente
 		{
@@ -224,10 +224,6 @@ namespace RMEntity
 			set => this.liberado = value;
 		}
 
-		public Usuario Bacteriologo
-		{
-			get => _bacteriologo;
-			set => _bacteriologo = value;
-		}
+		
 	}
 }
